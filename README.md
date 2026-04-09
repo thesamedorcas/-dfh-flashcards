@@ -4,7 +4,7 @@ A browser-based flashcard app for the DF(H) course, covering units from numerica
 
 ## Usage
 
-Open `index.html` in any modern browser. Cards are fetched from the [df_h_flashcards](https://github.com/johnhw/df_h_flashcards) GitHub repository — an internet connection is required.
+Open `index.html` in any modern browser. Cards are fetched from the [df_h_flashcards](https://github.com/johnhw/df_h_flashcards) GitHub repository, an internet connection is required.
 
 ## Features
 
