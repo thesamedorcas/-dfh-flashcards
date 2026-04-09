@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DF(H) Flashcards</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f5f0e8;
+    --paper2: #ede7d9;
+    --ink: #1a1612;
+    --ink2: #4a3f35;
+    --ink3: #9a8e82;
+    --rule: #d4c9b8;
+    --pop: #c94a1e;
+    --answer-bg: #eef4e8;
+    --answer-ink: #2d4a1e;
+    --answer-rule: #c2d9b0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent 27px,
+      var(--rule) 27px,
+      var(--rule) 28px
+    );
+    background-attachment: fixed;
+  }
+
+  .topbar {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 10px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .topbar-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.15rem;
+  }
+
+  .topbar-title em {
+    font-style: italic;
+    color: #c8b99a;
+  }
+
+  .topbar-counter {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: #9a8e82;
+    letter-spacing: 0.08em;
+  }
+
+  .topbar-counter span { color: #f5f0e8; }
+
+  .unit-strip {
+    background: var(--paper2);
+    border-bottom: 1px solid var(--rule);
+    padding: 0 16px;
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .unit-strip::-webkit-scrollbar { display: none; }
+
+  .unit-tab {
+    flex-shrink: 0;
+    padding: 10px 16px;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.06em;
+    color: var(--ink3);
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    transition: color 0.12s, border-color 0.12s;
+    white-space: nowrap;
+  }
+  .unit-tab:hover { color: var(--ink); }
+  .unit-tab.active {
+    color: var(--pop);
+    border-bottom-color: var(--pop);
+    font-weight: 500;
+  }
+
+  .main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 24px 24px;
+    gap: 20px;
+  }
+
+  .progress-bar {
+    width: 100%;
+    max-width: 580px;
+    height: 2px;
+    background: var(--rule);
+    border-radius: 1px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--pop);
+    transition: width 0.3s ease;
+  }
+
+  .card-scene {
+    width: 100%;
+    max-width: 580px;
+    perspective: 1400px;
+    cursor: pointer;
+  }
+
+  .card {
+    position: relative;
+    width: 100%;
+    min-height: 280px;
+    transform-style: preserve-3d;
+    transition: transform 0.55s cubic-bezier(0.35, 0, 0.25, 1);
+    border-radius: 3px;
+    filter: drop-shadow(0 4px 18px rgba(26,22,18,0.10));
+  }
+  .card.flipped { transform: rotateY(180deg); }
+
+  .card-face {
+    position: absolute;
+    inset: 0;
+    border-radius: 3px;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 34px;
+    min-height: 280px;
+    border: 1px solid var(--rule);
+  }
+  .card-front { background: #fff; }
+  .card-back {
+    background: var(--answer-bg);
+    transform: rotateY(180deg);
+    border-color: var(--answer-rule);
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .card-back .card-header { border-bottom-color: var(--answer-rule); }
+
+  .card-type {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink3);
+  }
+  .card-back .card-type { color: #6a9e4a; }
+
+  .card-unit {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--ink3);
+    background: var(--paper2);
+    padding: 3px 8px;
+    border-radius: 2px;
+  }
+  .card-back .card-unit {
+    background: #d8edca;
+    color: var(--answer-ink);
+  }
+
+  .card-body {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 0 20px;
+  }
+
+  .card-text {
+    font-family: 'DM Mono', monospace;
+    font-size: clamp(0.78rem, 2vw, 0.92rem);
+    line-height: 1.8;
+    text-align: center;
+    color: var(--ink);
+    word-break: break-word;
+  }
+  .card-back .card-text { color: var(--answer-ink); }
+
+  .card-mark {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: 3.5rem;
+    line-height: 1;
+    color: var(--rule);
+    position: absolute;
+    bottom: 16px;
+    right: 24px;
+    user-select: none;
+  }
+  .card-back .card-mark { color: var(--answer-rule); }
+
+  .card-hint {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    color: var(--ink3);
+    text-align: center;
+    letter-spacing: 0.04em;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 580px;
+  }
+
+  .nav-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 2px;
+    border: 1px solid var(--rule);
+    background: #fff;
+    color: var(--ink2);
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.12s;
+    flex-shrink: 0;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .nav-btn:hover {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+  }
+  .nav-btn:active { transform: scale(0.93); }
+
+  .flip-btn {
+    flex: 1;
+    height: 44px;
+    border-radius: 2px;
+    border: 1px solid var(--ink);
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.12s;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .flip-btn:hover {
+    background: var(--pop);
+    border-color: var(--pop);
+  }
+  .flip-btn:active { transform: scale(0.98); }
+
+  .swipe-hint {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    color: var(--rule);
+    letter-spacing: 0.06em;
+  }
+
+  .loading {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--ink3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+  .loading-rule {
+    width: 40px;
+    height: 1px;
+    background: var(--ink3);
+    animation: grow 1s ease-in-out infinite alternate;
+  }
+  @keyframes grow {
+    from { width: 20px; opacity: 0.3; }
+    to   { width: 80px; opacity: 1; }
+  }
+
+  .error {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--pop);
+    text-align: center;
+    max-width: 400px;
+    line-height: 1.7;
+  }
+
+  @keyframes fromRight {
+    from { opacity: 0; transform: translateX(28px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes fromLeft {
+    from { opacity: 0; transform: translateX(-28px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+  .slide-right .card { animation: fromRight 0.22s ease; }
+  .slide-left  .card { animation: fromLeft  0.22s ease; }
+
+  @media (max-width: 480px) {
+    .card-face { padding: 20px 20px; }
+    .main { padding: 20px 14px 16px; }
+    .topbar { padding: 10px 14px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-title">DF(H) <em>Flashcards</em></div>
+  <div class="topbar-counter" id="topCounter">—</div>
+</div>
+
+<div class="unit-strip" id="unitStrip"></div>
+
+<div class="main" id="main">
+  <div class="loading">
+    <div class="loading-rule"></div>
+    loading cards
+  </div>
+</div>
+
+<script>
+const UNITS = [
+  { id: 'all',                        label: 'All' },
+  { id: 'unit_01_numerical',          label: 'U1 · Numerical' },
+  { id: 'unit_02_floats_and_strided', label: 'U2 · Floats' },
+  { id: 'unit_03_visualisation',      label: 'U3 · Viz' },
+  { id: 'unit_04_vectors',            label: 'U4 · Vectors' },
+  { id: 'unit_05_linear',             label: 'U5 · Linear' },
+  { id: 'unit_06_optimisation',       label: 'U6 · Optimisation' },
+  { id: 'unit_07_gradient_descent',   label: 'U7 · Gradient' },
+  { id: 'unit_08_probability',        label: 'U8 · Probability' },
+  { id: 'unit_09_inference',          label: 'U9 · Inference' },
+  { id: 'unit_10_signals',            label: 'U10 · Signals' },
+  { id: 'numpy',                      label: 'NumPy' },
+  { id: 'formulae',                   label: 'Formulae' },
+];
+
+const RAW = 'https://raw.githubusercontent.com/johnhw/df_h_flashcards/main/';
+
+let allCards = {};
+let activeUnit = 'all';
+let deck = [];
+let idx = 0;
+let flipped = false;
+let touchStartX = 0;
+
+async function fetchUnit(id) {
+  const r = await fetch(RAW + id + '.txt');
+  if (!r.ok) return [];
+  const text = await r.text();
+  return text.split('\n')
+    .map(l => l.trim()).filter(l => l.includes(';'))
+    .map(l => {
+      const i = l.indexOf(';');
+      return { q: l.slice(0, i).trim(), a: l.slice(i + 1).trim(), unit: id };
+    });
+}
+
+async function loadAll() {
+  const ids = UNITS.filter(u => u.id !== 'all').map(u => u.id);
+  const res = await Promise.all(ids.map(fetchUnit));
+  ids.forEach((id, i) => allCards[id] = res[i]);
+}
+
+function buildDeck() {
+  deck = activeUnit === 'all'
+    ? Object.values(allCards).flat()
+    : allCards[activeUnit] || [];
+  idx = 0;
+  flipped = false;
+}
+
+function unitLabel(id) {
+  return (UNITS.find(u => u.id === id) || {}).label || id;
+}
+
+function esc(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function updateCounter() {
+  const el = document.getElementById('topCounter');
+  if (el && deck.length) el.innerHTML = `<span>${idx + 1}</span> / ${deck.length}`;
+}
+
+function renderCard(dir) {
+  const card = deck[idx];
+  const main = document.getElementById('main');
+
+  main.innerHTML = `
+    <div class="progress-bar">
+      <div class="progress-fill" style="width:${((idx+1)/deck.length)*100}%"></div>
+    </div>
+    <div class="card-scene" id="cardScene">
+      <div class="card${flipped ? ' flipped' : ''}" id="theCard">
+        <div class="card-face card-front">
+          <div class="card-header">
+            <div class="card-type">Question</div>
+            <div class="card-unit">${esc(unitLabel(card.unit))}</div>
+          </div>
+          <div class="card-body">
+            <div class="card-text">${esc(card.q)}</div>
+          </div>
+          <div class="card-mark">Q</div>
+          <div class="card-hint">tap card · press flip · swipe</div>
+        </div>
+        <div class="card-face card-back">
+          <div class="card-header">
+            <div class="card-type">Answer</div>
+            <div class="card-unit">${esc(unitLabel(card.unit))}</div>
+          </div>
+          <div class="card-body">
+            <div class="card-text">${esc(card.a)}</div>
+          </div>
+          <div class="card-mark">A</div>
+        </div>
+      </div>
+    </div>
+    <div class="nav">
+      <button class="nav-btn" id="prevBtn" title="Previous">←</button>
+      <button class="flip-btn" id="flipBtn">${flipped ? 'unflip' : 'flip'}</button>
+      <button class="nav-btn" id="nextBtn" title="Next">→</button>
+    </div>
+    <div class="swipe-hint">← → arrow keys · space to flip</div>
+  `;
+
+  updateCounter();
+
+  if (dir) {
+    const scene = document.getElementById('cardScene');
+    scene.classList.add(dir === 1 ? 'slide-right' : 'slide-left');
+    setTimeout(() => scene.classList.remove('slide-right','slide-left'), 300);
+  }
+
+  document.getElementById('theCard').addEventListener('click', toggleFlip);
+  document.getElementById('flipBtn').addEventListener('click', toggleFlip);
+  document.getElementById('prevBtn').addEventListener('click', () => navigate(-1));
+  document.getElementById('nextBtn').addEventListener('click', () => navigate(1));
+
+  const scene = document.getElementById('cardScene');
+  scene.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  scene.addEventListener('touchend', e => {
+    const dx = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(dx) > 50) navigate(dx > 0 ? 1 : -1);
+  });
+}
+
+function toggleFlip() {
+  flipped = !flipped;
+  document.getElementById('theCard')?.classList.toggle('flipped', flipped);
+  const btn = document.getElementById('flipBtn');
+  if (btn) btn.textContent = flipped ? 'unflip' : 'flip';
+}
+
+function navigate(dir) {
+  idx = ((idx + dir) + deck.length) % deck.length;
+  flipped = false;
+  renderCard(dir);
+}
+
+function renderUnitStrip() {
+  const strip = document.getElementById('unitStrip');
+  strip.innerHTML = UNITS.map(u =>
+    `<button class="unit-tab${u.id === activeUnit ? ' active' : ''}" data-id="${u.id}">${u.label}</button>`
+  ).join('');
+  strip.querySelectorAll('.unit-tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      activeUnit = btn.dataset.id;
+      strip.querySelectorAll('.unit-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      buildDeck();
+      renderCard(null);
+    });
+  });
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight') navigate(1);
+  else if (e.key === 'ArrowLeft') navigate(-1);
+  else if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); toggleFlip(); }
+});
+
+(async () => {
+  try {
+    await loadAll();
+    buildDeck();
+    renderUnitStrip();
+    renderCard(null);
+  } catch (err) {
+    document.getElementById('main').innerHTML =
+      `<div class="error">couldn't load cards — check your connection and refresh.<br><br>${err.message}</div>`;
+  }
+})();
+</script>
+</body>
+</html>
