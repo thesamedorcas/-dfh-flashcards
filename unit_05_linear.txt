@@ -89,3 +89,20 @@ Low rank approximation; An approximation of a matrix A. It is obtained by retain
 Whitening; a rigorous form of normalisation of a dataset that transforms it into a Gaussian distribution with zero mean and unit covariance. It is a linear transformation that removes redundancy in the data, making it useful in various machine learning algorithms.
 Demeaning; a form of normalisation of a dataset that transforms it into a zero mean distribution by subtracting the mean. 
 Standardisation; a form of normalisation of a dataset that transforms it into a zero mean distribution with unit variance in each dimension by subtracting the mean and dividing by the standard deviation.
+What is the Laplacian matrix of a graph?;L = D - A where D is the diagonal degree matrix and A is the adjacency matrix
+What does the Fiedler value tell you?;The second smallest eigenvalue of the Laplacian — small means poorly connected graph, large means well connected
+What is the Fiedler vector?;The eigenvector corresponding to the second smallest Laplacian eigenvalue — used to partition a graph into two relatively disconnected parts
+What does the number of zero eigenvalues of the Laplacian tell you?;The number of disconnected components in the graph
+What is the condition number of a matrix?;The ratio of the largest to smallest singular value — measures how sensitive inversion is to small changes; large means ill-conditioned
+What is deflation in eigenvalue computation?;Removing the leading eigenvector from a matrix after finding it, so the next power iteration finds the next eigenvector
+What is the SVD decomposition A = U Sigma V^T?;U is orthogonal (left singular vectors), Sigma is diagonal (singular values, always positive), V^T is orthogonal (right singular vectors)
+What does the SVD split any matrix transform into?;A rotate (V^T), scale (Sigma), rotate (U) sequence
+How do you compute A^(1/2) using SVD?;A^(1/2) = U Sigma^(1/2) V^T where Sigma^(1/2) is the elementwise square root of the diagonal singular values
+How do you invert a matrix using SVD?;A^(-1) = V Sigma^(-1) U^T where Sigma^(-1) replaces each diagonal entry with its reciprocal
+What is the pseudo-inverse A+?;A+ = V Sigma+ U^T — generalises inversion to non-square matrices, finds x minimising ||Ax - y||^2
+What does low rank approximation mean?;Keeping only the top k singular values and their vectors — gives the best rank-k approximation to the original matrix
+What does the determinant being zero mean geometrically?;The transformation collapses at least one dimension to nothing — the matrix is singular and cannot be inverted
+What is a stochastic matrix?;A square matrix with non-negative entries where each row sums to 1 — represents conserving flow or probability transitions
+What is the degree matrix D?;A diagonal matrix where D_ii is the sum of edge weights connected to vertex i
+What are the numerical problems with direct matrix inversion?;Repeated floating point operations accumulate roundoff; ill-conditioned matrices amplify errors catastrophically; the inverse of a sparse matrix is generally dense
+Why is iterative solving preferred over direct inversion for linear systems?;Iterative methods only solve for one specific (x, y) pair rather than inverting for all possible y — far more numerically stable

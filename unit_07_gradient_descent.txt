@@ -45,3 +45,18 @@ Symbolic Differentiation;computing exact derivatives using algebraic techniques,
 Automatic Differentiation;efficiently and accurately evaluating derivatives of mathematical expressions, utilized in machine learning and scientific computing for gradient-based optimization
 Gradient Descent Equation; $$θ = θ - ∂∇L(θ)$$
 Gradient Vector Equation (for a scalar function f(x, y, z)); $$∇f(x, y, z) = (∂f/∂x, ∂f/∂y, ∂f/∂z)$$
+What is the gradient vector geometrically?;A vector pointing in the direction of steepest increase of the function at a given point
+What is the Hessian matrix?;The matrix of all second-order partial derivatives of a scalar function — captures curvature; has d^2 entries scaling quadratically with dimension
+Why is computing the Hessian impractical for large models?;A 1 million parameter model has a 10^12 entry Hessian — storing it alone would require around 8 terabytes
+What is the time complexity of computing gradients via autodiff?;O(n) — a small constant factor times the cost of evaluating the function itself, regardless of dimension
+What is forward mode autodiff?;Computes one column of the Jacobian per pass — efficient when there are few inputs and many outputs
+What is backward mode autodiff?;Computes one row of the Jacobian per pass — efficient for many inputs and few outputs; used in deep learning as backpropagation
+What is stochastic relaxation?;Averaging a steep or discontinuous objective over many random instances to produce a smooth approximately Lipschitz continuous function
+What is a minibatch in SGD?;A randomly selected subset of training examples used to compute an approximate gradient for one step of SGD
+What is an epoch in SGD?;One full pass through the entire training dataset — enough minibatches for every example to be seen once
+What is momentum in gradient descent?;Maintaining a velocity vector that accumulates past gradients — helps skip over small bumps and flat regions; v = alpha*v + delta*grad_L(theta)
+What is line search?;An adaptive step size method that starts with a large step and shrinks it until the Armijo-Goldstein condition is satisfied
+What is the Armijo-Goldstein condition?;L(theta - delta*d) <= L(theta) + delta*c*||grad_L|| — checks that the actual decrease matches what the local gradient predicts
+Why is numerical differentiation impractical in high dimensions?;Computing the gradient requires 2n function evaluations — O(n) times more expensive than autodiff
+What is the key advantage of SGD over full gradient descent for large datasets?;The objective is a sum of per-example losses — a minibatch gives a cheap approximate gradient, enabling training on data too large to fit in memory
+Why do second-order methods fail in high dimensions?;The Hessian has d^2 entries — for 1 million parameters that is 10^12 entries requiring around 8TB, making storage and computation completely infeasible

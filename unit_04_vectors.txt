@@ -91,3 +91,14 @@ Covariance Definition; Covariance between two variables X and Y measures how the
 Diagonal Entries of Covariance Matrix; The diagonal entries C[i, i] represent the variance of variable i. Variance measures how much a variable deviates from its mean. A larger diagonal value indicates higher variability in the corresponding variable.
 Off-Diagonal Entries of Covariance Matrix; Off-diagonal entries C[i, j] (i ≠ j) represent the covariance between variables i and j. Positive values indicate a positive relationship, while negative values indicate a negative relationship. The magnitude represents the strength of the relationship.
 Symmetry of Covariance Matrix; The covariance matrix is symmetric (C[i, j] = C[j, i] for all i and j) because the covariance between variables i and j is the same as the covariance between j and i.
+What is a basis vector?;One of a set of linearly independent vectors that span a vector space — e.g. [1,0,0], [0,1,0], [0,0,1] in R^3
+What is the outer product of two vectors?;x tensor y = x y^T — an MxN matrix containing every pairwise product of elements of x and y
+What is the inner product in terms of cosine?;x dot y = ||x|| ||y|| cos(theta), where theta is the angle between x and y
+What does it mean for two vectors to be orthogonal?;Their dot product is zero — they are at 90 degrees to each other
+What is the geometric median?;The point minimising the sum of distances to all data points — no closed form, must be found by optimisation
+What is demeaning a dataset?;Subtracting the mean vector from every row so the dataset has zero mean
+What is the covariance ellipse?;An ellipse whose centre is the mean vector and whose shape is determined by the covariance matrix — summarises spread and correlation of a dataset
+What is the L0 pseudonorm?;The count of non-zero elements in a vector
+What does normalising a vector do?;Scales it to have norm 1 (unit vector) by dividing by its norm
+What is linear interpolation (lerp) between two vectors?;z = (1-alpha)x + alpha*y — as alpha goes from 0 to 1, z moves in a straight line from x to y
+What is the outer product used for in computing the covariance matrix?;The covariance matrix is computed as (1/N) sum of (x_i - mu)(x_i - mu)^T — each term is an outer product of a demeaned vector with itself

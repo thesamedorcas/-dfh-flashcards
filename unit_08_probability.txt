@@ -73,4 +73,18 @@ empirical distribution; \( P(X=x) = \frac{\text{Number of occurrences of } x}{\t
 sampling from distributions; \( X \sim F(x) \), where \( F(x) \) is the probability distribution function. Random samples \( x \) are drawn from \( F(x) \) to approximate the behavior of the distribution.
 Monte Carlo approximation to expectation; \( E(g(X)) \approx \frac{1}{N} \sum_{i=1}^{N} g(x_i) \), where \( N \) is the number of random samples drawn from the distribution \( X \), \( x_i \) represents each sample, and \( g(x_i) \) is the function to be evaluated.
 Monte Carlo error; the difference between the estimated value obtained through Monte Carlo simulations and the true value, decreasing as the number of samples (\(N\)) increases at a rate of \(O(\frac{1}{\sqrt{N}})\)
-convergence of Monte Carlo methods; the property where the estimates obtained through Monte Carlo simulations approach the true values as the number of samples increases
+convergence of Monte Carlo methods; the property where the estimates obtained through Monte Carlo simulations approach the true values as the number of samples increasesWhat is the frequentist interpretation of probability?;Probability is the long-run relative frequency of an event over many repeated identical trials
+What is the Bayesian interpretation of probability?;Probability is a degree of belief — it quantifies uncertainty and can be updated using Bayes Rule when new evidence arrives
+What is a generative model?;A model of the underlying process that generates observations — supports both forward probability (simulate data) and inverse probability (infer parameters)
+What is forward probability?;The probability of observing certain outcomes given known parameters — the predictive direction
+What is inverse probability?;The probability of parameters given observed outcomes — the inference direction
+What is the sum rule of probability?;P(A or B) = P(A) + P(B) - P(A and B)
+What is the definition of conditional probability?;P(A|B) = P(A and B) / P(B)
+What is marginalisation?;Summing or integrating a joint distribution over one variable to obtain the marginal: P(X) = sum over y of P(X, Y=y)
+What are independent random variables?;X and Y are independent if P(X,Y) = P(X)P(Y) — knowing Y tells you nothing about X
+What is a bigram model?;A model over pairs of adjacent elements capturing conditional probability P(c_i | c_{i-1}) — e.g. in text, what character follows a given character
+What is the natural frequency method for Bayes?;Imagining a concrete population (e.g. 100000 people) and counting subgroups — avoids the base rate neglect error
+What causes the apparent paradox in the Plague X example?;Even a 95% accurate test gives mostly false positives when the disease is very rare (1 in 100000) because the prior probability of disease is tiny
+What are log-probabilities used for computationally?;To avoid floating point underflow when multiplying many small probabilities — products become sums of logs
+What is the empirical distribution and how is it computed?;P(X=x) = (count of x) / (total observations) — the normalised histogram of counts; only works for discrete variables
+Why does the empirical distribution not work for continuous random variables?;Each continuous value is observed at most once so there is no meaningful count to normalise

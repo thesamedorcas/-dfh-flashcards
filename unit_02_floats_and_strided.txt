@@ -80,3 +80,19 @@ Division by Zero Exception;If untrapped, division by zero results in positive or
 Invalid Operation Exception;If untrapped, invalid operations like square root of a negative number result in NaN.
 Inexact Exception;A result that is not exact, typically due to limited precision or rounding, but not exceptional. Results in nearest float. 
 
+What three parts make up a floating point number?;Sign bit, exponent (biased integer), and mantissa (fractional part with implicit leading 1)
+What is the implicit leading 1 in floating point?;The mantissa always represents a value in [1.0, 2.0), so the leading 1 is not stored — it is always assumed
+What is the exponent bias in float32?;127 — stored exponent minus 127 gives the true exponent, allowing both positive and negative exponents
+How many bits are sign/exponent/mantissa in float32?;1 sign bit, 8 exponent bits, 23 mantissa bits
+How many bits are sign/exponent/mantissa in float64?;1 sign bit, 11 exponent bits, 52 mantissa bits
+What integers can float64 represent exactly?;All integers from -2^53 to 2^53
+What is cancellation error?;Large relative error in x - y when x ≈ y, because significant digits cancel leaving only roundoff noise
+What is magnitude error?;Large error in x + y when x and y differ greatly in magnitude, because the smaller number loses precision
+Why must you never use floating point for financial calculations?;Accumulated rounding errors cause significant drift — use exact decimal formats with defined rounding rules instead
+How does transposing work using strides?;Transposing swaps the stride values and shape values in the array header — no data is moved, O(1)
+How does reversing an array work using strides?;Move the data pointer to the last element and set the stride to negative — no data is copied
+What is the difference between a dope vector and an Illife vector?;A dope vector stores data flat with stride metadata (rectangular, efficient); an Illife vector uses nested pointers (supports ragged arrays but is slower)
+What does np.allclose(x, y) do?;Tests whether all elements of two arrays are within a combined absolute and relative tolerance — the correct way to compare floats
+What does np.isfinite do?;Returns True for elements that are neither NaN nor infinite
+What is bfloat16?;A 16-bit float used in ML hardware with 8 exponent bits and 7 mantissa bits — trades precision for range compared to float16
+How is a rigid transformation (flip, transpose) O(1)?;It only modifies the strides and shape in the array header, never touching the underlying data

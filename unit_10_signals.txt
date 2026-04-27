@@ -87,4 +87,26 @@ spectrum;representation of a signal's frequency content, showing the amplitudes 
 magnitude spectrum;computing the absolute values of the Fourier Transform coefficients
 phase spectrum;computing the angles (phases) of the Fourier Transform coefficients
 importance of magnitude spectrum;determines the amplitudes of frequency components, vital in applications like filtering and modulation
-importance of phase spectrum;determines the relative positions/offsets of frequency components, vital in applications like signal reconstruction
+importance of phase spectrum;determines the relative positions/offsets of frequency components, vital in applications like signal reconstructionWhat is amplitude quantisation?;Forcing a continuous signal value to the nearest level in a finite set of discrete values — introduces quantisation noise
+What is time quantisation?;Sampling a continuous signal at discrete regular intervals — the gap between samples is 1/fs
+What is the Nyquist limit?;The maximum frequency representable at sampling rate fs is fs/2 — signals must be band-limited below this
+What happens to a frequency above the Nyquist limit when sampled?;It aliases — appears as a false lower frequency in the sampled signal
+What is the wagon wheel effect?;A visual aliasing artefact where fast-rotating spokes appear to slow or reverse as their frequency exceeds half the video frame rate
+Why must an anti-aliasing filter be applied before sampling?;To remove all frequency components above the Nyquist limit before discretising, preventing aliasing artefacts
+What is the signal-to-noise ratio (SNR)?;SNR = 20 log10(signal amplitude / noise amplitude) in decibels — measures how much stronger the signal is than the noise
+What is a convolution kernel?;A small array of coefficients defining a linear filter — convolved with the signal to transform it
+What is the identity element of convolution?;The Dirac delta function — convolving any signal with a delta leaves it unchanged: f * delta = f
+What is impulse response recovery?;Stimulating a system with a delta-like impulse and recording the output — the output IS the convolution kernel of that system
+What does the convolution theorem state?;Convolution in the time domain equals elementwise multiplication in the frequency domain: FT(f * g) = FT(f) * FT(g)
+What is the time complexity of the DFT vs FFT?;DFT is O(N^2); FFT is O(N log N) using divide-and-conquer
+Why is the standard FFT restricted to power-of-2 lengths?;The Cooley-Tukey FFT recursively splits the signal in half — this only works cleanly when N is a power of 2
+What does the magnitude spectrum show?;The amplitude of each frequency component in a signal
+What does the phase spectrum show?;The phase offset (time shift) of each frequency component in a signal
+What is a lowpass filter?;Attenuates high frequencies while passing low frequencies — equivalent to smoothing in the time domain
+What is a highpass filter?;Attenuates low frequencies while passing high frequencies — equivalent to edge or change detection
+Can a linear filter introduce new frequencies?;No — a linear filter can only scale existing frequency components; it cannot create frequencies not already present
+What is spectral leakage?;Energy from one frequency bin spreading into adjacent bins due to finite signal length — reduced by windowing
+What is the main lobe vs sidelobes in a spectrum?;The main lobe is the central peak containing primary frequency content; sidelobes are smaller flanking peaks representing spectral leakage
+What is a band-pass filter?;Passes only frequencies within a specific range, attenuating everything above and below
+What is a notch (band-stop) filter?;Attenuates frequencies within a specific band while passing everything else
+What real frequency does DFT bin k correspond to?;freq = (fs/2) * k/N where fs/2 is the Nyquist frequency and N is the number of samples

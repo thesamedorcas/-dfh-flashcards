@@ -58,4 +58,17 @@ whiskers in Box plots; lines extending from the box in a Box plot, showing the r
 y versus x mappings; the directionality of the relationship between variables in a plot, where the y-axis represents the dependent variable and the x-axis represents the independent variable, indicating the direction of causality
 causality in plots; x-axis indicates the cause (independent variable) and y-axis indicates the effect (dependent variable)
 chartjunk; unnecessary or distracting visual elements in a plot, such as heavy gridlines, excessive tick marks, or decorative images, that do not add to the message of the plot
-data-to-ink ratio; the proportion of ink used to display data in a plot, where the ink used to display data should be maximized, and the ink used for non-data elements should be minimized
+data-to-ink ratio; the proportion of ink used to display data in a plot, where the ink used to display data should be maximized, and the ink used for non-data elements should be minimizedWhat is a caption and why is every figure required to have one?;A caption explains what the reader should take away from the graph — every figure must have one
+What is a ribbon plot?;A plot using area/polygon geoms to show the region between two lines, representing a range or uncertainty band
+What is a staircase/step plot and when should you use it?;A line plot where values stay constant between data points — used when values cannot change continuously between discrete measurements
+What makes a double-axis plot problematic?;Two different y-scales on the same coordinate system can mislead readers about the relationship between variables
+When should log-log coordinates be used?;When a power-law relationship y = x^k is suspected — it appears as a straight line with gradient k on log-log axes
+What is the interquartile range (IQR)?;The range between the 25th and 75th percentile — shown as the box in a box plot
+What is a kernel density estimate?;A smooth approximation to a data distribution, used in violin plots to show the full distribution shape
+Why should axes always have labels and units?;Without them readers cannot interpret what the data represents or make quantitative judgements
+What does the x-axis represent in a causal plot?;The independent variable — the thing being controlled or changed
+What does the y-axis represent in a causal plot?;The dependent variable — the thing being measured as a result
+What is perplexity in information theory?;2^H(X) where H(X) is entropy — the effective number of equally likely states the distribution could represent
+What is the standard error?;The standard deviation divided by the square root of the sample size — measures variability of the sample mean around the population mean
+What is a violin plot?;A plot showing the full distribution of data using a kernel density estimate — more informative than a box plot for showing shape, skewness and multimodality
+What is a dot/jitter plot?;A plot where individual data points are shown as dots with slight random horizontal offset — effective for small datasets

@@ -59,3 +59,17 @@ general objective function in optimization; f(x, θ) represents the function to 
 approximation form of optimization; L(θ) = Σ |y_i - f(x_i, θ)| represents the objective function as the sum of absolute differences between observed (y_i) and predicted (f(x_i, θ)) values
 parameter vector;an element in a vector space representing a set of parameters, often used in mathematical modeling and machine learning
 Euclidean space R^n;a vector space representing n-dimensional real-valued vectors, commonly used to represent parameter vectors in various contexts
+What is the feasible set?;The set of all parameter configurations that satisfy the constraints of an optimisation problem
+What is the difference between a hard constraint and a soft constraint?;A hard constraint must be satisfied exactly; a soft constraint is enforced via a penalty term added to the objective function
+What is relaxation in optimisation?;Turning a hard or discrete problem into a simpler continuous or unconstrained problem to make it tractable
+What is a box constraint?;A constraint requiring each parameter to lie within a specified interval — the simplest type of inequality constraint
+What is linear least squares?;Minimising ||Ax - y||^2 — a convex quadratic objective with a direct closed-form solution via the pseudo-inverse
+What does convex mean for an objective function?;Any line segment connecting two points on the graph lies above the graph — there is exactly one global minimum
+What is grid search and why does it fail in high dimensions?;Evaluating the objective at every point on a regular grid — requires n^d evaluations for d dimensions, completely infeasible for large d
+What is multiple restart?;Running optimisation multiple times from random initial conditions to reduce the chance of getting stuck in a local minimum
+What is ant colony optimisation?;A population and memory metaheuristic where agents leave pheromone trails guiding others toward good solutions — inspired by ant foraging
+What is the acceptance probability in simulated annealing?;P = exp(-(l_new - l_old) / T) when l_new > l_old — controls how likely an uphill step is; decreases as temperature T falls
+What does a convergence plot show?;Objective function value vs iteration number — a key diagnostic for whether optimisation is making progress
+What are the pros and cons of random search?;Pros: cannot get trapped in local minima, simple, no knowledge of objective needed. Cons: extremely inefficient, results do not improve predictably over time
+What are the pros and cons of simulated annealing?;Pros: less sensitive to local minima than hill climbing, easy to implement, empirically effective. Cons: depends heavily on temperature schedule, no convergence guarantee
+What are the pros and cons of genetic algorithms?;Pros: handles discrete and continuous parameters, some robustness to local minima. Cons: many hyperparameters, slow, no convergence guarantee

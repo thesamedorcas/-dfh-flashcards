@@ -59,3 +59,21 @@ prior predictive; the probability distribution of future observations given a pr
 linear regression by direct estimation; a method of estimating the parameters of a linear regression model by minimizing the sum of squared errors between the observed and predicted values, e.g. via pseudo-inverse
 linear regression by maximum likelihood estimation; a method of estimating the parameters of a linear regression model by maximizing the likelihood function, representing the probability of observed data given the parameters (gradient, offset, and variance)
 linear regression by Bayesian inference; a method of estimating the parameters of a linear regression model by using Bayes' theorem to update the prior probability of the parameters based on the observed data
+What is the difference between a population parameter and a sample statistic?;A parameter describes the whole unknown population; a statistic is computed from observed samples and estimates the parameter
+What is an estimator?;A function of observed samples that produces an estimate of a population parameter
+What is the sample mean as an estimator?;x_bar = (1/N) sum x_i — an unbiased estimator of the population mean mu; gets more accurate as N increases
+What is the sample variance as an estimator?;s^2 = (1/N) sum (x_i - x_bar)^2 — estimates the population variance sigma^2
+What is maximum likelihood estimation (MLE)?;Finding parameter values theta that maximise the likelihood L(theta|data) = product of f(x_i; theta) — equivalently minimise the negative log-likelihood
+What is the score function in MLE?;u(theta) = gradient of log L(theta|data) — used to update parameters via gradient descent during MLE
+What is the iid assumption?;Independent and Identically Distributed — observations are drawn independently from the same distribution
+What is the predictive posterior?;The distribution over future observations obtained by integrating the likelihood over the posterior: p(x_new|data) = integral of p(x_new|theta) p(theta|data) d_theta
+What is a conjugate prior?;A prior that when combined with a specific likelihood produces a posterior of the same distributional family — allows closed-form Bayesian inference
+What is variational inference?;Approximating the posterior by finding the closest tractable distribution via optimisation — avoids intractable integrals
+What is the burn-in period in MCMC?;The initial samples discarded because the chain has not yet converged to the target distribution
+What is thinning in MCMC?;Keeping only every k-th sample from the chain to reduce autocorrelation between samples
+What does the trace in MCMC represent?;The sequence of sampled parameter values — its histogram approximates the posterior distribution
+What assumption does ordinary linear regression make about errors?;Errors epsilon are normally distributed: epsilon ~ N(0, sigma^2)
+What does Bayesian linear regression infer compared to MLE?;MLE gives a single best-fit parameter vector; Bayesian regression infers a full distribution over parameters, quantifying uncertainty
+What is the multivariate normal PDF?;f(x) = (1/Z) exp(-0.5 (x-mu)^T Sigma^{-1} (x-mu)) where Z is a normalising constant, mu is the mean vector and Sigma is the covariance matrix
+How do you sample from a multivariate normal?;Draw d independent N(0,1) samples into vector n, then transform: x = Sigma^(1/2) * n + mu
+What is the CDF and how does it differ from the PDF?;The CDF F(x) = P(X <= x) gives a true probability in [0,1]. The PDF f(x) gives a density — it can exceed 1 and must be integrated over a range to give a probability

@@ -98,3 +98,21 @@ np.random.choice(array, size=None, replace=True); Generates a random sample from
 np.random.DefaultRNG(seed=None); Creates a random number generator with a specified seed.
 rng.uniform(low=0.0, high=1.0, size=None); Generates random numbers from a uniform distribution from a pre-created generator.
 new question;new answer
+What are images, sounds, and videos as arrays?;An image is a 2D array of brightness values; a sound is a 1D array of sound pressure levels; a video is a 3D array of brightness values (x, y, time)
+What is APL?;An influential 1960s programming language that introduced implicit vectorisation — operating on whole arrays without explicit loops
+What does np.zeros_like(x) do?;Creates an array of zeros with the same shape and dtype as x
+What does np.full_like(x, val) do?;Creates an array filled with val, with the same shape and dtype as x
+What is the difference between slicing and indexing in terms of rank?;Slicing preserves rank (same number of dimensions); indexing reduces rank by removing a singleton dimension
+What does x[::-1] do?;Reverses array x along the first axis using a negative step
+What does x.T do to a 1D array?;Has no effect — transposition only changes anything for 2+ dimensional arrays
+What is fancy indexing?;Using an array of integer indices to index another array, selecting elements in any arbitrary order
+What is boolean indexing?;Using a boolean array as an index to select all elements where the value is True, e.g. x[x > 5]
+What is the pouring rule for reshape?;Elements fill the new shape last-dimension-first (C order); the sequence of elements is preserved
+What does np.squeeze() do?;Removes all singleton (size-1) dimensions from an array
+What does keepdims=True do in a reduction?;Keeps the reduced axis as a size-1 dimension, preserving the rank of the output
+What does ... (ellipsis) do in indexing?;Replaces however many colons are needed to match the array dimensions, e.g. x[0, ..., 4] instead of x[0, :, :, :, 4]
+What is the difference between np.diff and np.gradient?;np.diff returns N-1 elements (forward differences); np.gradient returns N elements using central differences
+What is a scan vs a reduction?;A reduction collapses an array to a single value (e.g. np.sum); a scan keeps all intermediate partial results as a same-size array (e.g. np.cumsum)
+What does np.tile(a, (2, 3)) do?;Repeats array a in a 2x3 grid, joining into a single array
+What does np.where(cond, a, b) do?;Returns elements from a where cond is True, from b where False
+What is np.loadtxt / np.savetxt?;Functions to load/save arrays from/to simple text files like CSV
