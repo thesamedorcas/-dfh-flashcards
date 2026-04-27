@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DF(H) Flashcards</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 <style>
   :root {
     --paper: #f5f0e8;
@@ -135,7 +138,7 @@
   .card {
     position: relative;
     width: 100%;
-    min-height: 280px;
+    height: 340px;
     transform-style: preserve-3d;
     transition: transform 0.55s cubic-bezier(0.35, 0, 0.25, 1);
     border-radius: 3px;
@@ -151,9 +154,9 @@
     display: flex;
     flex-direction: column;
     padding: 30px 34px;
-    min-height: 280px;
     border: 1px solid var(--rule);
     box-shadow: 0 4px 18px rgba(26,22,18,0.10);
+    overflow: hidden;
   }
   .card-front { background: #fff; }
   .card-back {
@@ -198,9 +201,15 @@
     flex: 1;
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 8px 0 20px;
+    justify-content: flex-start;
+    padding: 8px 0 44px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--rule) transparent;
   }
+  .card-body::-webkit-scrollbar { width: 4px; }
+  .card-body::-webkit-scrollbar-track { background: transparent; }
+  .card-body::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 2px; }
 
   .card-text {
     font-family: 'DM Sans', sans-serif;
@@ -333,6 +342,7 @@
   .slide-left  .card { animation: fromLeft  0.22s ease; }
 
   @media (max-width: 480px) {
+    .card { height: 360px; }
     .card-face { padding: 20px 20px; }
     .main { padding: 20px 14px 16px; }
     .topbar { padding: 10px 14px; }
@@ -480,6 +490,21 @@ function renderCard(dir) {
     const dx = touchStartX - e.changedTouches[0].clientX;
     if (Math.abs(dx) > 50) navigate(dx > 0 ? 1 : -1);
   });
+
+  renderMath();
+}
+
+function renderMath() {
+  if (!window.renderMathInElement) return;
+  renderMathInElement(document.getElementById('main'), {
+    delimiters: [
+      { left: '$$', right: '$$', display: true },
+      { left: '$',  right: '$',  display: false },
+      { left: '\\(', right: '\\)', display: false },
+      { left: '\\[', right: '\\]', display: true }
+    ],
+    throwOnError: false
+  });
 }
 
 function toggleFlip() {
@@ -487,6 +512,7 @@ function toggleFlip() {
   document.getElementById('theCard')?.classList.toggle('flipped', flipped);
   const btn = document.getElementById('flipBtn');
   if (btn) btn.textContent = flipped ? 'unflip' : 'flip';
+  renderMath();
 }
 
 function navigate(dir) {
