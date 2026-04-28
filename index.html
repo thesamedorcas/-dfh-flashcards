@@ -392,6 +392,11 @@ let idx = 0;
 let flipped = false;
 let touchStartX = 0;
 
+const STORAGE_KEY = 'dfh_fc';
+function saveState() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify({ unit: activeUnit, idx })); } catch {}
+}
+
 async function fetchUnit(id) {
   const r = await fetch(RAW + id + '.txt');
   if (!r.ok) return [];
@@ -519,6 +524,7 @@ function toggleFlip() {
 function navigate(dir) {
   idx = ((idx + dir) + deck.length) % deck.length;
   flipped = false;
+  saveState();
   renderCard(dir);
 }
 
@@ -533,6 +539,7 @@ function renderUnitStrip() {
       strip.querySelectorAll('.unit-tab').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       buildDeck();
+      saveState();
       renderCard(null);
     });
   });
@@ -547,7 +554,12 @@ document.addEventListener('keydown', e => {
 (async () => {
   try {
     await loadAll();
-    buildDeck();
+    try {
+      const s = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+      if (s.unit && UNITS.some(u => u.id === s.unit)) activeUnit = s.unit;
+      buildDeck();
+      if (typeof s.idx === 'number') idx = Math.min(s.idx, deck.length - 1);
+    } catch { buildDeck(); }
     renderUnitStrip();
     renderCard(null);
   } catch (err) {
