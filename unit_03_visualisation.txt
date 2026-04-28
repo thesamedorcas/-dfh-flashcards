@@ -1,74 +1,75 @@
-facet; a way to break down data into subsets and display them separately within the same plot
-layer; a distinct component of a plot, such as data points, lines, or shapes, added on top of the base plot
-geom; the geometric object representing data points, lines, or shapes in a plot
-mapping; the process of associating variables in the dataset to visual properties in the plot, like x and y coordinates
-stat; a statistical transformation applied to the data before plotting, such as mean, median, or count
-scale; a mapping between data values and aesthetic properties, like color or size
-coord; the coordinate system defining the x and y axes and their scales
-guide; elements like legends, labels, and color scales that help interpret the plot
-Layered Grammar of Graphics; a framework for visualizing data, comprising a set of components that can be combined in layers to create a plot
-components of the Layered Grammar of Graphics; data, mapping, stat, coord, geom, scale, guide, facet, layer
-Florence Nightingale; a pioneer in data visualization, known for her coxcomb diagram representing causes of mortality in the Crimean War, emphasizing the significance of sanitation in healthcare
-William Playfair; credited with inventing statistical graphics, introduced line charts, bar charts, and pie charts, making complex data accessible and understandable to a wider audience
-axes; coordinate axes representing data values, comprising x-axis and y-axis, defining the scales and ranges for data display
-title; a text element providing a descriptive title for the plot, giving context to the data being visualized
-legend; a guide that explains the meaning of colors, shapes, or other visual properties used in the plot, corresponding to different data categories
-labels; textual annotations attached to axes, data points, or other plot elements, providing information about what is being represented
-facet labels; labels specific to subsets of data in faceted plots, providing context for each subset within the plot
-guides; collectively refer to legends, labels, and color scales, aiding in the interpretation of visual properties and mapped data values
-theme; a predefined set of visual properties, such as colors, fonts, and background, defining the overall appearance of the plot
-shape; the visual appearance of point geoms, defining how individual data points are represented, such as circles, squares, or triangles
-colour; the hue or intensity of color used to distinguish between different data points or categories in the plot
-size; the physical dimension of point geoms, determining their area or diameter in the plot, often representing a quantitative variable
-alpha; the transparency or opacity of geometry, allowing overlapping geoms to be visually distinguished
-linetype; the pattern used to represent lines, differentiating between dashed, solid, and dotted lines
-colour scales; mappings from data values to colors, aiding in the visualization of information in plots
-perceptually uniform monotonic brightness scales; color scales where equal steps in data values result in equal perceptual differences in brightness, ensuring accurate representation
-examples of good color scales for unsigned data; viridis, plasma, inferno, magma, cividis
-rainbow color scales; vibrant, colourful but perceptually non-uniform color scales, where equal steps in data values do not result in equal perceptual differences in color, leading to inaccurate representation
-perceptual linearity; the property of a color scale where equal steps in data values result in equal perceptual differences in color, ensuring accurate representation
-monotonic colour scale; a color scale where the perceived brightness consistently increases or decreases with the data values
-unsigned colour scale; a color scale representing a unipolar range of values, where all data points are compared to a single reference point, often used for non-negative values
-diverging colour scale; a color scale representing data values relative to a central reference point, with distinct colors for positive and negative values, aiding in highlighting both high and low extremes in the data
-scatter plot; a type of plot where individual data points are represented as dots on a two-dimensional plane, useful for visualizing the relationship between two continuous variables
-line plot; a plot where data points are connected by straight lines, emphasizing the trend or pattern in the data over a continuous range, suitable for time-series or sequential data where data lies on a true continuum
-staircase plot; a type of plot where data points are connected by horizontal and vertical lines, creating a step-like appearance, often used to represent discrete or categorical data
-bar chart; a graphical representation of categorical data using rectangular bars of varying heights or lengths, with the length of each bar proportional to the value it represents, suitable for comparing discrete categories
-Box plot; a statistical plot that displays the distribution of a dataset, indicating the first quartile, median, third quartile, as well as a a "whisker" range, providing insights into the data's spread and identifying potential outliers
-polar coord; a coordinate system where data points are plotted on a circular grid, often used to display cyclical or periodic data
-log-log coord; a coordinate system where both x-axis and y-axis have logarithmic scales, useful for visualizing data with exponential growth or decay
-semilog coord; a coordinate system where only one axis (either x or y) has a logarithmic scale, suitable for data with a wide range of magnitudes
-symlog coord; a coordinate system where linear scaling is used for small values, and logarithmic scaling is used for absolute large values, accommodating data with both small and large magnitude over both positive and negative values
-aspect ratio; the ratio of the plot's width to its height, influencing the visual perception of the data, where equal aspect ratios maintain proportionality in the plot elements
-figure size; the dimensions (width and height) of the entire plotting area, determining the overall size of the plot and its readability, important for adjusting the plot to fit within documents or presentations
-histogram; a graphical representation of the distribution of a dataset, showing the frequency of different ranges of values
-violin plot; a density plot, providing a more detailed view of the data's distribution, especially in cases of skewness and multimodality
-dot plot; a simple chart where each data point is represented by a dot along a single axis, useful for comparing individual values in a dataset
-means; the arithmetic average of a set of values, calculated by adding up all values and dividing by the total number of values
-medians; the middle value in a sorted dataset, separating the higher half from the lower half of the data points
-error bars; graphical representations of the variability or uncertainty of data points in a plot, typically indicating the standard deviation or confidence intervals
-confidence intervals; a range of values that is likely to contain an unknown population parameter, providing a measure of the uncertainty associated with a sample estimate. Often used as error bars (e.g. 95% confidence interval)
-standard deviation; a measure of the dispersion or spread of a set of values, indicating how much the values deviate from the mean
-standard error; an estimate of the standard deviation of a sample population, indicating the variability of the sample mean. Equal to the standard deviation divided by the square root of the sample size
-uncertainty representation; the visual depiction of the degree of confidence or reliability associated with data points or statistical estimates in a plot
-error bars; horizontal or vertical lines extending from data points or bars, indicating the range within which the true value is likely to lie, providing a measure of uncertainty
-confidence intervals; shaded areas or lines around a plot element, representing the range within which a certain percentage of data points or estimates are expected to fall, indicating the precision of the estimate
-uncertainty bands; shaded regions surrounding a line or curve in a plot, indicating the variability or uncertainty in the data, commonly used in time series or regression plots
-whiskers in Box plots; lines extending from the box in a Box plot, showing the range within which most of the data points lie, with outliers displayed as individual points, illustrating the spread and potential outliers in the dataset
-y versus x mappings; the directionality of the relationship between variables in a plot, where the y-axis represents the dependent variable and the x-axis represents the independent variable, indicating the direction of causality
-causality in plots; x-axis indicates the cause (independent variable) and y-axis indicates the effect (dependent variable)
-chartjunk; unnecessary or distracting visual elements in a plot, such as heavy gridlines, excessive tick marks, or decorative images, that do not add to the message of the plot
-data-to-ink ratio; the proportion of ink used to display data in a plot, where the ink used to display data should be maximized, and the ink used for non-data elements should be minimizedWhat is a caption and why is every figure required to have one?;A caption explains what the reader should take away from the graph — every figure must have one
-What is a ribbon plot?;A plot using area/polygon geoms to show the region between two lines, representing a range or uncertainty band
-What is a staircase/step plot and when should you use it?;A line plot where values stay constant between data points — used when values cannot change continuously between discrete measurements
-What makes a double-axis plot problematic?;Two different y-scales on the same coordinate system can mislead readers about the relationship between variables
-When should log-log coordinates be used?;When a power-law relationship y = x^k is suspected — it appears as a straight line with gradient k on log-log axes
-What is the interquartile range (IQR)?;The range between the 25th and 75th percentile — shown as the box in a box plot
-What is a kernel density estimate?;A smooth approximation to a data distribution, used in violin plots to show the full distribution shape
-Why should axes always have labels and units?;Without them readers cannot interpret what the data represents or make quantitative judgements
-What does the x-axis represent in a causal plot?;The independent variable — the thing being controlled or changed
-What does the y-axis represent in a causal plot?;The dependent variable — the thing being measured as a result
-What is perplexity in information theory?;2^H(X) where H(X) is entropy — the effective number of equally likely states the distribution could represent
-What is the standard error?;The standard deviation divided by the square root of the sample size — measures variability of the sample mean around the population mean
-What is a violin plot?;A plot showing the full distribution of data using a kernel density estimate — more informative than a box plot for showing shape, skewness and multimodality
-What is a dot/jitter plot?;A plot where individual data points are shown as dots with slight random horizontal offset — effective for small datasets
+facet; splits a plot into subplots, one per category — e.g. one scatter plot per country, all on the same axes scale for easy comparison
+layer; a visual component added on top of the base plot — e.g. layer 1 = data points, layer 2 = regression line, layer 3 = confidence band
+geom; the geometric shape representing data — e.g. geom_point draws dots; geom_line draws lines; geom_bar draws bars
+mapping; assigning data columns to visual properties — e.g. x = year, y = temperature, colour = country, size = population
+stat; a statistical transformation applied before drawing — e.g. stat_bin counts observations into buckets for a histogram
+scale; maps data values to visual values — e.g. scale_colour_viridis maps a continuous variable to a perceptually uniform colour ramp
+coord; the coordinate system — e.g. coord_cartesian (default), coord_polar (for pie/radar charts), coord_log (for log axes)
+guide; visual explanations of the mapping — e.g. legend showing which colour = which country, axis labels, colourbar
+Layered Grammar of Graphics; a framework where a plot is built from layers, each with its own data/mapping/stat/geom/scale — Wilkinson/Hadley Wickham
+components of the Layered Grammar of Graphics; data, mapping, stat, coord, geom, scale, guide, facet, layer — all combined into one coherent visualisation
+Florence Nightingale; 1850s data visualisation pioneer — her "coxcomb" (polar area chart) showed that disease killed more soldiers than combat wounds, driving sanitation reform
+William Playfair; 1786 — invented the line chart, bar chart, and pie chart; first to use graphical form to represent economic data
+axes; the x-axis and y-axis defining the coordinate frame — must have labels and units; scale must be appropriate to the data
+title; brief description of what the plot shows — e.g. "Mean temperature by city, 2000–2023" — tells the reader the main finding
+legend; explains which colour/shape/size represents which data category — essential when multiple groups are plotted
+labels; text on axes, data points, or annotations — axes labels must always include units → e.g. "Temperature (°C)" not just "Temperature"
+facet labels; small titles on each facet panel identifying which subset it shows — e.g. "Germany", "France", "UK"
+guides; collective term for legends, colourbars, axis ticks and labels — all the visual aids helping interpret the plot
+theme; controls the non-data appearance — background colour, grid visibility, font sizes, tick lengths → e.g. theme_minimal removes gridlines
+shape; the marker style for point geoms — e.g. circle, triangle, cross — useful for distinguishing groups without relying on colour (colour-blind safe)
+colour; hue used to encode a data dimension — but colour is hard for people with colour vision deficiency → always pair colour with another cue (shape, label)
+size; the area of point markers — maps a numeric variable to perceived quantity → larger = more; nonlinear perception, so use area not radius
+alpha; transparency of geoms — e.g. alpha=0.3 for overplotted scatter points reveals dense vs sparse regions
+linetype; dashed, solid, dotted, etc. — another non-colour way to distinguish groups in a line plot
+colour scales; maps numeric values to colours — choice of scale critically affects what patterns the reader sees
+perceptually uniform monotonic brightness scales; equal data steps → equal perceived brightness steps → honest representation — e.g. viridis, plasma, magma
+examples of good color scales for unsigned data; viridis, plasma, inferno, magma, cividis — all perceptually uniform and accessible to colour-blind viewers
+rainbow color scales; vibrant but perceptually non-uniform — bright yellow appears to jump forward, blue recedes → introduces false boundaries in the data
+perceptual linearity; equal data differences appear equally different visually — only guaranteed by perceptually uniform scales like viridis
+monotonic colour scale; brightness always increases (or always decreases) with the data value — easy to read off relative magnitudes
+unsigned colour scale; for data that goes from 0 to some maximum (all one sign) — use monotonic scale → e.g. viridis for a heatmap of counts
+diverging colour scale; for data with a meaningful midpoint — e.g. red–white–blue for temperature anomaly: red = above average, blue = below average
+scatter plot; dots plotted at (x, y) coordinates — shows relationship between two continuous variables; look for trends, clusters, and outliers
+line plot; data points connected by lines — shows change over a continuous axis; best for true continua (time series) where intermediate values make sense
+staircase plot; values are constant between data points, connected by horizontal then vertical lines — use for discrete data where values can only change at specific times → e.g. step function, cumulative histogram
+bar chart; height of bar = value for that category — good for comparing discrete categories; bars should start at zero
+Box plot; shows min, Q1 (25th percentile), median, Q3 (75th percentile), max — the "box" spans the IQR (middle 50% of data); whiskers extend to ~1.5×IQR; dots beyond are outliers
+polar coord; data plotted on a circular grid — angles encode one variable, radius encodes another → good for periodic data (time of day, direction of wind)
+log-log coord; both axes on log scale → power-law relationships y=x^k appear as straight lines with slope k → useful for data spanning many orders of magnitude
+semilog coord; one axis on log scale → exponential growth appears as a straight line → e.g. COVID case counts over time
+symlog coord; linear for small values near zero, logarithmic for large absolute values on both sides — handles data with zero-crossings and wide range
+aspect ratio; width/height of the plot — an equal aspect ratio is required whenever the scales on x and y represent the same quantity; otherwise it distorts perceived relationships
+figure size; width × height in inches/cm — set to make labels readable without being too large; important for publications where figure size is constrained
+histogram; bin the data into intervals, draw a bar for the count/density in each bin — shows the distribution shape: is it symmetric? bimodal? skewed?
+violin plot; like a box plot but shows the full estimated density (KDE) — reveals multimodal distributions and skewness that a box plot hides → wider = more data at that value
+dot plot; each data point drawn as a dot — shows individual values; for small datasets much more informative than a bar chart
+means; the arithmetic average — the centre of mass of the data; heavily influenced by outliers
+medians; the middle value when sorted — robust to outliers → use as the centre measure when data is skewed
+error bars; lines extending above/below a point — show variability or uncertainty (must label what they represent: SD, SE, or 95% CI)
+confidence intervals; a range likely to contain the population mean — e.g. 95% CI: if you repeated the experiment 100 times, 95 of the resulting intervals would contain the true mean
+standard deviation; spread of individual observations around the mean — large SD = wide spread → σ
+standard error; SE = σ/√N — uncertainty of the estimated mean; decreases as N grows → use SE (not SD) when showing uncertainty in the mean
+uncertainty representation; always show uncertainty on plots — either error bars (SE or CI), shaded bands, or violin/box plots
+error bars; horizontal or vertical lines showing ±SE or ±CI around a plotted estimate — must be labelled in the caption
+confidence intervals; shaded region or error bars indicating where the true value is likely to be — wider CI = less certainty
+uncertainty bands; shaded area around a line showing the range of uncertainty — e.g. 95% prediction interval for a regression line
+whiskers in Box plots; lines extending from the box to Q1−1.5×IQR and Q3+1.5×IQR — points outside the whiskers are plotted individually as potential outliers
+y versus x mappings; x-axis = independent (cause/control) variable; y-axis = dependent (effect/measured) variable — violating this misleads the reader about causality
+causality in plots; x is the thing you control or change; y is the thing that responds — e.g. x = drug dose, y = tumour size; never swap them
+chartjunk; decorative elements that add visual noise without adding information — 3-D bars, gradients, clip art, excessive gridlines → maximise data-to-ink ratio
+data-to-ink ratio; proportion of the figure's ink used to encode data — maximise it by removing gridlines, borders, legends where possible; every pixel should earn its place
+What is a caption and why is every figure required to have one?;A caption tells the reader what to take away — every figure must have one because a plot without context is uninterpretable; the caption should describe what is shown and the key finding
+What is a ribbon plot?;A plot using a shaded region between two lines — shows an uncertainty band or a range of values at each x position
+What is a staircase/step plot and when should you use it?;a line plot where values stay constant between data points — use when values cannot change continuously: e.g. cumulative counts, step-function data
+What makes a double-axis plot problematic?;two different y-scales on the same axes can suggest any apparent relationship by rescaling — the visual correlation is an artefact of axis choice, not the data
+When should log-log coordinates be used?;when a power-law relationship y = x^k is suspected — on log-log axes this becomes log y = k log x, a straight line with slope k
+What is the interquartile range (IQR)?;Q3 − Q1 — the range of the middle 50% of the data; shown as the box in a box plot; a robust measure of spread
+What is a kernel density estimate?;a smooth curve approximating the data distribution — used in violin plots; wider at values where more data points fall; uses a Gaussian kernel sliding over the data
+Why should axes always have labels and units?;without labels the reader cannot interpret what the numbers represent or compare them to other figures — always write "Temperature (°C)" not just "Temperature"
+What does the x-axis represent in a causal plot?;the independent variable — the thing being controlled or deliberately varied
+What does the y-axis represent in a causal plot?;the dependent variable — the thing being measured in response to x
+What is perplexity in information theory?;$2^{H(X)}$ where H(X) is entropy — the effective number of equally likely outcomes that would give the same entropy; a uniform distribution over 8 outcomes has perplexity 8
+What is the standard error?;SE = σ/√N — the standard deviation of the sampling distribution of the mean; shows how precisely we've estimated the population mean
+What is a violin plot?;a rotated KDE (kernel density estimate) mirrored around the axis — wider = more data at that value; reveals multimodal distributions that box plots hide
+What is a dot/jitter plot?;individual data points plotted as dots, sometimes with small random horizontal offset to prevent overlap — most honest representation for small datasets

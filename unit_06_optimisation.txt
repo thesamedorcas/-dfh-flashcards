@@ -1,75 +1,75 @@
-parameters in optimization; variables that the optimization algorithm adjusts to find the best solution
-objective function; a mathematical function representing the quantity to be optimized (maximized or minimized)
-roles of objective function; measures the performance of the solution and guides the optimization process
-equality constraints; constraints that require specific conditions to be met exactly in the optimization problem
-inequality constraints; constraints that define conditions that must be satisfied in the optimization problem, but not necessarily exactly
-penalisation; technique to handle constraints by adding penalty terms to the objective function for violating constraints
-penalty function; a mathematical function that quantifies the violation of constraints or undesirable parameter values, influencing the optimization process
-approximation form of optimization; optimization problems where the objective function is an approximation, often used in machine learning tasks
-penalty parameter; a tuning parameter (usually $\lambda$) that controls the strength of penalization, balancing between fitting the data and penalizing the complexity of the model
-approximation form of optimization; $$L(\theta) = \sum \| y_i - f(x_i, \theta) \|$$ represents the approximation form of optimization where it minimizes the sum of absolute differences between observed and predicted values
-differentiability in optimization; property of a function that allows it to have derivatives, crucial for gradient-based optimization algorithms
-local optimum; a solution that is optimal within a specific neighborhood, but not necessarily the best solution globally
-global optimum; the best possible solution across the entire feasible region of an optimization problem
-convexity in optimization; a property of the objective function where any line segment connecting two points on the graph lies above the graph, equivalent to a single global optimum
-saddle point; a point in the objective function where it is neither a local minimum nor a local maximum
-linear regression in optimization framework; modeling linear regression as an optimization problem to find the best-fitting line for given data points
-convex sums; technique of aggregating multiple objective functions into a single objective function by taking a weighted sum
-heuristic optimization; a trial-and-error approach to problem-solving, using rules of thumb and intuition to find approximate solutions. No guarantee of optimality
-convergence graphs; graphical representation showing how the optimization algorithm's objective function value against iteration - a key diagnostic tool for optimization
-grid search; exhaustive search method that becomes computationally expensive with high-dimensional parameter spaces
-hyperparameters vs parameters; parameters are optimized during the learning process, while hyperparameters are set to tune or configure the optimisation process itself
-random search in optimization; an optimization technique that explores the search space randomly, suitable for high-dimensional problems
-stochastic hill climbing; iterative optimization algorithm that makes small random steps in the search space to find the optimal solution
-genetic algorithms in optimization; optimization technique that mimics the process of natural selection and genetic evolution to find optimal solutions
-mutation; mutation introduces diversity in genetic algorithms by adding noise (as in stochastic hill-climbing)
-crossover; combines genetic material (parameter vectors) from two parents (other solutions) to create offspring
-convexity; a property where the objective function forms a convex shape, allowing for efficient optimization. There is a single global optimum.
-convex sums in optimization; combining multiple convex objective functions to create a convex overall objective function
-convex functions; functions where the line segment between any two points on the graph lies above the graph itself
-concave functions; functions where the line segment between any two points on the graph lies below the graph itself
-convex combination; a combination of vectors where the weights are non-negative and sum up to 1
-continuity; a property of functions where small changes in the input result in small changes in the output
-discontinous; a property of functions where arbitarily small changes in the input can result in arbitarily large changes in the output
-C^0 continuity; a function is continuous, but not necessarily differentiable (has no gaps or jumps in the graph)
-C^1 continuity; a function is continuously differentiable (has a continuous first derivative)
-C^2 continuity; a function has a continuous first and second derivative
-C^∞ continuity; a function has every derivative continuous
-differentiability in optimization; a property of functions where the derivative at a point exists, indicating the rate of change or gradient
-continuity and differentiability relationship; all differentiable functions are continuous, but not all continuous functions are differentiable
-functions that are continuous but not differentiable; examples include the absolute value function and the square root function
-functions that are both continuous and differentiable; examples include linear functions, sine, cosine, x^2
-functions that are neither continuous nor differentiable; examples include step functions 
-discontinuous function example; $$f(x) = 1/x$$ (reciprocal function) -- discontinuous at x = 0
-C^0 continuous function example; $$f(x) = |x|$$ (absolute value function) -- derivative is undefined at x = 0
-C^1 continuous function example; $$f(x) = x^2$$ (quadratic function)
-C^2 continuous function example; $$f(x) = 3x^3 - 2x^2 + 5x - 1$$ (cubic function)
-C^∞ (infinitely differentiable) continuous function example; f(x) = e^x (exponential function)
-temperature; a metaheuristic, controlling the likelihood of accepting worse solutions to escape local optima
-memory; a metaheuristic where an optimisation algorithm remembers past solutions and use them to guide the search process
-stigmergy; a communication mechanism where agents indirectly interact with each other through modifications of their environment (population + memory)
-population; a group of potential solutions or individuals in algorithms like genetic algorithms and particle swarm optimization
-genetic algorithms; optimization algorithms inspired by the process of natural selection, involving crossover and mutation operations. Hill climbing + population.
-simulated annealing; probabilistic optimization algorithm inspired by the annealing process in metallurgy, allowing for exploration of the solution space. Hill climbing + temperature.
-temperature schedule; a function that decreases the temperature over time, controlling the annealing process in simulated annealing.
-hyperparameters of grid search; grid spacing, the range of values for each parameter
-hyperparameters of stochastic hill climbing; step distribution (or step size)
-hyperparameters of genetic algorithms; population size, crossover probability, mutation probability
-general objective function in optimization; f(x, θ) represents the function to be minimized or maximized, where x is the input and θ are the parameters
-approximation form of optimization; L(θ) = Σ |y_i - f(x_i, θ)| represents the objective function as the sum of absolute differences between observed (y_i) and predicted (f(x_i, θ)) values
-parameter vector;an element in a vector space representing a set of parameters, often used in mathematical modeling and machine learning
-Euclidean space R^n;a vector space representing n-dimensional real-valued vectors, commonly used to represent parameter vectors in various contexts
-What is the feasible set?;The set of all parameter configurations that satisfy the constraints of an optimisation problem
-What is the difference between a hard constraint and a soft constraint?;A hard constraint must be satisfied exactly; a soft constraint is enforced via a penalty term added to the objective function
-What is relaxation in optimisation?;Turning a hard or discrete problem into a simpler continuous or unconstrained problem to make it tractable
-What is a box constraint?;A constraint requiring each parameter to lie within a specified interval — the simplest type of inequality constraint
-What is linear least squares?;Minimising ||Ax - y||^2 — a convex quadratic objective with a direct closed-form solution via the pseudo-inverse
-What does convex mean for an objective function?;Any line segment connecting two points on the graph lies above the graph — there is exactly one global minimum
-What is grid search and why does it fail in high dimensions?;Evaluating the objective at every point on a regular grid — requires n^d evaluations for d dimensions, completely infeasible for large d
-What is multiple restart?;Running optimisation multiple times from random initial conditions to reduce the chance of getting stuck in a local minimum
-What is ant colony optimisation?;A population and memory metaheuristic where agents leave pheromone trails guiding others toward good solutions — inspired by ant foraging
-What is the acceptance probability in simulated annealing?;P = exp(-(l_new - l_old) / T) when l_new > l_old — controls how likely an uphill step is; decreases as temperature T falls
-What does a convergence plot show?;Objective function value vs iteration number — a key diagnostic for whether optimisation is making progress
-What are the pros and cons of random search?;Pros: cannot get trapped in local minima, simple, no knowledge of objective needed. Cons: extremely inefficient, results do not improve predictably over time
-What are the pros and cons of simulated annealing?;Pros: less sensitive to local minima than hill climbing, easy to implement, empirically effective. Cons: depends heavily on temperature schedule, no convergence guarantee
-What are the pros and cons of genetic algorithms?;Pros: handles discrete and continuous parameters, some robustness to local minima. Cons: many hyperparameters, slow, no convergence guarantee
+parameters in optimization; the values θ being adjusted by the algorithm — e.g. weights in a neural network, coefficients in a regression
+objective function; the function L(θ) being minimised (or maximised) — e.g. mean squared error, log-likelihood
+roles of objective function; measures how good the current solution is and tells the algorithm which direction to move
+equality constraints; conditions that must be met exactly: c(θ) = 0 — e.g. the weights of a probability distribution must sum to 1
+inequality constraints; conditions of the form c(θ) ≤ 0 — e.g. parameters must stay non-negative
+penalisation; add a penalty term to L for violating constraints → $L'(\theta) = L(\theta) + \lambda\,p(\theta)$ — trades off fit vs constraint satisfaction
+penalty function; quantifies constraint violation — e.g. $p(\theta) = \max(0,\,-\theta)^2$ penalises negative values
+approximation form of optimization; $L(\theta) = \sum_i \|y_i - f(x_i, \theta)\|$ — minimise the total error between predictions and targets
+penalty parameter; λ controls the strength of the penalty → large λ → strictly satisfies constraint but may hurt fit; small λ → better fit but may violate constraints
+approximation form of optimization; $$L(\theta) = \sum_i \| y_i - f(x_i, \theta) \|$$ — sum of residuals between observed $y_i$ and predicted $f(x_i,\theta)$
+differentiability in optimization; differentiable L → can compute gradient → can use gradient descent; non-differentiable L → need derivative-free methods
+local optimum; a point where L is lower (or higher) than all nearby points — but there may be a better point somewhere else → gradient descent can get stuck here
+global optimum; the absolute best solution across the entire feasible region → for convex L there is only one optimum
+convexity in optimization; L is convex if the line between any two points on the graph lies above the graph → has exactly one global minimum, gradient descent guaranteed to find it
+saddle point; gradient = 0 but not a min or max — $f(x,y) = x^2 - y^2$ has a saddle at the origin: minimum in x, maximum in y
+linear regression in optimization framework; find θ that minimises $\sum_i (y_i - \theta^T x_i)^2$ — a convex quadratic with a closed-form solution via pseudo-inverse
+convex sums; $L = \lambda_1 L_1 + \lambda_2 L_2 + \ldots$ with $\lambda_i \geq 0$ and $\sum\lambda_i = 1$ — a weighted average of convex functions is still convex
+heuristic optimization; trial-and-error without gradient info — e.g. random restarts, genetic algorithms — no guarantee of finding the optimum
+convergence graphs; plot of L vs iteration number — a good convergence plot decreases smoothly and levels off; spikes suggest too-large step size
+grid search; evaluate L at every point on a regular grid → works for 1-2 parameters; fails in high-D (needs $n^d$ evaluations)
+hyperparameters vs parameters; parameters (θ) are learned by the optimiser; hyperparameters (e.g. learning rate, batch size) are set by the user to configure the optimiser
+random search in optimization; sample θ randomly from the parameter space — surprisingly effective in high-D since it explores better than grid search per evaluation
+stochastic hill climbing; make a small random step; keep it if L improves, discard it otherwise — simple but gets trapped in local minima
+genetic algorithms in optimization; inspired by evolution: maintain a population of solutions, combine good ones (crossover) and randomly vary them (mutation) → hill climbing + population
+mutation; adds random noise to a solution in genetic algorithms — provides exploration and diversity in the population
+crossover; combines two parent solutions to create offspring — e.g. mix the first half of θ_A with the second half of θ_B
+convexity; L is convex if, for any two points θ₁, θ₂: $L(\alpha\theta_1 + (1-\alpha)\theta_2) \leq \alpha L(\theta_1) + (1-\alpha)L(\theta_2)$ — the chord is always above the curve
+convex sums in optimization; $\sum_i \lambda_i L_i$ with λᵢ ≥ 0 — sum/weighted average of convex functions is convex → e.g. total loss = data loss + regularisation
+convex functions; the chord between any two points lies above the graph → like a bowl — e.g. $x^2$, $e^x$, $|x|$
+concave functions; the chord between any two points lies below the graph → like an arch — e.g. $\log(x)$, $\sqrt{x}$
+convex combination; $\alpha\mathbf{x} + (1-\alpha)\mathbf{y}$ with $\alpha \in [0,1]$ — a weighted average of two points; stays within a convex set
+continuity; small changes in input → small changes in output — no jumps or gaps in the graph
+discontinous; arbitrarily small change in input can cause a large jump in output — e.g. $f(x) = 1/x$ at x=0 or a step function
+C^0 continuity; continuous but possibly not differentiable — e.g. $f(x) = |x|$ has a corner at x=0 but no jump
+C^1 continuity; first derivative exists and is continuous — smooth curve with no corners → e.g. $f(x) = x^2$
+C^2 continuity; second derivative exists and is continuous — curvature is well-defined everywhere → e.g. $f(x) = x^3$
+C^∞ continuity; all derivatives exist and are continuous — "infinitely smooth" → e.g. $f(x) = e^x$, $\sin(x)$, $\cos(x)$
+differentiability in optimization; if L is differentiable at θ, the gradient ∇L(θ) exists — required for gradient-based methods
+continuity and differentiability relationship; differentiable → continuous, but continuous ↛ differentiable — e.g. |x| is continuous but not differentiable at 0
+functions that are continuous but not differentiable; $|x|$ (corner at 0), $\sqrt{x}$ (vertical tangent at 0), ReLU at 0
+functions that are both continuous and differentiable; $x^2$, $\sin(x)$, $\cos(x)$, $e^x$, all polynomials
+functions that are neither continuous nor differentiable; step functions, $1/x$ at x=0
+discontinuous function example; $f(x) = 1/x$ — undefined and discontinuous at x=0
+C^0 continuous function example; $f(x) = |x|$ — continuous everywhere, but derivative undefined at x=0 (sharp corner)
+C^1 continuous function example; $f(x) = x^2$ — smooth parabola, derivative $f'(x) = 2x$ is continuous everywhere
+C^2 continuous function example; $f(x) = x^3 - 2x^2 + 5x - 1$ — cubic, derivatives $f'$ and $f''$ both continuous everywhere
+C^∞ (infinitely differentiable) continuous function example; $f(x) = e^x$ — all derivatives equal $e^x$, all continuous
+temperature; a metaheuristic parameter in simulated annealing that controls how likely the algorithm is to accept a worse solution → high T = explores freely; low T = exploits good solutions
+memory; a metaheuristic where the algorithm records past solutions and biases search toward promising regions — e.g. tabu search, ant colony pheromones
+stigmergy; agents communicate indirectly through environment modification → e.g. ants leave pheromone trails that other ants follow
+population; a set of candidate solutions maintained simultaneously → allows diverse exploration and enables crossover
+genetic algorithms; hill climbing + population + crossover + mutation — maintains diversity while improving fitness
+simulated annealing; hill climbing + temperature — occasionally accepts worse solutions with probability $\exp(-(L_{new}-L_{old})/T)$; T decreases over time
+temperature schedule; how T is reduced over time → e.g. $T_t = T_0 \cdot 0.99^t$ (geometric decay); too fast → gets stuck; too slow → wastes evaluations
+hyperparameters of grid search; grid spacing and range of values for each parameter
+hyperparameters of stochastic hill climbing; step distribution (Gaussian noise std dev, or step size)
+hyperparameters of genetic algorithms; population size, crossover probability, mutation rate
+general objective function in optimization; $L(\theta) = $ some measure of how bad the current parameters are — gradient descent minimises this iteratively
+approximation form of optimization; $L(\theta) = \sum_i \|y_i - f(x_i;\theta)\|$ — minimise the sum of residuals between predictions and ground truth
+parameter vector;a point $\theta \in \mathbb{R}^D$ representing all the parameters of a model — gradient descent updates this point iteratively
+Euclidean space R^n;the D-dimensional real-valued space where parameters live — gradient descent follows a path through this space toward a minimum
+What is the feasible set?;set of all θ that satisfy the constraints — e.g. for a probability vector: the probability simplex (all non-negative entries summing to 1)
+What is the difference between a hard constraint and a soft constraint?;hard: must be exactly satisfied (e.g. c(θ)=0); soft: encoded as a penalty term added to L — soft constraints allow tradeoffs
+What is relaxation in optimisation?;convert a hard/discrete problem to a simpler continuous/unconstrained one → e.g. treat integer variables as continuous during optimisation
+What is a box constraint?;$\theta_{min} \leq \theta_i \leq \theta_{max}$ for each parameter — the simplest type of constraint; easy to enforce by clipping
+What is linear least squares?;minimise $\|A\theta - b\|^2$ — convex quadratic, closed-form solution via pseudo-inverse: $\theta = A^+ b$
+What does convex mean for an objective function?;$L(\alpha\theta_1 + (1-\alpha)\theta_2) \leq \alpha L(\theta_1) + (1-\alpha)L(\theta_2)$ — the graph is a bowl shape, gradient descent finds the global min
+What is grid search and why does it fail in high dimensions?;evaluate L at every grid point → $n^d$ evaluations for d parameters and n values each — for d=10, n=10 that's 10 billion evaluations
+What is multiple restart?;run optimisation from many random starting points, keep the best result — reduces chance of getting stuck in a bad local minimum
+What is ant colony optimisation?;agents (ants) explore the search space and deposit "pheromone" on good paths → population + memory metaheuristic inspired by how ants find shortest paths
+What is the acceptance probability in simulated annealing?;$P = \exp(-(L_{new} - L_{old})/T)$ when $L_{new} > L_{old}$ — worse moves are accepted with probability that decreases as T cools
+What does a convergence plot show?;L(θ) vs iteration number — a well-behaved run decreases smoothly and flattens; oscillations or divergence signal a too-large step size
+What are the pros and cons of random search?;pros: simple, can't get stuck in local minima, no gradient needed; cons: completely inefficient — no learning from past evaluations
+What are the pros and cons of simulated annealing?;pros: less sensitive to local minima than hill climbing, widely applicable; cons: depends heavily on temperature schedule, slow, no convergence guarantee
+What are the pros and cons of genetic algorithms?;pros: handles discrete+continuous, some robustness to local minima; cons: many hyperparameters, slow, no convergence guarantee, hard to tune

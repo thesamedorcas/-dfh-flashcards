@@ -1,104 +1,104 @@
-vectors in R^N; ordered tuples of N real numbers representing points in N-dimensional space
-vector addition (v + w); component-wise addition of corresponding elements of vectors v and w
-scalar multiplication (c * v); multiplication of each element of vector v by scalar constant c
-norm; length of a vector -- a defined property
-fundamental vector operations; addition, scalar multiplication
-topological vector space; a vector space equipped with a norm (distances exist)
-inner product vector space; a vector space equipped with an inner product (angles exist)
-distance; norm of a difference of two vectors norm(A-B) or norm(A + (-1 * B))
-inner product (dot product); sum of the products of corresponding elements of v and w
-real number; a number that can be represented by a point on the number line
-$$\real^N$$; the set of all N-tuples of real numbers
-$$\real^{+}$$; the set of non-negative real numbers.
-$$(\real^n, \real^n) \rightarrow \real^+$$; a function that takes two vectors of dimension $n$ and returns a non-negative real number (like the norm)
-dot product; the inner product for a real vector space
-angle between vectors; angle θ between vectors v and w is given by cos(θ) = (v · w) / (||v|| ||w||)
-cosine similarity; the cosine of the angle between two vectors, i.e. the dot product of the vectors divided by the product of their norms (not the same as the angle!)
-orthogonal vectors; vectors that are perpendicular to each other, i.e. their dot product is zero, at 90 degrees to each other 
-unit vectors; vectors with norm 1 (in some specified norm)
-orthonormal vectors; some vectors $a,b,c,...$ that are (mutually) orthogonal and are all unit vectors
-linear interpolation of two vectors; z = αx + (1 - α)y combines vectors x and y by taking a weighted average of their elements
-L1 norm of vector v; sum of the absolute values of its elements: ||v||_1 = |v_1| + |v_2| + ... + |v_N|
-L2 norm of vector v; square root of the sum of the squares of its elements: $$\|v\|\_2 = \sqrt(v_1^2 + v_2^2 + ... + v_N^2)$$
-Lp norm of vector v; generalization of L2 norm: $$\|v\|_p = \left(|v_1|^p + |v_2|^p + ... + |v_N|^p\right)^{1/p}$$
-L_infinity norm of vector v; maximum absolute value of its elements: ||v||_∞ = max(|v_1|, |v_2|, ..., |v_N|)
-L_-infinity norm; minimum absolute value of its elements: ||v||_-∞ = min(|v_1|, |v_2|, ..., |v_N|)
-normalisation; process of scaling a vector by dividing by its norm
-unit vector; vector with norm 1 (in some specified norm)
-mean vector; average of a set of vectors, corresponding to the geometric centroid of the vectors
-computation of the mean vector; sum the vectors and divide by the number of vectors (i.e. multiply by 1/N)
-lerp; linear interpolation, i.e. weighted average of two vectors 
-Curse of Dimensionality; phenomenon where high-dimensional spaces exhibit counterintuitive behaviors, especially increasing sparsity
-Density in shells; in high dimensions, most of the volume of a hypersphere is concentrated near its surface
-Volume of unit ball in high-d space; decreases exponentially with dimension
-Edge effects in high-d boxes; almost all points in a high-d box are very close to the edges or corners
-Near-orthogonality of all vectors; in (very) high-dimensional spaces, most vectors are nearly orthogonal to each other (at 90 degrees)
-Exponential increase in distance; as dimensionality increases, points become exponentially farther apart
-Increased sparsity of data; in high-dimensional spaces, data points become sparse, making analysis and visualization challenging
-Difficulty in visualizing and interpreting high-d data; high-dimensional data is difficult to represent visually and comprehend intuitively
-All the bread is crust; in high-dimensional spaces, most of the volume inside some convex object (like a sphere or a box) is concentrated near its surface
-The average is far away; in high-dimensional spaces, the average of a set of points is far away from most of the points
-Distances in high-d spaces; in high-dimensional spaces, norms become less useful for measuring distances between points except locally, as almost all points are the same distance from each other
-Matrix Addition (A + B); sum of corresponding elements of matrices A and B
-Scalar Multiplication (c * A); multiplication of each element of matrix A by scalar constant c
-Matrix Multiplication (AB); operation resulting from composing linear maps represented by matrices A and B
-Rules for matrix multiplication; the number of columns of A must equal the number of rows of B, $$R^{MxN}, R^{NxP} -> R^{MxP}$$
-Matrix Composition and Function Composition; matrix multiplication corresponds to composition of linear functions
-Matrix Dimensions (NxM); notation where N represents the number of rows and M represents the number of columns in a matrix
-Matrix-Vector Multiplication (Av); result of applying linear transformation represented by matrix A to vector v
-Transpose of a Matrix (A^T); operation flipping rows and columns of matrix A
-(AB)^T = B^T A^T; transposition property of the product of matrices
-Linear map; any function between two vector spaces that satisfies the requirements of linearity
-Linear transform; any linear map from $R^N$ to $R^N$ (i.e. where dimension is unchanged)
-Linear map properties; linearity, preservation of origin, lines, and planes
-Linear projection; any linear map from $R^N$ to $R^M$ where M < N (i.e. where dimension is reduced)
-Properties of Linear Maps; linearity, preservation of origin, lines, and planes are fundamental properties of linear transformations
-Combining Linear Maps; all matrix operations (addition, multiplication, etc.) can be seen as combinations of rotations, scales, and translations
-Definition of Linearity; linear maps satisfy the properties of additivity and scalar multiplication
-Additivity Property of Linear Maps; for any vectors v and w, T(v + w) = T(v) + T(w)
-Scalar Multiplication Property of Linear Maps; for any scalar c and vector v, T(cv) = cT(v)
-Preservation of Origin; linear maps always map the origin to the origin: T(0) = 0
-Preservation of Lines; linear maps transform lines in the input space to lines in the output space
-Rotation matrix; matrix representing a rotation in space, i.e. a linear map that rotates vectors by a specified angle without scaling 
-Scale matrix; matrix representing a scaling in space, i.e. a linear map that scales vectors by a specified factor without rotating; always diagonal 
-Skew matrix; matrix representing a skew in space, i.e. a linear map that shears vectors
-Definition of Matrices in R^(MxN); matrices are rectangular arrays of real numbers with M rows and N columns
-Matrix Multiplication (AB); operation resulting in a new matrix C, where C[i, j] is the dot product of the ith row of A and jth column of B
-Associative Property of Matrix Multiplication; (AB)C = A(BC), allowing the grouping of matrix multiplication operations
-Non-Commutative Property of Matrix Multiplication; in general, AB ≠ BA for matrices A and B
-Identity Matrix (I); a square matrix where all elements on the main diagonal are 1 and all other elements are 0; AI = A and IA = A. Has no effect on a vector when multiplied by it
-Effect of Multiplying by Identity Matrix; any matrix multiplied by the identity matrix remains unchanged
-Zero Matrix (0); a matrix where all elements are 0; A0 = 0 for any matrix A, maps all vectors to the origin
-Matrix Multiplication by Zero Matrix; the result is always the zero matrix: A0 = 0
-Diagonal of a Matrix; the elements from the top left to the bottom right of a square matrix, elements A[i,i], (the "main diagonal")
-Anti-diagonal of a Matrix; the elements from the top right to the bottom left of a square matrix, elements A[i, N-i+1]
-Diagonal Matrix; a square matrix where all non-diagonal elements are zero, a pure scaling operation
-Off-diagonal; all elements of a matrix that are not on the main diagonal
-Upper Triangular Matrix; a square matrix where all elements below the main diagonal are zero
-Lower Triangular Matrix; a square matrix where all elements above the main diagonal are zero
-Square Matrix; a matrix with the same number of rows and columns (NxN)
-Properties of square matrix; *may* have an inverse; has an eigenvalue decomposition; has a determinant 
-Symmetric Matrix; a square matrix that is equal to its transpose: A^T = A. The diagonal elements are symmetric about the main diagonal
-Skew-Symmetric (Anti-symmetric) Matrix; a square matrix where the transpose equals the negative of the matrix: A^T = -A
-Orthogonal Matrix; a square matrix where the rows and columns are orthonormal unit vectors
-Identity Matrix (I); a diagonal matrix where all diagonal elements are 1
-Zero Matrix (0); a matrix where all elements are 0
-Sparse Matrix; a matrix in which most elements are zero
-Word Embeddings; vectors used to represent words as numerical vectors in natural language processing tasks
-Covariance Matrix; The covariance matrix is a square matrix that summarizes the relationships between multiple variables. For a set of n variables, the covariance matrix C is an n x n matrix, where each entry C[i, j] represents the covariance between variables i and j.
-Computing the covariance matrix; The covariance matrix C can be computed using the formula C = (X - μ)(X - μ)^T / N, where X is the data matrix, μ is the mean vector, and N is the number of data points.
-Covariance Definition; Covariance between two variables X and Y measures how their values change together. Positive covariance indicates that X and Y increase or decrease together, while negative covariance means they move in opposite directions. Covariance of X and Y is calculated as Cov(X, Y) = Σ[(X_i - μ_X)(Y_i - μ_Y)] / N, where X_i and Y_i are individual data points, μ_X and μ_Y are means of X and Y, and N is the number of data points.
-Diagonal Entries of Covariance Matrix; The diagonal entries C[i, i] represent the variance of variable i. Variance measures how much a variable deviates from its mean. A larger diagonal value indicates higher variability in the corresponding variable.
-Off-Diagonal Entries of Covariance Matrix; Off-diagonal entries C[i, j] (i ≠ j) represent the covariance between variables i and j. Positive values indicate a positive relationship, while negative values indicate a negative relationship. The magnitude represents the strength of the relationship.
-Symmetry of Covariance Matrix; The covariance matrix is symmetric (C[i, j] = C[j, i] for all i and j) because the covariance between variables i and j is the same as the covariance between j and i.
-What is a basis vector?;One of a set of linearly independent vectors that span a vector space — e.g. [1,0,0], [0,1,0], [0,0,1] in R^3
-What is the outer product of two vectors?;x tensor y = x y^T — an MxN matrix containing every pairwise product of elements of x and y
-What is the inner product in terms of cosine?;x dot y = ||x|| ||y|| cos(theta), where theta is the angle between x and y
-What does it mean for two vectors to be orthogonal?;Their dot product is zero — they are at 90 degrees to each other
-What is the geometric median?;The point minimising the sum of distances to all data points — no closed form, must be found by optimisation
-What is demeaning a dataset?;Subtracting the mean vector from every row so the dataset has zero mean
-What is the covariance ellipse?;An ellipse whose centre is the mean vector and whose shape is determined by the covariance matrix — summarises spread and correlation of a dataset
-What is the L0 pseudonorm?;The count of non-zero elements in a vector
-What does normalising a vector do?;Scales it to have norm 1 (unit vector) by dividing by its norm
-What is linear interpolation (lerp) between two vectors?;z = (1-alpha)x + alpha*y — as alpha goes from 0 to 1, z moves in a straight line from x to y
-What is the outer product used for in computing the covariance matrix?;The covariance matrix is computed as (1/N) sum of (x_i - mu)(x_i - mu)^T — each term is an outer product of a demeaned vector with itself
+vectors in R^N; ordered tuples of N real numbers — e.g. $\mathbf{v} = [3, -1, 2]$ is a vector in $\mathbb{R}^3$
+vector addition (v + w); add corresponding elements → $[1,2,3] + [4,5,6] = [5,7,9]$
+scalar multiplication (c * v); multiply every element by scalar c → $2 \times [1,2,3] = [2,4,6]$
+norm; the "length" of a vector — a non-negative number computed from its elements (many norms exist)
+fundamental vector operations; addition and scalar multiplication — everything else (norm, inner product, etc.) is built on top
+topological vector space; a vector space equipped with a norm (so distances between points are defined)
+inner product vector space; a vector space equipped with an inner product (so angles between vectors are defined)
+distance; norm of the difference → $\|\mathbf{a}-\mathbf{b}\|$ — e.g. distance between [1,0] and [4,4] = $\sqrt{9+16}=5$
+inner product (dot product); sum of products of corresponding elements → $[1,2,3]\cdot[4,5,6] = 4+10+18 = 32$
+real number; a number on the continuous number line, including integers, fractions, and irrationals
+$$\real^N$$; the set of all N-tuples of real numbers — e.g. $\mathbb{R}^2$ is the 2-D plane
+$$\real^{+}$$; the set of non-negative reals: {x ∈ ℝ : x ≥ 0}
+$$(\real^n, \real^n) \rightarrow \real^+$$; a function taking two n-dim vectors and returning a non-negative scalar — e.g. the norm or distance function
+dot product; the standard inner product for real vectors: $\mathbf{x}\cdot\mathbf{y} = \sum_i x_i y_i$
+angle between vectors; $\cos\theta = \dfrac{\mathbf{v}\cdot\mathbf{w}}{\|\mathbf{v}\|\|\mathbf{w}\|}$ — e.g. $[1,0]\cdot[0,1]=0$ so $\theta=90°$ (orthogonal)
+cosine similarity; $\dfrac{\mathbf{v}\cdot\mathbf{w}}{\|\mathbf{v}\|\|\mathbf{w}\|}$ — measures how aligned two vectors are; 1 = same direction, 0 = perpendicular, −1 = opposite
+orthogonal vectors; dot product = 0 → at 90° → e.g. $[1,0]\cdot[0,1]=0$ ✓ orthogonal; $[1,0]\cdot[1,1]=1$ ✗ not orthogonal
+unit vectors; vectors with norm exactly 1 → e.g. $[0,1]$, $[\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}}]$ are unit vectors
+orthonormal vectors; a set of vectors that are mutually orthogonal AND all unit vectors → e.g. $[1,0,0]$, $[0,1,0]$, $[0,0,1]$ (standard basis of $\mathbb{R}^3$)
+linear interpolation of two vectors; $\mathbf{z} = \alpha\mathbf{x} + (1-\alpha)\mathbf{y}$ — as $\alpha$ goes 0→1, z travels the straight line from y to x
+L1 norm of vector v; sum of absolute values → $\|[3,-4]\|_1 = 3+4 = 7$ ("Manhattan distance")
+L2 norm of vector v; $\sqrt{\sum_i v_i^2}$ → $\|[3,-4]\|_2 = \sqrt{9+16} = 5$ (Euclidean distance)
+Lp norm of vector v; $(|v_1|^p + |v_2|^p + \ldots)^{1/p}$ — L1 gives Manhattan, L2 gives Euclidean, L∞ gives max
+L_infinity norm of vector v; maximum absolute value → $\|[3,-4,1]\|_\infty = \max(3,4,1) = 4$
+L_-infinity norm; minimum absolute value → $\|[3,-4,1]\|_{-\infty} = \min(3,4,1) = 1$
+normalisation; divide by norm to make a unit vector → $\hat{v} = v/\|v\|$ → e.g. $[3,4]/5 = [0.6, 0.8]$
+unit vector; vector with norm 1 → $[0.6, 0.8]$ since $\sqrt{0.36+0.64}=1$
+mean vector; average of a set of vectors = their geometric centroid → e.g. mean of $[1,0]$ and $[3,2]$ is $[2,1]$
+computation of the mean vector; sum all vectors then divide by N → $\frac{1}{N}\sum_i \mathbf{x}_i$
+lerp; linear interpolation — $\text{lerp}(\mathbf{x},\mathbf{y},\alpha) = (1-\alpha)\mathbf{x} + \alpha\mathbf{y}$ — at $\alpha=0$ you get x, at $\alpha=1$ you get y
+Curse of Dimensionality; high-dimensional spaces behave counterintuitively — distances become meaningless, data becomes extremely sparse
+Density in shells; in high-D space, almost all the volume of a hypersphere is near its surface, not its centre
+Volume of unit ball in high-d space; shrinks to 0 as dimension grows — a 100-D "ball" has essentially zero volume compared to its bounding box
+Edge effects in high-d boxes; in a 10-D unit cube, almost every point is within 0.01 of a face — the "interior" effectively doesn't exist
+Near-orthogonality of all vectors; pick two random vectors in 1000-D space — their dot product ≈ 0 with high probability; nearly everything is perpendicular
+Exponential increase in distance; to maintain the same data density, the number of samples needed grows exponentially with dimension
+Increased sparsity of data; in 100-D space, 1 million data points are far more spread out than 1 million points on a line
+Difficulty in visualizing and interpreting high-d data; we can only directly perceive 2-D or 3-D — techniques like PCA or t-SNE are needed to visualise high-D data
+All the bread is crust; in high-D, almost all volume of any convex shape (sphere, box) is near the surface — the "middle" is nearly empty
+The average is far away; in high-D, the mean vector is far from most data points — the centroid is often in a low-density region
+Distances in high-d spaces; L2 distances between points converge — nearly all pairwise distances are the same, making nearest-neighbour search unreliable
+Matrix Addition (A + B); add corresponding entries → $$\begin{bmatrix}1&2\\3&4\end{bmatrix} + \begin{bmatrix}5&6\\7&8\end{bmatrix} = \begin{bmatrix}6&8\\10&12\end{bmatrix}$$
+Scalar Multiplication (c * A); multiply every entry by c → $$2 \times \begin{bmatrix}1&2\\3&4\end{bmatrix} = \begin{bmatrix}2&4\\6&8\end{bmatrix}$$
+Matrix Multiplication (AB); C[i,j] = dot product of row i of A with column j of B → $$\begin{bmatrix}1&2\\3&4\end{bmatrix}\begin{bmatrix}5&6\\7&8\end{bmatrix} = \begin{bmatrix}19&22\\43&50\end{bmatrix}$$
+Rules for matrix multiplication; (M×N) @ (N×P) → (M×P) — inner dimensions must match → $$\mathbb{R}^{3\times 2} \times \mathbb{R}^{2\times 4} \rightarrow \mathbb{R}^{3\times 4}$$
+Matrix Composition and Function Composition; AB corresponds to "first apply B, then apply A" — matrix mult IS function composition for linear maps
+Matrix Dimensions (NxM); N = rows, M = columns → a (3×2) matrix has 3 rows and 2 columns $$\begin{bmatrix}a&b\\c&d\\e&f\end{bmatrix}$$
+Matrix-Vector Multiplication (Av); apply linear transform A to vector v → $$\begin{bmatrix}1&0\\0&2\end{bmatrix}\begin{bmatrix}3\\4\end{bmatrix} = \begin{bmatrix}3\\8\end{bmatrix}$$
+Transpose of a Matrix (A^T); swap rows and columns → $$\begin{bmatrix}1&2&3\\4&5&6\end{bmatrix}^T = \begin{bmatrix}1&4\\2&5\\3&6\end{bmatrix}$$
+(AB)^T = B^T A^T; transpose of a product reverses the order — e.g. (AB)^T ≠ A^T B^T
+Linear map; any function f between vector spaces where f(ax+by) = af(x) + bf(y) — representable as a matrix
+Linear transform; a linear map from $\mathbb{R}^N$ to $\mathbb{R}^N$ (same dimension) — can be rotation, scaling, shear, etc.
+Linear map properties; preserves the origin (T(0)=0), maps lines to lines, maps planes to planes
+Linear projection; a linear map from $\mathbb{R}^N$ to $\mathbb{R}^M$ where M < N — squashes to a lower dimension
+Properties of Linear Maps; f(x+y) = f(x) + f(y); f(cx) = cf(x); f(0) = 0 — if any of these fail, it's not linear
+Combining Linear Maps; applying two linear maps in sequence = multiplying their matrices → A then B → BA (B applied second but written first)
+Definition of Linearity; f(ax + by) = af(x) + bf(y) for all scalars a,b and vectors x,y
+Additivity Property of Linear Maps; T(v + w) = T(v) + T(w) — the map of a sum equals the sum of the maps
+Scalar Multiplication Property of Linear Maps; T(cv) = cT(v) — scaling the input scales the output by the same factor
+Preservation of Origin; every linear map maps 0 → 0: T(0) = 0 — if the origin moves, the function is affine, not linear
+Preservation of Lines; linear maps map straight lines to straight lines (possibly collapsed to a point if singular)
+Rotation matrix; an orthogonal matrix with det=1 that rotates vectors → 2-D rotation by angle θ: $$R = \begin{bmatrix}\cos\theta & -\sin\theta \\ \sin\theta & \cos\theta\end{bmatrix}$$
+Scale matrix; a diagonal matrix that stretches/shrinks along each axis independently → $$S = \begin{bmatrix}s_x & 0 \\ 0 & s_y\end{bmatrix}$$ scales x by $s_x$, y by $s_y$
+Skew matrix; shears space — tilts one axis while keeping the other fixed → $$\begin{bmatrix}1 & k \\ 0 & 1\end{bmatrix}$$ slides the x-axis by k times the y value
+Definition of Matrices in R^(MxN); rectangular grids of real numbers with M rows and N columns — e.g. a 3×2 matrix has 6 entries
+Matrix Multiplication (AB); $C_{ij} = \sum_k A_{ik}B_{kj}$ — row i of A dotted with column j of B → gives entry (i,j) of C
+Associative Property of Matrix Multiplication; (AB)C = A(BC) — grouping doesn't matter
+Non-Commutative Property of Matrix Multiplication; AB ≠ BA in general — order matters! → e.g. a rotation then a scaling ≠ a scaling then a rotation
+Identity Matrix (I); 1s on diagonal, 0s elsewhere → $$I = \begin{bmatrix}1&0&0\\0&1&0\\0&0&1\end{bmatrix}$$ — Iv = v for any v; leaves everything unchanged
+Effect of Multiplying by Identity Matrix; AI = IA = A — the identity matrix is the matrix equivalent of multiplying by 1
+Zero Matrix (0); all entries are 0 → maps every vector to the origin: $A\mathbf{0} = \mathbf{0}$ and $\mathbf{0}A = \mathbf{0}$
+Matrix Multiplication by Zero Matrix; always gives the zero matrix: A × 0 = 0
+Diagonal of a Matrix; elements A[i,i] from top-left to bottom-right — e.g. diagonal of $\begin{bmatrix}1&2\\3&4\end{bmatrix}$ is [1, 4]
+Anti-diagonal of a Matrix; elements from top-right to bottom-left: A[i, N-1-i]
+Diagonal Matrix; only diagonal entries are non-zero — a pure scaling operation → $$\begin{bmatrix}d_1&0&0\\0&d_2&0\\0&0&d_3\end{bmatrix}$$ scales axis i by $d_i$
+Off-diagonal; all entries NOT on the main diagonal — in a rotation matrix, the off-diagonals encode the mixing between axes
+Upper Triangular Matrix; all entries below the diagonal are 0 → $$\begin{bmatrix}a&b&c\\0&d&e\\0&0&f\end{bmatrix}$$
+Lower Triangular Matrix; all entries above the diagonal are 0 → $$\begin{bmatrix}a&0&0\\b&c&0\\d&e&f\end{bmatrix}$$
+Square Matrix; same number of rows and columns (N×N) — may have an inverse, has a determinant and eigenvalues
+Properties of square matrix; *may* be invertible (if det≠0); has N eigenvalues; has a determinant
+Symmetric Matrix; $A = A^T$ — e.g. $$\begin{bmatrix}1&2&3\\2&5&4\\3&4&6\end{bmatrix}$$ where A[i,j] = A[j,i]; always has real eigenvalues
+Skew-Symmetric (Anti-symmetric) Matrix; $A^T = -A$ — diagonal is all 0s, e.g. $$\begin{bmatrix}0&2&-3\\-2&0&1\\3&-1&0\end{bmatrix}$$
+Orthogonal Matrix; rows and columns are orthonormal unit vectors → $A^T A = I$ so $A^{-1} = A^T$ — a pure rotation, no scaling
+Identity Matrix (I); the N×N diagonal matrix of all 1s — the "do nothing" transformation
+Zero Matrix (0); N×M matrix of all 0s — maps everything to the origin
+Sparse Matrix; most entries are 0 — e.g. an adjacency matrix of a social network: 7 billion nodes, but each person knows only ~1000 people
+Word Embeddings; words mapped to dense vectors (e.g. dim 300) so that similar words have nearby vectors — e.g. king − man + woman ≈ queen
+Covariance Matrix; square symmetric matrix where entry C[i,j] = covariance between variable i and variable j → diagonal = variances
+Computing the covariance matrix; $C = \frac{1}{N}(X-\mu)^T(X-\mu)$ where X is the data matrix (N samples × D features) and μ is the mean
+Covariance Definition; Cov(X,Y) measures how X and Y change together → positive: both go up together; negative: one goes up as the other goes down; 0: unrelated
+Diagonal Entries of Covariance Matrix; C[i,i] = variance of variable i — large means that variable varies a lot across samples
+Off-Diagonal Entries of Covariance Matrix; C[i,j] = covariance between variables i and j → positive: correlated (move together); negative: anticorrelated
+Symmetry of Covariance Matrix; C[i,j] = C[j,i] always — covariance is commutative, so the matrix is always symmetric
+What is a basis vector?;one of a set of linearly independent vectors that span the space → standard basis of $\mathbb{R}^3$: $[1,0,0], [0,1,0], [0,0,1]$ — any vector is a linear combo of these
+What is the outer product of two vectors?;$\mathbf{x}\mathbf{y}^T$ — an M×N matrix of all pairwise products → $[1,2,3]^T [4,5] = \begin{bmatrix}4&5\\8&10\\12&15\end{bmatrix}$
+What is the inner product in terms of cosine?;$\mathbf{x}\cdot\mathbf{y} = \|\mathbf{x}\|\|\mathbf{y}\|\cos\theta$ — so if they're unit vectors, dot product = cos of angle between them
+What does it mean for two vectors to be orthogonal?;dot product = 0 → at 90° → e.g. $[1,0]\cdot[0,1] = 0$ ✓; $[1,1]\cdot[-1,1] = -1+1 = 0$ ✓
+What is the geometric median?;the point minimising the sum of distances to all data points — unlike the mean, it's robust to outliers; has no closed form
+What is demeaning a dataset?;subtract the mean vector from every row → dataset now has zero mean; prerequisite for PCA
+What is the covariance ellipse?;an ellipse centred at the mean whose shape comes from the covariance matrix — long axis = direction of most variance
+What is the L0 pseudonorm?;count of non-zero elements → $\|[3, 0, -1, 0, 2]\|_0 = 3$ (three non-zero values)
+What does normalising a vector do?;scales it to norm 1 → $\hat{v} = v/\|v\|$ → e.g. $[3,4] / 5 = [0.6, 0.8]$
+What is linear interpolation (lerp) between two vectors?;$\mathbf{z} = (1-\alpha)\mathbf{x} + \alpha\mathbf{y}$ — at α=0 you're at x, at α=0.5 you're at the midpoint, at α=1 you're at y
+What is the outer product used for in computing the covariance matrix?;$C = \frac{1}{N}\sum_i (\mathbf{x}_i-\boldsymbol{\mu})(\mathbf{x}_i-\boldsymbol{\mu})^T$ — each term is an outer product of a demeaned data point with itself

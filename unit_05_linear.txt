@@ -1,108 +1,108 @@
-representing edge-weighted graphs as matrices; a common method is using an adjacency matrix where each entry represents the weight of the edge between two vertices
-spectral methods; representing graphs as matrices 
-discrete-continuous interchange; the idea that discrete objects can be represented as continuous objects, and vice versa
-flow in a graph; it can be represented as a product of the adjacency matrix and a vector representing flow values, giving a new vector representing updated flow values
-sink; a vertex with more outgoing edge weight than incoming edge weight
-source; a vertex with more incoming edge weight than outgoing edge weight
-degree; the count of the edges connected to a vertex
-in-degree; the count of the edges entering a vertex
-out-degree; the count of the edges leaving a vertex
-adjacency matrix; a square matrix where each entry represents the weight of the edge between two vertices, usually sparse. 
-directed graph; a graph where edges have a direction
-undirected graph; a graph where edges have no direction
-flow conservation; the idea that the total flow into a vertex must equal the total flow out of a vertex
-stochastic matrices; matrices where each row represents a probability distribution, meaning all elements are non-negative and each row sums to 1
-row-stochastic; a matrix where each row represents a probability distribution, meaning all elements are non-negative and each row sums to 1
-column-stochastic; a matrix where each column represents a probability distribution, meaning all elements are non-negative and each column sums to 1
-doubly stochastic matrices; matrices that are both row-stochastic and column-stochastic, where both rows and columns sum to 1. Conserving in and out flow.
-matrix exponentiation; raising a matrix to a power like A^5 = A @ A @ A @ A @ A
-integer matrix powers as repeated linear transformations; raising a matrix to an integer power means applying the linear transformation represented by the matrix multiple times
-matrix inversion; multiplying a vector by the inverse of a matrix undoes the transformation
-Number of eigenvalues; A square matrix of size n has n eigenvalues (though some may be complex).
-Number of eigenvectors; A square matrix of size n has n eigenvectors. However, if the matrix is singular, they may not be distinct.
-Eigenvalues of a matrix; Eigenvalues are the solutions to the characteristic equation det(A - λI) = 0, where A is the (square) matrix, λ is the eigenvalue, and I is the identity matrix.
-Eigenvectors of a matrix; Eigenvectors corresponding to an eigenvalue λ are non-zero vectors v that satisfy the equation Av = λv, where A is the (square) matrix and v is the eigenvector.
-Interpretation of an eigenvector; Eigenvectors represent the directions along which a linear transformation acts by scaling alone.
-Interpretation of an eigenvalue; Eigenvalues represent the scaling factor by which a linear transformation acts on the corresponding eigenvector.
-Trace of a matrix; Trace of a square matrix A, denoted as tr(A), is the sum of its diagonal elements *and* the sum of its eigenvalues.
-Determinant; The determinant of a matrix A, det(A), is equal to the product of its eigenvalues. det(A) = λ1 * λ2 * ... * λn, where λ1, λ2, ..., λn are the eigenvalues of A.
-Geometric interpretation of the determinant; The determinant of a matrix A is equal to the area of the parallelogram spanned by its column vectors. Alternatively, how much space is "squished/expanded" by the transformation represented by A.
-Singular; A matrix is singular if det(A)=0; it collapses a dimension and thus cannot be inverted.
-Non-singular; A matrix that *can* be inverted, with det(A)!=0. Every dimension is preserved. 
-Power iteration method; Power iteration is an iterative algorithm used to find the leading eigenvalue and corresponding eigenvector of a matrix. It involves repeated multiplication of the matrix with a vector and normalization to converge towards the dominant eigenpair.
-Eigenpair; An eigenpair is a pair of an eigenvalue and its corresponding eigenvector.
-Eigendecomposition; Eigendecomposition is the factorization of a matrix into a set of eigenvectors and eigenvalues. 
-Geometric interpretation of eigenvalues; Eigenvalues represent the scaling factor by which a matrix transforms an eigenvector. If λ > 1, the eigenvalue stretches the vector; if 0 < λ < 1, it compresses the vector; if λ < 0, it reflects the vector.
-Geometric interpretation of singularity; A matrix is singular if and only if its determinant is zero. Geometrically, this means the matrix collapses the space along at least one dimension, resulting in a flat or lower-dimensional transformation.
-Real eigenvalues; Symmetric square matrices always have real eigenvalues and orthogonal eigenvectors. 
-Complex eigenvalues; Complex eigenvalues in a matrix indicate oscillatory behavior in dynamic systems (e.g. in a flow on a graph). When eigenvalues have imaginary parts, the system exhibits periodic or oscillatory motion.
-Relation between trace and eigenvalues; The sum of eigenvalues of a matrix A is equal to its trace: λ1 + λ2 + ... + λn = tr(A), where λ1, λ2, ..., λn are the eigenvalues of A.
-Relation between determinant and eigenvalues; The determinant of a matrix A is equal to the product of its eigenvalues: det(A) = λ1 * λ2 * ... * λn, where λ1, λ2, ..., λn are the eigenvalues of A.
-Principal Component Analysis (PCA); PCA is a technique used for dimensionality reduction and data compression. It identifies the principal components (eigenvectors) of a the covariance matrix of a dataset, reducing its dimensions while retaining most of the original variance.
-Eigenvalue Decomposition in PCA; PCA involves computing the eigenvalue decomposition of the covariance matrix of the data. 
-Eigenspectrum; The eigenspectrum represents the distribution of eigenvalues; the eigenvalues ranked by absolute magnitude. Large eigenvalues indicate significant variance in the data, while small eigenvalues represent noise or less important features.
-Principal Components; Principal components are the eigenvectors of the covariance matrix. They form a new orthogonal basis for the data, with the first principal component capturing the most variance, the second capturing the second most, and so on.
-Variance explained by Principal Components; Each principal component explains a certain percentage of the total variance in the data. The ratio of the eigenvalue of a principal component to the sum of all eigenvalues indicates the proportion of variance it represents.
-Dimensionality reduction; The process of finding a low-dimensional representation of a dataset that preserves most of its important features. It is useful for visualisation and speeding up machine learning algorithms.
-Dimensionality Reduction using PCA; PCA reduces the dimensionality of data by projecting it onto a lower-dimensional subspace formed by the top-k principal components. This reduces noise and computational complexity while
-Limitations of PCA; PCA assumes linearity and orthogonality of principal components, making it sensitive to outliers and nonlinear relationships. It may not perform well in cases where these assumptions are violated, requiring alternative methods like nonlinear PCA.
-Choosing the Number of Principal Components; Determining the appropriate number of principal components (k) involves analyzing the cumulative explained variance. A common approach is to select k that captures a significant portion (e.g., 90% or 95%) of the total variance.
-Applications of PCA; PCA is widely used in various fields, including image and signal processing, bioinformatics, finance, and natural language processing. It aids in feature selection, noise reduction, and visualization of high-dimensional data.
-Left singular vectors; The left singular vectors of a matrix A are the eigenvectors of AA^T. They represent the input space of the matrix transformation. The SVD produces these as the columns of the matrix U.
-Right singular vectors; The right singular vectors of a matrix A are the eigenvectors of A^TA. They represent the output space of the matrix transformation. The SVD produces these as the columns of the matrix V.
-Singular Value Decomposition (SVD); SVD is a matrix factorization method that decomposes a matrix A into three separate matrices: A = UΣV^T, where U and V are orthogonal matrices, and Σ is a diagonal matrix containing singular values.
-Singular Values in SVD; Singular values in Σ represent the magnitude of scaling applied by the transformation. They are arranged in descending order, indicating the importance of corresponding singular vectors in U and V^T.
-Interpreting U and V^T in SVD; Columns of U are left singular vectors, representing the transformation of the input space. Columns of V^T are right singular vectors, indicating the transformation in the output space. They form orthonormal bases for the input and output spaces, respectively.
-Pseudo-inverse using SVD; The pseudo-inverse A^+ of a matrix A (A^+ = VΣ^+U^T) can be computed using SVD. Σ^+ is obtained by taking the reciprocal of non-zero singular values and transposing the resulting diagonal matrix.
-Pseudo-Inverse; Denoted as A^+, is a generalization of matrix inversion for non-square matrices. In essence, it provides a solution that minimizes the error, making it valuable in applications like least squares regression and solving inconsistent or underdetermined systems.
-Low-Rank Approximation using SVD; SVD enables low-rank approximation of a matrix A. By retaining the first k singular values and their corresponding singular vectors (columns of U and V^T), a low-rank approximation A_k is obtained, minimizing the Frobenius norm ||A - A_k||.
-Condition Number; The condition number of a matrix A, κ(A), is the ratio of the largest to smallest singular value. A higher condition number indicates a ill-conditioned matrix, making numerical computations sensitive to small changes in input data.
-Applications in Recommendation Systems; SVD-based methods are used in recommendation systems, where user-item interaction matrices are factorized to discover latent patterns. Singular values capture the importance of latent features, aiding in personalized recommendations.
-Linear Systems; A linear system consists of multiple linear equations with the same variables. It can be represented as Ax = b, where A is the coefficient matrix, x is the column vector of variables, and b is the column vector of constants.
-Consistent Linear System; A linear system is consistent if it has at least one solution, meaning the equations have a common intersection point. Consistent systems can be either independent, dependent, or overdetermined.
-Independent Linear System; An independent system has a unique solution. The number of equations is equal to the number of unknowns, and the determinant of the coefficient matrix is non-zero.
-Dependent Linear System; A dependent system has infinitely many solutions. The number of equations is less than the number of unknowns, leading to multiple solutions that lie along a line, plane, or higher
-Solving Linear Systems using Matrix Inversion; For a square matrix A, the system Ax = b can be solved by multiplying both sides of the equation by A^(-1), the inverse of A. This gives the solution x = A^(-1)b, assuming A is invertible.
-Matrix Rank; The rank of a matrix A, denoted as rank(A), is the number of dimensions preserved when transforming by A. It represents the dimension of the vector space spanned by the rows or columns of the matrix. Not to be confused with tensor rank.
-Full Rank; A matrix which has Rank(A) = number of rows of A, and therefore is non-singular/invertible
-Deficient Rank; A matrix with Rank(A) < number of rows of A, and therefore is singular and cannot be inverted
-Null rank; A matrix with Rank(A) = 0, and therefore is singular and cannot be inverted (the zero matrix)
-Calculation of Rank; The rank of a matrix can be determined using various methods including singular value decomposition (SVD) and counting the non-zero singular values.
-Rank and Eigenvalues; The rank of a square matrix A is equal to the number of non-zero eigenvalues. 
-Rank and singular values; The rank of a matrix A is equal to the number of non-zero singular values.
-Adjacency Matrix; An adjacency matrix is a square matrix used to represent a graph. For a graph with n vertices, the adjacency matrix A is an n x n matrix, where A[i, j] equals 1 if there is an edge between vertex i and vertex j, and 0 otherwise.
-Directed Graphs; In the adjacency matrix of a directed graph, A[i, j] equals 1 if there is a directed edge from vertex i to vertex j. For an unconnected pair of vertices, A[i, j] equals 0.
-Undirected Graphs; In the adjacency matrix of an undirected graph, A[i, j] equals 1 if there is an edge between vertex i and vertex j. Importantly, for undirected graphs, the matrix is symmetric, meaning A[i, j] = A[j, i] for all i and j.
-Weighted Graphs; For weighted graphs, the adjacency matrix may contain weights instead of just 1s and 0s. A[i, j] represents the weight of the edge between vertex i and vertex j. If there is no edge, the entry is typically set to a special value like infinity.
-Positive Definite Matrix; A symmetric matrix A is positive definite if, for any non-zero vector x, the quadratic form x^T Ax is positive, i.e., x^T Ax > 0. Positive definite matrices have all positive eigenvalues. Never flips the sign of a vector. Always invertible.
-Positive Semidefinite Matrix; A symmetric matrix A is positive semidefinite if, for any non-zero vector x, the quadratic form x^T Ax is non-negative, i.e., x^T Ax ≥ 0. Positive semidefinite matrices have non-negative eigenvalues. Never flips the sign of a vector.
-Negative Definite Matrix; A symmetric matrix A is negative definite if, for any non-zero vector x, the quadratic form x^T Ax is negative, i.e., x^T Ax < 0. Negative definite matrices have all negative eigenvalues. Always flips the sign of a vector. Always invertible.
-Negative Semidefinite Matrix; A symmetric matrix A is negative semidefinite if, for any non-zero vector x, the quadratic form x^T Ax is non-positive, i.e., x^T Ax ≤ 0. Negative semidefinite matrices have non-positive eigenvalues. Always flips the sign of a vector.
-Indefinite Matrix; A symmetric matrix A is indefinite if it is neither positive nor negative definite. In other words, there exist vectors x and y such that x^T Ax > 0 and y^T Ay < 0. Indefinite matrices have both positive and negative eigenvalues. Flips the sign of some vectors.
-Orthogonal matrix; An orthogonal matrix is a square matrix whose columns and rows are orthogonal unit vectors (orthonormal vectors). The inverse of an orthogonal matrix is equal to its transpose. A pure *rotation* matrix.
-Pure rotation matrix; an orthogonal matrix that represents a rotation in space
-Pure scaling matrix; a diagonal matrix that represents a scaling in space
-Sparse matrix; A sparse matrix is a matrix with a large number of zero values. The opposite of a sparse matrix is a dense matrix, which has few zero values.
-Markov Chain; A Markov chain is a stochastic model describing a sequence of possible events in which the probability of each event depends only on the state attained in the previous event. It can be represented as a square matrix called the transition matrix.
-Transition Matrix; A transition matrix is a square matrix that describes the probabilities of moving from one state to another in a Markov chain. It is a stochastic matrix, meaning all its entries are non-negative and each column sums to 1.
-Low rank approximation; An approximation of a matrix A. It is obtained by retaining the first k singular values and their corresponding singular vectors (columns of U and V^T).
-Whitening; a rigorous form of normalisation of a dataset that transforms it into a Gaussian distribution with zero mean and unit covariance. It is a linear transformation that removes redundancy in the data, making it useful in various machine learning algorithms.
-Demeaning; a form of normalisation of a dataset that transforms it into a zero mean distribution by subtracting the mean. 
-Standardisation; a form of normalisation of a dataset that transforms it into a zero mean distribution with unit variance in each dimension by subtracting the mean and dividing by the standard deviation.
-What is the Laplacian matrix of a graph?;L = D - A where D is the diagonal degree matrix and A is the adjacency matrix
-What does the Fiedler value tell you?;The second smallest eigenvalue of the Laplacian — small means poorly connected graph, large means well connected
-What is the Fiedler vector?;The eigenvector corresponding to the second smallest Laplacian eigenvalue — used to partition a graph into two relatively disconnected parts
-What does the number of zero eigenvalues of the Laplacian tell you?;The number of disconnected components in the graph
-What is the condition number of a matrix?;The ratio of the largest to smallest singular value — measures how sensitive inversion is to small changes; large means ill-conditioned
-What is deflation in eigenvalue computation?;Removing the leading eigenvector from a matrix after finding it, so the next power iteration finds the next eigenvector
-What is the SVD decomposition A = U Sigma V^T?;U is orthogonal (left singular vectors), Sigma is diagonal (singular values, always positive), V^T is orthogonal (right singular vectors)
-What does the SVD split any matrix transform into?;A rotate (V^T), scale (Sigma), rotate (U) sequence
-How do you compute A^(1/2) using SVD?;A^(1/2) = U Sigma^(1/2) V^T where Sigma^(1/2) is the elementwise square root of the diagonal singular values
-How do you invert a matrix using SVD?;A^(-1) = V Sigma^(-1) U^T where Sigma^(-1) replaces each diagonal entry with its reciprocal
-What is the pseudo-inverse A+?;A+ = V Sigma+ U^T — generalises inversion to non-square matrices, finds x minimising ||Ax - y||^2
-What does low rank approximation mean?;Keeping only the top k singular values and their vectors — gives the best rank-k approximation to the original matrix
-What does the determinant being zero mean geometrically?;The transformation collapses at least one dimension to nothing — the matrix is singular and cannot be inverted
-What is a stochastic matrix?;A square matrix with non-negative entries where each row sums to 1 — represents conserving flow or probability transitions
-What is the degree matrix D?;A diagonal matrix where D_ii is the sum of edge weights connected to vertex i
-What are the numerical problems with direct matrix inversion?;Repeated floating point operations accumulate roundoff; ill-conditioned matrices amplify errors catastrophically; the inverse of a sparse matrix is generally dense
-Why is iterative solving preferred over direct inversion for linear systems?;Iterative methods only solve for one specific (x, y) pair rather than inverting for all possible y — far more numerically stable
+representing edge-weighted graphs as matrices; use an adjacency matrix where A[i,j] = weight of edge from i to j → e.g. 3-node graph: $$A = \begin{bmatrix}0&1&1\\1&0&1\\1&1&0\end{bmatrix}$$
+spectral methods; representing graphs as matrices and studying their eigenvalues/eigenvectors to reveal structure
+discrete-continuous interchange; discrete objects (graphs, words) can be represented as continuous matrices, enabling calculus-based methods
+flow in a graph; multiply adjacency matrix by a flow vector → Av gives updated flow at each node → e.g. $\begin{bmatrix}0&1\\1&0\end{bmatrix}\begin{bmatrix}3\\5\end{bmatrix} = \begin{bmatrix}5\\3\end{bmatrix}$
+sink; a node where more flow exits than enters — net outflow
+source; a node where more flow enters than exits — net inflow
+degree; number of edges connected to a node → in the matrix, it's the row sum (for unweighted graphs)
+in-degree; number of edges entering a node — column sum of adjacency matrix
+out-degree; number of edges leaving a node — row sum of adjacency matrix
+adjacency matrix; square matrix where A[i,j] = weight of edge i→j; usually sparse (mostly zeros) → $$\begin{bmatrix}0&2&0\\0&0&3\\1&0&0\end{bmatrix}$$ means edge 0→1 weight 2, edge 1→2 weight 3, edge 2→0 weight 1
+directed graph; edges have direction (arrow) — adjacency matrix is generally asymmetric: A[i,j] ≠ A[j,i]
+undirected graph; edges have no direction — adjacency matrix is symmetric: A[i,j] = A[j,i]
+flow conservation; total flow into a node = total flow out — represented by doubly stochastic matrices
+stochastic matrices; each row is a probability distribution (non-negative, sums to 1) → $$\begin{bmatrix}0.7&0.3\\0.4&0.6\end{bmatrix}$$ rows sum to 1
+row-stochastic; each row sums to 1 — represents probabilities of transitioning OUT of each state
+column-stochastic; each column sums to 1 — represents probabilities of transitioning INTO each state
+doubly stochastic matrices; both rows and columns sum to 1 — conserves flow in AND out of every node
+matrix exponentiation; $A^5 = A @ A @ A @ A @ A$ — applying a linear transform 5 times in a row
+integer matrix powers as repeated linear transformations; $A^n$ applies the transformation encoded by A exactly n times → $A^2$ = "two steps on a graph"
+matrix inversion; $A^{-1}$ undoes A's transformation: $A^{-1}Ax = x$ → e.g. if A doubles everything, $A^{-1}$ halves everything
+Number of eigenvalues; an N×N matrix has exactly N eigenvalues (counting complex ones and multiplicities)
+Number of eigenvectors; an N×N matrix has N eigenvectors — may not all be distinct if the matrix is singular
+Eigenvalues of a matrix; scalars λ satisfying det(A − λI) = 0 — the values that scale (not rotate) their corresponding eigenvector
+Eigenvectors of a matrix; non-zero vectors v satisfying Av = λv — they pass through a linear transform unchanged in direction (just scaled by λ)
+Interpretation of an eigenvector; the "special directions" of a transformation that don't rotate — just stretch or flip → e.g. for a scaling matrix, the axes are eigenvectors
+Interpretation of an eigenvalue; how much the eigenvector is stretched (λ>1), compressed (0<λ<1), or flipped (λ<0) by the transformation
+Trace of a matrix; sum of diagonal entries = sum of all eigenvalues → $\text{tr}\begin{bmatrix}3&1\\0&5\end{bmatrix} = 3+5 = 8$
+Determinant; product of all eigenvalues → $\det\begin{bmatrix}2&0\\0&3\end{bmatrix} = 2\times3 = 6$ — geometrically: how much the transform scales area (2-D) or volume (3-D)
+Geometric interpretation of the determinant; area of parallelogram spanned by columns of A — det=2 means the transform doubles area; det=0 means it collapses to a lower dimension
+Singular; det(A) = 0 — the transform collapses at least one dimension; not invertible → e.g. $\begin{bmatrix}1&2\\2&4\end{bmatrix}$ (row 2 = 2×row 1)
+Non-singular; det(A) ≠ 0 — all dimensions preserved, matrix is invertible
+Power iteration method; repeatedly apply A and normalise → $x_{n+1} = Ax_n / \|Ax_n\|$ — converges to the eigenvector with the largest |λ|
+Eigenpair; a matched pair (λ, v) where Av = λv
+Eigendecomposition; $A = Q\Lambda Q^{-1}$ where columns of Q are eigenvectors and Λ is diagonal with eigenvalues → only possible for diagonalisable matrices
+Geometric interpretation of eigenvalues; λ>1: stretches along that direction; 0<λ<1: compresses; λ<0: flips direction; λ=0: collapses that dimension to 0
+Geometric interpretation of singularity; det=0 → at least one eigenvalue is 0 → the transform squashes space flat in at least one direction → information is lost, can't be undone
+Real eigenvalues; symmetric matrices always have real (not complex) eigenvalues — this is why covariance matrices are well-behaved
+Complex eigenvalues; indicate rotation in the transformation — e.g. the 2-D rotation matrix has complex eigenvalues e^{±iθ}
+Relation between trace and eigenvalues; $\text{tr}(A) = \sum_i \lambda_i$ — the diagonal sum equals the eigenvalue sum
+Relation between determinant and eigenvalues; $\det(A) = \prod_i \lambda_i$ — product of all eigenvalues
+Principal Component Analysis (PCA); finds the directions of greatest variance in a dataset by computing the eigenvectors of the covariance matrix — used to reduce dimensions while keeping the most information
+Eigenvalue Decomposition in PCA; decompose the covariance matrix $C = Q\Lambda Q^T$ — eigenvectors Q give the principal directions, eigenvalues Λ give how much variance each direction captures
+Eigenspectrum; eigenvalues ranked by absolute magnitude → large eigenvalue = important direction with lots of variance; small eigenvalue = noise
+Principal Components; eigenvectors of the covariance matrix — form a new orthogonal coordinate system aligned with the data's natural axes of variation
+Variance explained by Principal Components; eigenvalue of PC_k / sum of all eigenvalues = fraction of total variance captured by that component
+Dimensionality reduction; project data onto a lower-dimensional subspace — e.g. keep top-3 PCs from 100-D data → preserve 90% of variance in 3 numbers
+Dimensionality Reduction using PCA; project onto top-k eigenvectors → $\hat{X} = XQ_k$ where $Q_k$ contains only the k largest eigenvectors — best rank-k approximation
+Limitations of PCA; assumes linear relationships; sensitive to outliers; ignores non-Gaussian structure; cannot capture curved manifolds
+Choosing the Number of Principal Components; plot cumulative explained variance vs k — pick k where the curve bends ("elbow") or where cumulative variance exceeds 90-95%
+Applications of PCA; image compression, face recognition, gene expression analysis, noise reduction, data visualisation
+Left singular vectors; columns of U in A = UΣV^T — they are eigenvectors of AA^T and form an orthonormal basis for the output (row) space
+Right singular vectors; columns of V in A = UΣV^T — eigenvectors of A^TA; form an orthonormal basis for the input (column) space
+Singular Value Decomposition (SVD); any matrix $A = U\Sigma V^T$ where U and V are orthogonal (rotations) and Σ is diagonal (scalings) → decomposes any linear map into: rotate, scale, rotate
+Singular Values in SVD; diagonal entries of Σ — always non-negative, sorted largest first; indicate how much each direction is stretched by the transformation
+Interpreting U and V^T in SVD; V^T rotates the input; Σ scales each axis; U rotates into the output space → together: any linear map = rotate → scale → rotate
+Pseudo-inverse using SVD; $A^+ = V\Sigma^+ U^T$ where $\Sigma^+$ replaces each non-zero diagonal with its reciprocal — gives the least-squares solution to Ax = b
+Pseudo-Inverse; $A^+$ generalises matrix inverse to non-square and singular matrices → minimises $\|Ax - b\|^2$; used in least squares
+Low-Rank Approximation using SVD; keep only the top-k singular values → $A_k = U_k\Sigma_k V_k^T$ — best rank-k approximation to A (minimises Frobenius norm of error)
+Condition Number; ratio of largest to smallest singular value: $\kappa(A) = \sigma_\max / \sigma_\min$ — large κ means the matrix is ill-conditioned: small input changes cause large output changes
+Applications in Recommendation Systems; factorize a user×item rating matrix via SVD → the top singular vectors capture latent factors (genres, styles); reconstruct missing ratings
+Linear Systems; $A\mathbf{x} = \mathbf{b}$ — find x given A and b → geometrically: find the point that A maps to b
+Consistent Linear System; has at least one solution — b lies in the column space of A
+Independent Linear System; exactly one solution — A is square and invertible (det ≠ 0)
+Dependent Linear System; infinitely many solutions — b lies in column space but A is rank-deficient; solution set is a line, plane, or higher-dim affine subspace
+Solving Linear Systems using Matrix Inversion; $\mathbf{x} = A^{-1}\mathbf{b}$ — only for square invertible A; computationally expensive and numerically fragile for large systems
+Matrix Rank; number of linearly independent rows (= columns) = number of dimensions the transformation preserves → rank of $\begin{bmatrix}1&2\\2&4\end{bmatrix}$ is 1 (row 2 = 2×row 1)
+Full Rank; rank = number of rows = non-singular = invertible
+Deficient Rank; rank < number of rows = singular = not invertible — some dimension is collapsed to 0
+Null rank; rank = 0 — the zero matrix; maps everything to the origin
+Calculation of Rank; count non-zero singular values from SVD — each non-zero σ corresponds to a preserved dimension
+Rank and Eigenvalues; rank of a square matrix = number of non-zero eigenvalues
+Rank and singular values; rank of any matrix = number of non-zero singular values
+Adjacency Matrix; A[i,j] = 1 if edge between i and j → for 3 nodes with edges 0-1 and 1-2: $$A=\begin{bmatrix}0&1&0\\1&0&1\\0&1&0\end{bmatrix}$$
+Directed Graphs; adjacency matrix is asymmetric — A[i,j]=1 means arrow FROM i TO j
+Undirected Graphs; adjacency matrix is symmetric — if A[i,j]=1 then A[j,i]=1 (no direction)
+Weighted Graphs; A[i,j] = edge weight (not just 0/1) → e.g. road network where weights are distances
+Positive Definite Matrix; $\mathbf{x}^T A\mathbf{x} > 0$ for all non-zero x — all eigenvalues positive — always invertible — intuitively: like a bowl, curving upward in every direction
+Positive Semidefinite Matrix; $\mathbf{x}^T A\mathbf{x} \geq 0$ — eigenvalues ≥ 0 — covariance matrices are always PSD
+Negative Definite Matrix; $\mathbf{x}^T A\mathbf{x} < 0$ — all eigenvalues negative — like an upside-down bowl; always invertible
+Negative Semidefinite Matrix; $\mathbf{x}^T A\mathbf{x} \leq 0$ — eigenvalues ≤ 0
+Indefinite Matrix; has both positive and negative eigenvalues — saddle shape; some directions curve up, others curve down
+Orthogonal matrix; $A^T A = I$ — columns are orthonormal — represents a pure rotation (preserves lengths and angles, det=±1)
+Pure rotation matrix; orthogonal matrix with det=+1 — rotates without flipping
+Pure scaling matrix; diagonal matrix — e.g. $\begin{bmatrix}2&0\\0&3\end{bmatrix}$ stretches x by 2, y by 3
+Sparse matrix; mostly zero entries → e.g. a web graph with 1 billion pages: most pages link to only ~10 others, so 99.999% of entries are 0
+Markov Chain; sequence of states where transition probabilities depend only on the current state — modelled as a column-stochastic transition matrix
+Transition Matrix; square column-stochastic matrix where T[j,i] = P(next state = j | current state = i) — multiply by a state vector to get next-step probabilities
+Low rank approximation; keep top-k singular values and vectors: $A_k = \sum_{i=1}^k \sigma_i \mathbf{u}_i \mathbf{v}_i^T$ — e.g. compressing a 1000×1000 image using only 10 singular values
+Whitening; transform data to have zero mean and identity covariance: $\tilde{X} = \Sigma^{-1/2}(X - \mu)$ — removes correlations and equalises variances
+Demeaning; subtract the mean from every sample: $\tilde{x}_i = x_i - \bar{x}$ — centres the dataset at the origin
+Standardisation; demean then divide by standard deviation: $\tilde{x}_i = (x_i - \mu)/\sigma$ — each dimension then has mean 0 and variance 1
+What is the Laplacian matrix of a graph?;$L = D - A$ where D is the diagonal degree matrix and A is the adjacency matrix → e.g. $$A=\begin{bmatrix}0&1&1\\1&0&0\\1&0&0\end{bmatrix}, D=\begin{bmatrix}2&0&0\\0&1&0\\0&0&1\end{bmatrix}, L=\begin{bmatrix}2&-1&-1\\-1&1&0\\-1&0&1\end{bmatrix}$$
+What does the Fiedler value tell you?;second smallest eigenvalue of L — small Fiedler value → graph is barely connected (one cut disconnects it); large → highly connected
+What is the Fiedler vector?;eigenvector for the second smallest eigenvalue of L — sign of each entry indicates which side of the optimal 2-way graph partition that node belongs to
+What does the number of zero eigenvalues of the Laplacian tell you?;number of disconnected components — one zero eigenvalue = connected graph; k zero eigenvalues = k separate components
+What is the condition number of a matrix?;$\kappa(A) = \sigma_\max / \sigma_\min$ — measures sensitivity of solution to small perturbations; large κ → ill-conditioned → round-off errors are amplified
+What is deflation in eigenvalue computation?;after finding the leading eigenvector v1, subtract its contribution ($\sigma_1 u_1 v_1^T$) from the matrix — the next power iteration then finds the second eigenvector
+What is the SVD decomposition A = U Sigma V^T?;U: left singular vectors (orthogonal), Σ: diagonal positive singular values, V^T: right singular vectors (orthogonal) → any matrix = rotate → scale → rotate
+What does the SVD split any matrix transform into?;V^T rotates the input coordinate frame, Σ scales each axis independently, U rotates into the output coordinate frame
+How do you compute A^(1/2) using SVD?;$A^{1/2} = U\Sigma^{1/2}V^T$ where $\Sigma^{1/2}$ replaces each diagonal σ with √σ — the matrix square root
+How do you invert a matrix using SVD?;$A^{-1} = V\Sigma^{-1}U^T$ where $\Sigma^{-1}$ replaces each diagonal σ with 1/σ — fails if any σ = 0
+What is the pseudo-inverse A+?;$A^+ = V\Sigma^+ U^T$ — generalises inversion to non-square/singular matrices; finds x minimising $\|Ax - b\|^2$
+What does low rank approximation mean?;keep only top-k singular values/vectors → throws away small σ (noise) and keeps large σ (signal) → compressed representation of the matrix
+What does the determinant being zero mean geometrically?;the transformation collapses at least one dimension — area (2-D) or volume (3-D) becomes 0; information is destroyed and the transform can't be undone
+What is a stochastic matrix?;non-negative entries where each row (or column) sums to 1 — models probability transitions between states; multiplying by a probability vector gives the next distribution
+What is the degree matrix D?;diagonal matrix where $D_{ii}$ = sum of edge weights attached to node i — used to form the Laplacian: L = D − A
+What are the numerical problems with direct matrix inversion?;floating point errors accumulate with each multiply; ill-conditioned matrices amplify errors massively; inverse of a sparse matrix is dense (storage explosion)
+Why is iterative solving preferred over direct inversion for linear systems?;iterative methods (e.g. conjugate gradient) find one specific solution Ax=b without forming A^{-1} — much cheaper and more numerically stable

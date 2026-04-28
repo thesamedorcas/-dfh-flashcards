@@ -1,62 +1,62 @@
-Jacobian matrix;matrix of all first-order partial derivatives of a vector-valued function
-Jacobian determinant;scalar value indicating how a small volume in input space is scaled to output space
-Gradient vector;vector containing partial derivatives representing the rate of change of a function. First row of the Jacobian matrix
-Nabla;symbol (∇) denoting vector differential operator used to represent gradients or derivatives. ∇f(x) = (∂f/∂x, ∂f/∂y, ∂f/∂z, ...) if f is a scalar function of a vector variable.
-Gradient Descent;an iterative optimization algorithm used to minimize a function by adjusting its parameters in the direction of the negative gradient
-Gradient Descent Equation;θ = θ - α ∇J(θ), where θ represents parameters, α is the learning rate, J(θ) is the cost function, and ∇J(θ) is the gradient of the cost function at θ
-Learning Rate or Step Size;scalar value determining the size of steps taken during each iteration of gradient descent
-Stochastic Gradient Descent;updates parameters for each example or sub-batch, suitable for large datasets, more noisy but can escape local optima
-Convergence Criteria;stopping condition indicating when to stop gradient descent, commonly based on small changes in the cost function or fixed number of iterations
-Gradient Descent with Momentum;utilizes a moving average of past gradients to accelerate convergence, prevents oscillation in shallow ravines
-Learning Rate Schedules;techniques like step decay or exponential decay that gradually reduce the learning rate during training to fine-tune the model
-Critical point;point where the gradient is zero, indicating a potential minimum, maximum, or saddle point
-Local Minimum;critical point where the function has lower values than its surrounding points, indicating a potential lowest point in the local vicinity
-Local Maximum;critical point where the function has higher values than its surrounding points, indicating a potential highest point in the local vicinity
-Saddle Point;critical point where the function is neither a minimum nor a maximum, but the gradient is zero; can be a peak in one direction and a valley in another
-Ridge Point;critical point where the function has higher values in multiple directions and lower values in orthogonal directions
-Plateau Point;critical point where the function has a flat region, making it challenging to determine the nature of the critical point
-Global Minimum;critical point where the function has the absolute lowest value over its entire domain, indicating the overall minimum point
-Global Maximum;critical point where the function has the absolute highest value over its entire domain, indicating the overall maximum point
-Hessian Matrix;matrix of second-order partial derivatives representing the curvature of a multivariable function. Used to classify critical points.
-Curvature;measure of how fast a gradient is changing at a given point, indicating the shape of the curve
-Eigenvalues of the Hessian Matrix;values that indicate the direction and magnitude of the curvature at a critical point, positive for minima, negative for maxima, mixed for saddle points
-Positive Definite Hessian Matrix;all eigenvalues are positive, indicating a local minimum at the critical point
-Negative Definite Hessian Matrix;all eigenvalues are negative, indicating a local maximum at the critical point
-Indefinite Hessian Matrix;contains both positive and negative eigenvalues, indicating a saddle point at the critical point
-Positive Semi-Definite Hessian Matrix;all eigenvalues are positive or zero, indicating a local minimum or plateau point at the critical point
-Negative Semi-Definite Hessian Matrix;all eigenvalues are negative or zero, indicating a local maximum or plateau point at the critical point
-Lipschitz Continuity;property of a function where there exists a Lipschitz constant L such that |f(x) - f(y)| ≤ L|x - y| for all x, y in the domain
-Lipschitz Constant;the smallest positive real number L satisfying the Lipschitz condition, quantifying the function's rate of change
-Lipschitz Continuous Function;function where the rate of change between any two points is bounded by a constant L, ensuring smoothness and control over oscillations
-Examples of Lipschitz Continuous Functions;linear functions, functions with bounded derivatives, functions defined on closed intervals with continuous derivatives
-Functions Not Lipschitz Continuous;functions with unbounded slopes, functions with infinite oscillations, functions with vertical asymptotes
-Importance of Lipschitz continuity;Lipschitz continuity ensures the stability of optimization algorithms, allowing predictable convergence rates and preventing overshooting
-Automatic Differentiation;technique for efficiently and accurately evaluating derivatives of mathematical expressions in code, used in machine learning and scientific computing
-Forward Mode Automatic Differentiation;computes derivatives by applying the chain rule from the inside out, suitable for functions with few inputs and many outputs
-Backward Mode Automatic Differentiation;computes derivatives by applying the chain rule from the outside in, efficient for functions with many inputs and few outputs (common in deep learning)
-Computational Complexity of Automatic Differentiation;forward mode complexity is linear in the number of inputs, backward mode complexity is linear in the number of outputs
-`autograd` Package in Python;Python library providing automatic differentiation for NumPy-like operations, simplifying gradient computation for machine learning models
-grad(); an autograd function taking a (vector -> real) function as input and returning a (vector -> vector) function that computes the gradient of the input function
-Tape-based AD;a method of automatic differentiation where intermediate values and operations are recorded on a tape, enabling efficient calculation of gradients
-Static vs. Dynamic Computation Graphs;static graphs (common in TensorFlow) define the computation graph before runtime, dynamic graphs (common in PyTorch) allow defining the graph as operations are executed
-Issues with Numerical Differentiation;problems like choosing an appropriate step size (leading to numerical instability or precision issues), round-off errors, and the curse of dimensionality in high-dimensional spaces
-Numerical Differentiation;approximating derivatives by finite differences, involving small changes in input to calculate the rate of change of a function
-Symbolic Differentiation;computing exact derivatives using algebraic techniques, providing precise symbolic expressions for derivatives
-Automatic Differentiation;efficiently and accurately evaluating derivatives of mathematical expressions, utilized in machine learning and scientific computing for gradient-based optimization
-Gradient Descent Equation; $$θ = θ - ∂∇L(θ)$$
-Gradient Vector Equation (for a scalar function f(x, y, z)); $$∇f(x, y, z) = (∂f/∂x, ∂f/∂y, ∂f/∂z)$$
-What is the gradient vector geometrically?;A vector pointing in the direction of steepest increase of the function at a given point
-What is the Hessian matrix?;The matrix of all second-order partial derivatives of a scalar function — captures curvature; has d^2 entries scaling quadratically with dimension
-Why is computing the Hessian impractical for large models?;A 1 million parameter model has a 10^12 entry Hessian — storing it alone would require around 8 terabytes
-What is the time complexity of computing gradients via autodiff?;O(n) — a small constant factor times the cost of evaluating the function itself, regardless of dimension
-What is forward mode autodiff?;Computes one column of the Jacobian per pass — efficient when there are few inputs and many outputs
-What is backward mode autodiff?;Computes one row of the Jacobian per pass — efficient for many inputs and few outputs; used in deep learning as backpropagation
-What is stochastic relaxation?;Averaging a steep or discontinuous objective over many random instances to produce a smooth approximately Lipschitz continuous function
-What is a minibatch in SGD?;A randomly selected subset of training examples used to compute an approximate gradient for one step of SGD
-What is an epoch in SGD?;One full pass through the entire training dataset — enough minibatches for every example to be seen once
-What is momentum in gradient descent?;Maintaining a velocity vector that accumulates past gradients — helps skip over small bumps and flat regions; v = alpha*v + delta*grad_L(theta)
-What is line search?;An adaptive step size method that starts with a large step and shrinks it until the Armijo-Goldstein condition is satisfied
-What is the Armijo-Goldstein condition?;L(theta - delta*d) <= L(theta) + delta*c*||grad_L|| — checks that the actual decrease matches what the local gradient predicts
-Why is numerical differentiation impractical in high dimensions?;Computing the gradient requires 2n function evaluations — O(n) times more expensive than autodiff
-What is the key advantage of SGD over full gradient descent for large datasets?;The objective is a sum of per-example losses — a minibatch gives a cheap approximate gradient, enabling training on data too large to fit in memory
-Why do second-order methods fail in high dimensions?;The Hessian has d^2 entries — for 1 million parameters that is 10^12 entries requiring around 8TB, making storage and computation completely infeasible
+Jacobian matrix;matrix of all first-order partial derivatives of a vector-valued function → for f: ℝ³→ℝ², $J = \begin{bmatrix}\partial f_1/\partial x_1 & \partial f_1/\partial x_2 & \partial f_1/\partial x_3\\ \partial f_2/\partial x_1 & \partial f_2/\partial x_2 & \partial f_2/\partial x_3\end{bmatrix}$
+Jacobian determinant;scalar = how much a small volume in input space is squashed/expanded in output space → det(J)=2 means areas double
+Gradient vector;vector of partial derivatives pointing in the direction of steepest uphill climb → $\nabla f(x,y) = [\partial f/\partial x,\ \partial f/\partial y]$ — e.g. for $f=x^2+y^2$: $\nabla f = [2x,\ 2y]$, pointing away from origin
+Nabla;the ∇ symbol denoting the gradient operator → $\nabla f(\mathbf{x}) = \left[\frac{\partial f}{\partial x_1}, \frac{\partial f}{\partial x_2}, \ldots\right]$
+Gradient Descent;move parameters in the direction of steepest downhill (negative gradient) to minimise a loss function → like a ball rolling down a hill
+Gradient Descent Equation;$\theta \leftarrow \theta - \alpha\,\nabla_\theta L(\theta)$ — subtract a step-size α times the gradient at each iteration
+Learning Rate or Step Size;α controls how big each gradient step is → too large: overshoots, diverges; too small: converges very slowly; typically 0.001–0.1
+Stochastic Gradient Descent;use a random mini-batch of examples per step instead of the full dataset → noisy but fast — can escape shallow local minima
+Convergence Criteria;stop when gradient is near zero, loss stops decreasing, or a max number of iterations is reached
+Gradient Descent with Momentum;maintain a velocity: $v \leftarrow \beta v - \alpha\nabla L$; $\theta \leftarrow \theta + v$ — accumulates speed downhill, dampens oscillations in ravines
+Learning Rate Schedules;reduce α over time → step decay: halve every 10 epochs; cosine decay: smoothly decrease; helps fine-tune near the minimum
+Critical point;point where $\nabla L = \mathbf{0}$ — gradient is zero, so gradient descent stops here (could be min, max, or saddle)
+Local Minimum;critical point where every direction leads uphill — Hessian is positive definite — might not be the global minimum
+Local Maximum;critical point where every direction leads downhill — Hessian is negative definite
+Saddle Point;critical point that is a minimum in some directions and a maximum in others — gradient is zero but it's neither min nor max → e.g. $f(x,y) = x^2 - y^2$ at origin
+Ridge Point;critical point with high values in multiple directions and lower values in orthogonal directions
+Plateau Point;flat region where gradient ≈ 0 everywhere — gradient descent stalls; momentum can help escape
+Global Minimum;the lowest value of L over the entire parameter space — guaranteed to be found by gradient descent only for convex functions
+Global Maximum;the highest value of L over the entire parameter space
+Hessian Matrix;matrix of all second-order partial derivatives — captures curvature at a point → $$H = \begin{bmatrix}\partial^2 L/\partial\theta_1^2 & \partial^2 L/\partial\theta_1\partial\theta_2\\ \partial^2 L/\partial\theta_2\partial\theta_1 & \partial^2 L/\partial\theta_2^2\end{bmatrix}$$ for 2 parameters
+Curvature;how fast the gradient is changing — high curvature = sharp bowl; low curvature = flat/shallow; Hessian eigenvalues measure curvature in each direction
+Eigenvalues of the Hessian Matrix;all positive → local min; all negative → local max; mixed sign → saddle point
+Positive Definite Hessian Matrix;all eigenvalues positive → function curves upward in every direction → local minimum confirmed
+Negative Definite Hessian Matrix;all eigenvalues negative → function curves downward in every direction → local maximum confirmed
+Indefinite Hessian Matrix;mixed positive and negative eigenvalues → saddle point — minimum in some directions, maximum in others
+Positive Semi-Definite Hessian Matrix;eigenvalues ≥ 0 → local minimum or flat plateau
+Negative Semi-Definite Hessian Matrix;eigenvalues ≤ 0 → local maximum or flat plateau
+Lipschitz Continuity;$|f(x) - f(y)| \leq L|x-y|$ for all x,y — the function can't change faster than slope L → bounded gradient → gradient descent won't overshoot wildly
+Lipschitz Constant;the smallest L satisfying the Lipschitz condition — equals the maximum slope (max gradient magnitude)
+Lipschitz Continuous Function;function whose gradient is bounded everywhere — gradient descent with step size α < 1/L is guaranteed to converge for convex functions
+Examples of Lipschitz Continuous Functions;linear functions, sin, cos, sigmoid, relu — all have bounded derivatives
+Functions Not Lipschitz Continuous;$f(x) = x^2$ is not Lipschitz on all of ℝ (slope grows without bound); $f(x) = \sqrt{x}$ at x=0 (vertical tangent)
+Importance of Lipschitz continuity;ensures gradient descent steps don't overshoot — if L is known, optimal step size is α = 1/L
+Automatic Differentiation;compute exact derivatives of code by tracking operations — not numerical finite differences, not symbolic algebra; applies the chain rule exactly
+Forward Mode Automatic Differentiation;propagates derivative from input to output in one forward pass — efficient when there are few inputs and many outputs
+Backward Mode Automatic Differentiation;propagates derivative from output back to inputs (backpropagation) — O(n) for any number of inputs → standard in deep learning
+Computational Complexity of Automatic Differentiation;forward mode: O(n_inputs) passes; backward mode: O(n_outputs) passes — for scalar loss (1 output), backward needs just 1 pass regardless of model size
+`autograd` Package in Python;Python library wrapping NumPy with automatic differentiation — grad(f) returns a function that computes ∇f
+grad();takes a (vector→scalar) function, returns the gradient function → g = grad(f); g(x) gives ∇f(x)
+Tape-based AD;operations are recorded on a "tape" during the forward pass; the tape is replayed backward to compute gradients → how PyTorch autograd works
+Static vs. Dynamic Computation Graphs;static (TensorFlow 1.x): graph compiled before running — fast but inflexible; dynamic (PyTorch): graph built on-the-fly — flexible for variable-length inputs
+Issues with Numerical Differentiation;step size h too large → inaccurate; h too small → roundoff errors dominate; requires 2N evaluations for N parameters → O(N) times slower than autodiff
+Numerical Differentiation;$(f(x+h) - f(x-h)) / (2h)$ — approximates derivative by finite differences; quick for checking but slow and inaccurate for large models
+Symbolic Differentiation;derive exact algebraic expressions for derivatives (like you do on paper) — can produce expression swell (huge formulas) for complex functions
+Automatic Differentiation;chain rule applied to elementary operations programmatically — gives exact gradient in O(cost of f) time
+Gradient Descent Equation; $$\theta \leftarrow \theta - \delta\,\nabla L(\theta)$$
+Gradient Vector Equation (for a scalar function f(x, y, z)); $$\nabla f(x, y, z) = \left(\frac{\partial f}{\partial x},\ \frac{\partial f}{\partial y},\ \frac{\partial f}{\partial z}\right)$$
+What is the gradient vector geometrically?;points in the direction of steepest increase of f at the current point — gradient descent moves opposite to this (downhill)
+What is the Hessian matrix?;matrix of all second-order partial derivatives — captures curvature; entry H[i,j] = ∂²L/∂θᵢ∂θⱼ; has d² entries scaling quadratically with dimension
+Why is computing the Hessian impractical for large models?;1 million parameters → 10¹² entries → ~8 TB of memory just to store it, ignoring the cost of computing it
+What is the time complexity of computing gradients via autodiff?;O(n) — roughly 3–5× the cost of a single forward pass, regardless of how many parameters
+What is forward mode autodiff?;one forward pass computes derivatives w.r.t. one input — efficient for few inputs (wide Jacobian rows)
+What is backward mode autodiff?;one backward pass computes derivatives w.r.t. all inputs — efficient for many inputs, few outputs; used in backprop because loss is a scalar
+What is stochastic relaxation?;average a steep/discontinuous objective over many random samples → produces a smooth function that gradient descent can optimise
+What is a minibatch in SGD?;a randomly chosen subset of training examples (e.g. 32 or 256) used to estimate the gradient for one parameter update step
+What is an epoch in SGD?;one full pass through the training dataset — the number of gradient steps per epoch = (dataset size / batch size)
+What is momentum in gradient descent?;a velocity vector that accumulates past gradients: $v \leftarrow \alpha v - \delta\nabla L(\theta)$; $\theta \leftarrow \theta + v$ — builds up speed in consistent directions, dampens oscillations
+What is line search?;an adaptive step size method — start with a large step and halve it until the Armijo condition is satisfied → avoids choosing α manually
+What is the Armijo-Goldstein condition?;$L(\theta - \delta\mathbf{d}) \leq L(\theta) - \delta c \|\nabla L\|^2$ — the actual decrease must be at least a fraction c of what the gradient predicts; prevents taking steps that barely improve L
+Why is numerical differentiation impractical in high dimensions?;gradient of d parameters needs 2d function evaluations — 1 million parameters → 2 million forward passes vs 1 backward pass with autodiff
+What is the key advantage of SGD over full gradient descent for large datasets?;loss is a sum over examples — a minibatch gives a cheap noisy gradient estimate, enabling training on datasets too large to fit in memory
+Why do second-order methods fail in high dimensions?;the Hessian is d×d — for d=10⁶ parameters, storing it takes ~8 TB; even computing it would take longer than training

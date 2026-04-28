@@ -1,112 +1,111 @@
-evenly spaced samples;samples taken at regular intervals from a continuous signal
-consistent quantization;uniform assignment of digital values to analog signal levels
-quantization levels;number of distinct amplitude values in a digital signal
-quantization noise;error introduced due to the finite number of quantization levels
-sampling rate;number of samples taken per unit of time from a continuous signal
-Nyquist rate;minimum sampling rate required to accurately represent a signal without aliasing
-aliasing;artifacts caused by undersampling, creating false frequencies in the reconstructed signal
-aliasing effects;misinterpretation of high-frequency signals as low-frequency signals in the sampled data
-aliasing mitigation;preventing aliasing by using a sampling rate higher than the Nyquist rate
-SNR (Signal-to-Noise Ratio) formula;SNR = 20 * log10 (Amplitude of Signal / RMS Noise Amplitude)
-Frequency of aliased components formula;Aliased Frequency = |k * Sampling Frequency - Original Frequency|
-Quantization SNR formula;Quantization SNR = 6.02 * (Number of Bits) + 1.76 dB
-interpolation of irregular data;estimating unknown data points within a dataset with irregularly spaced points
-common interpolation methods;linear, polynomial, sinc, and nearest-neighbor interpolation
-linear interpolation;estimating unknown values by connecting adjacent known data points with straight lines
-polynomial interpolation;approximating data points using a polynomial equation fitted to neighboring points
-nearest-neighbor interpolation;estimating unknown values based on the nearest known data point
-resampling;process of changing the sampling rate of a signal, altering the number of samples per unit time 
-sliding window technique;a method to analyze data within a fixed-size window that slides over the dataset
-running mean;average computed over a fixed-size window as it moves through the data
-moving average;series of averages calculated from different subsets of the dataset, useful for smoothing
-linear filtering;process of modifying an input signal using a linear operation (a weighted sum), producing an output signal
-weighted averages;calculations that assign different weights to values in a window when computing a moving average
-convolution;mathematical operation combining two functions to produce a third, by multiplying and summing 
-convolution in signal processing;process of combining input signal and filter kernel to create an output signal
-linear filtering using convolution;applying a filter kernel to input signal via convolution to obtain filtered output
-convolution formula;(f * g)(t) = ∫[from -∞ to ∞] f(τ) * g(t - τ) dτ, where * denotes convolution
-convolution properties;commutativity, associativity, distributivity, and identity element exist in convolution
-common types of filters;low-pass, high-pass, and band-pass filters
-low-pass filter;allows low-frequency components to pass through while attenuating high-frequency components
-high-pass filter;allows high-frequency components to pass through while attenuating low-frequency components
-band-pass filter;allows a specific range of frequencies to pass through, attenuating others
-kernel; array of coefficients used in linear filtering to modify the input signal. We convolve a signal with a kernel specifying a filter. 
-filter kernel coefficients;weights assigned to each element of the kernel, affecting the filter's behavior
-filter design;process of selecting kernel size and coefficients to achieve desired filtering effect
-impulse response;the output of a system when an impulse signal (Dirac delta function) is applied as input
-impulse response function;representation of a system's output in response to an impulse signal
-impulse response recovery;process of determining a system's behavior by analyzing its impulse response
-impulse response recovery methods;deconvolution techniques, Fourier transform, and inverse filtering
-deconvolution;mathematical operation used to recover the original signal from its convolution with an impulse response
-impulse response recovery challenges;noise interference, finite duration of signals, and ill-conditioned systems
-Dirac delta function;mathematical function representing an idealized impulse at a single point in space or time ("spike" function)
-properties of Dirac delta function;integral over the entire real line is 1, and it is zero everywhere except at 0
-Dirac delta in convolution; Dirac delta function is the identity element in convolution, i.e. f * δ = f
-nonlinear filtering;filtering technique where the computation is anything other than a weighted sum
-median filtering;nonlinear filtering method where the output is the median value of the neighboring elements in the window
-advantages of median filtering;eliminates spike noise, preserves edges, and is computationally efficient
-pure frequencies;signals consisting of a single frequency without any harmonics or overtones
-sinusoids;signals characterized by a sinusoidal waveform, represented as A * sin(2πft + φ), where A is amplitude, f is frequency, t is time, and φ is phase angle
-amplitude of a sinusoid;maximum displacement of the waveform from its equilibrium position
-frequency of a sinusoid;number of complete cycles occurring in one unit of time, measured in Hertz (Hz)
-phase angle of a sinusoid;offset in the horizontal direction, indicating the starting point of the waveform
-Fourier Transform;mathematical technique that transforms a time-domain signal into its frequency components
-continuous Fourier Transform equation;F(ω) = ∫[from -∞ to ∞] f(t) * e^(-jωt) dt, where F(ω) represents the frequency spectrum of f(t)
-Discrete Fourier Transform (DFT);discretized version of the Fourier Transform, applied to sampled, discrete-time signals
-DFT equation;X(k) = Σ[n=0 to N-1] x(n) * e^(-j(2π/N)kn), where X(k) represents the frequency component at index k. X(k) is a complex number with magnitude and phase.
-Complex number; a number that can be expressed in the form a + bi, where a and b are real numbers, and i is the imaginary unit, satisfying i^2 = -1
-magnitude and phase angle; two components of a complex number, representing its amplitude and phase angle. Amplitude = sqrt(a^2 + b^2), Phase = arctan(b/a)
-Argand diagram; a graphical representation of complex numbers as points in the complex plane, with the real part on the x-axis and the imaginary part on the y-axis
-Fast Fourier Transform (FFT);algorithm for efficiently computing the Discrete Fourier Transform, reducing time complexity from O(N^2) to O(N log N)
-time complexity of DFT;O(N^2), where N is the number of samples in the input signal
-time complexity of FFT;O(N log N), significantly faster than the naive DFT calculation
-Inverse Discrete Fourier Transform (IDFT);transforms frequency-domain representation back to time domain
-IDFT equation;x(n) = (1/N) * Σ[k=0 to N-1] X(k) * e^(j(2π/N)kn), where x(n) is the reconstructed time-domain signal
-spatial domain;representation of a signal in terms of its amplitude at various points in space or time
-frequency domain;representation of a signal in terms of its frequency components and their amplitudes
-convolution theorem;states that convolution in the time domain is equivalent to multiplication in the frequency domain
-implications of the convolution theorem;filtering in the frequency domain is computationally efficient, and convolution in time domain can be avoided
-filter design with DFT;designing filters by manipulating their frequency response in the frequency domain
-steps for filter design using DFT;1. Determine desired frequency response 2. Compute inverse DFT to get filter coefficients 3. Apply these coefficients for convolution
-frequency response;representation of a filter's behavior as a function of frequency, showing how it affects different frequencies
-sinc interpolation;interpolation technique that uses sinc function as the interpolation kernel
-sinc function;mathematical function defined as sinc(x) = sin(πx) / (πx), with a central peak at x = 0 and zeros at other integers
-ideal interpolation kernel;the sinc function, providing perfect reconstruction of the original signal without distortion
-sinc interpolation process;multiply input samples with sinc function, summing the results to obtain interpolated values
-limitations of sinc interpolation;computational intensity due to infinite support, requires truncation or windowing for practical implementation
-windowing functions;mathematical functions used to taper the edges of a signal before applying Fourier analysis or other algorithms
-use of windowing functions;minimizing spectral leakage, improving frequency resolution, and reducing artifacts in Fourier analysis
-application of windowing functions;applied to time-domain signals before performing Fourier Transform or other frequency analysis methods
-lobes;distinct sections in the frequency spectrum of a signal or a windowing function
-main lobe;central and largest lobe in the frequency spectrum, containing the primary frequency content of the signal
-sidelobes;smaller lobes on both sides of the main lobe in the frequency spectrum
-sidelobe level;amplitude of the sidelobes relative to the main lobe, indicating the extent of spectral leakage
-spectral leakage;phenomenon where signal energy spreads into adjacent frequency bins, causing inaccuracies in frequency analysis
-windowing to reduce sidelobes;applying window functions helps reduce sidelobe levels, minimizing spectral leakage and improving frequency analysis accuracy
-spectrum;representation of a signal's frequency content, showing the amplitudes and phases of each frequency component
-magnitude spectrum;computing the absolute values of the Fourier Transform coefficients
-phase spectrum;computing the angles (phases) of the Fourier Transform coefficients
-importance of magnitude spectrum;determines the amplitudes of frequency components, vital in applications like filtering and modulation
-importance of phase spectrum;determines the relative positions/offsets of frequency components, vital in applications like signal reconstructionWhat is amplitude quantisation?;Forcing a continuous signal value to the nearest level in a finite set of discrete values — introduces quantisation noise
-What is time quantisation?;Sampling a continuous signal at discrete regular intervals — the gap between samples is 1/fs
-What is the Nyquist limit?;The maximum frequency representable at sampling rate fs is fs/2 — signals must be band-limited below this
-What happens to a frequency above the Nyquist limit when sampled?;It aliases — appears as a false lower frequency in the sampled signal
-What is the wagon wheel effect?;A visual aliasing artefact where fast-rotating spokes appear to slow or reverse as their frequency exceeds half the video frame rate
-Why must an anti-aliasing filter be applied before sampling?;To remove all frequency components above the Nyquist limit before discretising, preventing aliasing artefacts
-What is the signal-to-noise ratio (SNR)?;SNR = 20 log10(signal amplitude / noise amplitude) in decibels — measures how much stronger the signal is than the noise
-What is a convolution kernel?;A small array of coefficients defining a linear filter — convolved with the signal to transform it
-What is the identity element of convolution?;The Dirac delta function — convolving any signal with a delta leaves it unchanged: f * delta = f
-What is impulse response recovery?;Stimulating a system with a delta-like impulse and recording the output — the output IS the convolution kernel of that system
-What does the convolution theorem state?;Convolution in the time domain equals elementwise multiplication in the frequency domain: FT(f * g) = FT(f) * FT(g)
-What is the time complexity of the DFT vs FFT?;DFT is O(N^2); FFT is O(N log N) using divide-and-conquer
-Why is the standard FFT restricted to power-of-2 lengths?;The Cooley-Tukey FFT recursively splits the signal in half — this only works cleanly when N is a power of 2
-What does the magnitude spectrum show?;The amplitude of each frequency component in a signal
-What does the phase spectrum show?;The phase offset (time shift) of each frequency component in a signal
-What is a lowpass filter?;Attenuates high frequencies while passing low frequencies — equivalent to smoothing in the time domain
-What is a highpass filter?;Attenuates low frequencies while passing high frequencies — equivalent to edge or change detection
-Can a linear filter introduce new frequencies?;No — a linear filter can only scale existing frequency components; it cannot create frequencies not already present
-What is spectral leakage?;Energy from one frequency bin spreading into adjacent bins due to finite signal length — reduced by windowing
-What is the main lobe vs sidelobes in a spectrum?;The main lobe is the central peak containing primary frequency content; sidelobes are smaller flanking peaks representing spectral leakage
-What is a band-pass filter?;Passes only frequencies within a specific range, attenuating everything above and below
-What is a notch (band-stop) filter?;Attenuates frequencies within a specific band while passing everything else
-What real frequency does DFT bin k correspond to?;freq = (fs/2) * k/N where fs/2 is the Nyquist frequency and N is the number of samples
+evenly spaced samples;samples taken at uniform time intervals Δt = 1/fs — e.g. audio at 44100 Hz: one sample every 22.7 μs
+consistent quantization;mapping continuous amplitude values to the nearest level in a finite set of N levels — e.g. 8-bit audio: 256 levels from −128 to +127
+quantization levels;the number of distinct amplitude values in a digital signal → 8-bit = 256 levels; 16-bit = 65536 levels; more bits = finer resolution
+quantization noise;the error introduced by rounding to the nearest level → sounds like a faint hiss; amplitude ≈ half a quantization step
+sampling rate;samples per second (Hz) → CD audio: 44100 Hz; phone calls: 8000 Hz; must be > 2× the highest frequency in the signal
+Nyquist rate;minimum sampling rate to represent a signal without aliasing = 2 × maximum frequency → e.g. voice up to 4000 Hz needs ≥ 8000 Hz sampling rate
+aliasing;a high frequency pretends to be a lower frequency when undersampled → e.g. a 9 kHz tone sampled at 8 kHz appears as a 1 kHz tone
+aliasing effects;false lower frequencies appear in the sampled signal — e.g. wagon wheel effect: fast-spinning spokes appear to reverse in slow frame-rate video
+aliasing mitigation;apply a low-pass anti-aliasing filter BEFORE sampling to remove all frequencies above the Nyquist limit
+SNR (Signal-to-Noise Ratio) formula;SNR = 20 × log₁₀(signal amplitude / noise amplitude) — e.g. SNR = 20 dB means signal is 10× louder than noise
+Frequency of aliased components formula;aliased frequency = |k × sampling rate − original frequency| — e.g. 9 kHz tone, 8 kHz rate: |1×8000 − 9000| = 1000 Hz alias
+Quantization SNR formula;SNR ≈ 6.02 × (number of bits) + 1.76 dB → 8-bit audio: SNR ≈ 49.9 dB; 16-bit: SNR ≈ 98.1 dB; each extra bit adds ~6 dB
+interpolation of irregular data;estimating signal values at positions where no sample was taken — e.g. GPS track with uneven time gaps resampled to uniform 1 Hz
+common interpolation methods;nearest-neighbour (step-like), linear (straight lines between points), sinc (perfect for band-limited signals), polynomial (smooth curves)
+linear interpolation;connect adjacent known samples with a straight line and read off intermediate values → e.g. between samples y₁=1.0 at t=0 and y₂=3.0 at t=1, the value at t=0.5 is 2.0
+polynomial interpolation;fit an n-th degree polynomial through n+1 known points — smooth but can oscillate wildly (Runge's phenomenon) far from the data
+nearest-neighbor interpolation;output = the nearest known sample — produces a staircase shape; fast but lossy
+resampling;change the sampling rate of a signal → e.g. convert 44100 Hz audio to 22050 Hz (downsample) or vice versa (upsample)
+sliding window technique;process a fixed-length chunk of signal that moves forward one step at a time — used for running statistics and spectral analysis
+running mean;average of the samples inside the current window — smooths the signal; longer window = smoother but more time lag
+moving average;series of running means as the window slides — key for trend detection and smoothing out noise
+linear filtering;multiply a sliding window of samples by weights and sum them → output[n] = Σ weights[k] × input[n−k]
+weighted averages;assign different weights to samples in the window → e.g. weights [0.25, 0.5, 0.25] smooth more gently than uniform weights
+convolution;combine two signals: $(f * g)[n] = \sum_m f[m]\,g[n-m]$ — slide one signal over the other and compute dot products
+convolution in signal processing;apply a filter kernel to a signal by convolution → e.g. convolve with [1/3, 1/3, 1/3] to compute a 3-point running average
+linear filtering using convolution;output = input ★ kernel — e.g. kernel = [−1, 0, 1] detects edges (differences); kernel = [1, 1, 1]/3 smooths
+convolution formula;$(f * g)(t) = \int_{-\infty}^{\infty} f(\tau)\,g(t-\tau)\,d\tau$ — continuous version; discrete version sums over integer shifts
+convolution properties;commutative: f★g = g★f; associative: (f★g)★h = f★(g★h); identity element: f★δ = f (delta leaves signal unchanged)
+common types of filters;low-pass (smooth/blur), high-pass (edges/sharpen), band-pass (isolate a frequency range), notch (kill one frequency)
+low-pass filter;passes low frequencies, attenuates high frequencies → smooths the signal, removes noise → e.g. blurring an image, averaging audio
+high-pass filter;passes high frequencies, attenuates low frequencies → highlights rapid changes → e.g. edge detection, bass removal
+band-pass filter;passes only a specific frequency range → e.g. voice band 300–3400 Hz for telephone; AM radio tuner
+kernel; an array of weights defining the filter → e.g. [1/3, 1/3, 1/3] is a 3-tap boxcar (average); [−1, 0, 1] is a derivative filter
+filter kernel coefficients;the weight values — determine the frequency response → e.g. Gaussian kernel coefficients: [0.27, 0.46, 0.27]
+filter design;choose kernel size and coefficients to achieve the desired frequency response — trade off between sharpness and ringing
+impulse response;the output of a filter when fed a single spike (Dirac delta) as input — it IS the kernel/filter coefficients
+impulse response function;h[n] — completely characterises a linear filter: any output = convolution of input with h
+impulse response recovery;feed an impulse into a system and record its output → that output IS the system's impulse response (convolution kernel)
+impulse response recovery methods;deconvolution, cross-correlation with the input, Fourier transform methods
+Dirac delta function;the ideal impulse — infinitely narrow, area = 1; in discrete signals, δ[n] = 1 at n=0, 0 elsewhere
+properties of Dirac delta function;∫δ(t)dt = 1; δ(t) = 0 for t≠0; f★δ = f (identity in convolution)
+Dirac delta in convolution; δ[n] is the identity element: f★δ = f — convolving any signal with a delta leaves it unchanged
+nonlinear filtering;filter output is NOT a weighted sum — e.g. median filter, bilateral filter; handles spike noise better than linear filters
+median filtering;replace each sample with the median of its neighbours → removes spike/salt-and-pepper noise while preserving edges; works well for photo noise
+advantages of median filtering;eliminates single spike outliers, preserves edges, no new values introduced (output is always one of the input values)
+pure frequencies;sinusoids with a single frequency — the building blocks from which all signals are constructed (by Fourier's theorem)
+sinusoids;$x(t) = A\sin(2\pi f t + \phi)$ — A = amplitude (height), f = frequency (Hz), φ = phase (time shift)
+amplitude of a sinusoid;A — maximum displacement from zero — e.g. A=1 for a unit sine wave; A=0.5 for a quieter signal
+frequency of a sinusoid;f — complete cycles per second (Hz) → f=440 Hz is concert A (middle A on piano)
+phase angle of a sinusoid;φ — shifts the wave left or right in time → φ=π/2 turns a sine into a cosine
+Fourier Transform;decomposes any signal into a sum of sinusoids — tells you how much of each frequency is present in the signal
+continuous Fourier Transform equation;$F(\omega) = \int_{-\infty}^{\infty} f(t)\,e^{-j\omega t}\,dt$ — $F(\omega)$ is a complex number giving amplitude and phase at frequency ω
+Discrete Fourier Transform (DFT);computes the Fourier Transform for a finite sampled signal → $X[k] = \sum_{n=0}^{N-1} x[n]\,e^{-j(2\pi/N)kn}$ for k=0,1,...,N−1
+DFT equation;$X[k] = \sum_{n=0}^{N-1} x[n]\,e^{-j2\pi kn/N}$ — X[k] is a complex number: magnitude = amplitude, angle = phase of frequency bin k
+Complex number; $z = a + bi$ where $i^2 = -1$ → represents a point in 2-D; magnitude $|z| = \sqrt{a^2+b^2}$; phase $\arg(z) = \arctan(b/a)$
+magnitude and phase angle; magnitude = $\sqrt{a^2+b^2}$ (amplitude of that frequency); phase = $\arctan(b/a)$ (time shift of that frequency component)
+Argand diagram; plot of complex numbers: x-axis = real part, y-axis = imaginary part — e.g. $z = 3+4i$ is the point (3, 4) with magnitude 5
+Fast Fourier Transform (FFT);efficient DFT algorithm — O(N log N) instead of O(N²) using divide-and-conquer → a 1 million point DFT: naive = 10¹² ops; FFT = 20 million ops
+time complexity of DFT;O(N²) — for each of N output bins, compute a dot product of length N → very slow for large N
+time complexity of FFT;O(N log N) — practical for N up to millions → e.g. N=1024: DFT = 1M ops; FFT = 10K ops
+Inverse Discrete Fourier Transform (IDFT);reconstructs the time-domain signal from its frequency components → $x[n] = \frac{1}{N}\sum_{k=0}^{N-1} X[k]\,e^{j2\pi kn/N}$
+IDFT equation;$x[n] = \frac{1}{N}\sum_{k=0}^{N-1} X[k]\,e^{j2\pi kn/N}$ — inverse of the DFT; reconstructs the original signal
+spatial domain;the original representation — signal values at each time or position → e.g. [0.2, 0.8, 0.5, -0.3, ...]
+frequency domain;the Fourier representation — amplitude and phase of each frequency component → e.g. strong 440 Hz component = concert A note
+convolution theorem;convolution in time domain = multiplication in frequency domain: $\mathcal{F}\{f*g\} = F(\omega)\cdot G(\omega)$ — makes filtering efficient
+implications of the convolution theorem;instead of O(N²) convolution, use FFT both signals, multiply pointwise, inverse FFT → O(N log N) total
+filter design with DFT;specify desired frequency response H(ω) in frequency domain → inverse DFT gives the filter coefficients (kernel) in time domain
+steps for filter design using DFT;1. Specify H(ω): 1 for pass-band, 0 for stop-band. 2. Inverse DFT → get h[n]. 3. Convolve input with h[n] to filter.
+frequency response;H(f) — how much the filter amplifies (|H|) or shifts (∠H) each frequency component → plot |H| vs f to see pass/stop-bands
+sinc interpolation;use the sinc function $\text{sinc}(x) = \sin(\pi x)/(\pi x)$ as the interpolation kernel → perfect reconstruction of band-limited signals
+sinc function;$\text{sinc}(x) = \sin(\pi x)/(\pi x)$ — value 1 at x=0, zero at all other integers → ideal low-pass filter in the time domain
+ideal interpolation kernel;the sinc function — Fourier transform is a rectangle (perfect brick-wall low-pass filter) → preserves all frequencies below Nyquist exactly
+sinc interpolation process;for each output time t: $y(t) = \sum_n x[n]\,\text{sinc}(t\cdot f_s - n)$ — weighted sum of all input samples
+limitations of sinc interpolation;sinc has infinite support (never reaches zero) → must truncate or window → introduces ripple in frequency domain
+windowing functions;multiply the signal by a tapering function before FFT → reduces spectral leakage at the cost of slightly lower frequency resolution
+use of windowing functions;taper signal edges to zero → reduces the side-lobes caused by the sharp cut-off at signal boundaries
+application of windowing functions;applied to time-domain signal before DFT — e.g. Hann, Hamming, Blackman windows all trade resolution for lower leakage
+lobes;distinct peaks in the frequency spectrum of a windowed signal — the main lobe contains the signal; side-lobes are leakage
+main lobe;the central peak of the window's frequency response — wider main lobe = lower frequency resolution
+sidelobes;side peaks flanking the main lobe — indicate how much energy leaks into adjacent frequency bins
+sidelobe level;amplitude of sidelobes relative to the main lobe — lower is better (less spectral leakage)
+spectral leakage;energy from one frequency spreading into adjacent bins because the signal length is finite → reduced by windowing
+windowing to reduce sidelobes;using a non-rectangular window (e.g. Hann) apodises the signal → lower sidelobes; tradeoff is wider main lobe
+spectrum;the full frequency-domain representation of a signal — amplitude and phase at each frequency
+magnitude spectrum;|X[k]| for each DFT bin — shows how strongly each frequency is present → peaks indicate dominant frequencies
+phase spectrum;∠X[k] for each DFT bin — shows the time offset of each frequency component → needed to reconstruct the signal exactly
+importance of magnitude spectrum;identifies the frequencies present — e.g. a peak at 440 Hz in an audio signal = concert A note
+importance of phase spectrum;determines timing/alignment of frequency components — phase shifts cause time delays; important for signal reconstruction
+What is amplitude quantisation?;rounding a continuous value to the nearest of N discrete levels → introduces quantisation noise ≈ ±½ step size
+What is time quantisation?;sampling a continuous signal at discrete time steps Δt = 1/fs — loses all information between sample points
+What is the Nyquist limit?;fs/2 — the maximum frequency representable at sampling rate fs → must band-limit the signal below this before sampling
+What happens to a frequency above the Nyquist limit when sampled?;it aliases — appears as a false lower frequency: alias frequency = |f − k·fs| for some integer k
+What is the wagon wheel effect?;visual aliasing: fast-rotating spokes appear slow or reversed when frame rate < 2× rotation frequency — the spokes alias to a lower apparent rotation rate
+Why must an anti-aliasing filter be applied before sampling?;to remove all frequency content above fs/2 before sampling; once aliased, the spurious frequencies cannot be distinguished from genuine low-frequency signals
+What is the signal-to-noise ratio (SNR)?;SNR = 20 log₁₀(signal amplitude / noise amplitude) in dB → SNR = 40 dB means signal is 100× larger in amplitude than noise
+What is a convolution kernel?;a small array of weights defining a linear filter → e.g. [1/3, 1/3, 1/3] is a 3-sample average; [−1, 0, 1] estimates the derivative
+What is the identity element of convolution?;the Dirac delta δ[n] — convolving any signal with δ leaves it unchanged: f ★ δ = f
+What is impulse response recovery?;feed a delta-like impulse into a system and record its output → that output directly gives you the system's convolution kernel
+What does the convolution theorem state?;convolution in time ↔ multiplication in frequency: $\mathcal{F}\{f*g\} = \mathcal{F}\{f\} \cdot \mathcal{F}\{g\}$ → filtering = multiply by H(f) in frequency domain
+What is the time complexity of the DFT vs FFT?;DFT: O(N²) — for each of N bins, sum N terms; FFT: O(N log N) — recursively splits signal in half (Cooley-Tukey)
+Why is the standard FFT restricted to power-of-2 lengths?;Cooley-Tukey FFT recursively splits the signal in two at each stage → requires N = 2^k; can zero-pad to nearest power of 2
+What does the magnitude spectrum show?;|X[k]| at each bin — the amplitude of each frequency component in the signal → peaks reveal dominant frequencies
+What does the phase spectrum show?;∠X[k] at each bin — the time offset of each frequency component → needed to reconstruct the original waveform exactly
+What is a lowpass filter?;passes frequencies below a cutoff, attenuates above → smooths signal, removes high-frequency noise
+What is a highpass filter?;passes frequencies above a cutoff, attenuates below → highlights rapid changes, detects edges
+Can a linear filter introduce new frequencies?;No — a linear filter only scales existing frequency components; it cannot create frequencies not present in the input
+What is spectral leakage?;energy from one frequency bin spreads into adjacent bins because the signal is finite-length — reduced by windowing the signal before the DFT
+What is the main lobe vs sidelobes in a spectrum?;main lobe: central peak of the window's frequency response (contains the actual frequency); sidelobes: flanking peaks representing leakage into adjacent bins
+What is a band-pass filter?;passes only frequencies within [f_low, f_high] — e.g. voice band 300–3400 Hz; telephone codec uses this to transmit only speech-range frequencies
+What is a notch (band-stop) filter?;attenuates a narrow frequency band, passes everything else — e.g. remove 50 Hz power-line hum from an audio recording
+What real frequency does DFT bin k correspond to?;$f = k \cdot f_s / N$ Hz → e.g. N=1000 samples, fs=8000 Hz: bin k=50 corresponds to 50×8000/1000 = 400 Hz

@@ -1,90 +1,91 @@
-probability; a measure of the how like an event is to occur, ranging from 0 to 1 inclusive
-sample space; the set of all possible outcomes of a random variable (often denoted as S)
-frequency; the number of times an event occurs in a given number of trials or observations
-outcomes; the possible results of an experiment or random process
-samples; a subset of observations or measurements from a larger population, consisting of outcomes
-events; subsets of the sample space, representing specific occurrences of interest. Every outcome is an event, but not every event is an outcome.
-example of event; in a dice throw, getting an even number  {2, 4, 6}
-example of an outcome; in a dice throw, getting a 2
-distributions; mathematical functions describing the likelihood of each possible outcome in a sample space
-P(X=x) notation; probability of the random variable X taking a specific value x
-P(A) notation; probability of event A occurring
-P(A|B) notation; probability of event A occurring given that event B has occurred
-P(A ∩ B) notation; probability of both events A and B occurring
-P(A ∪ B) notation; probability of either event A or event B occurring
-random variable; a variable that can take on different values, each with a certain probability
-discrete random variable; a random variable that can only take distinct, separate values, often countable
-continuous random variable; a random variable that can take any value over a continuous domain
-probability mass function (PMF); a function that describes the probabilities of discrete random variables taking specific values
-probability density function (PDF); a function that describes the probabilities of continuous random variables falling within specific intervals via densities
-density; a non-negative value that describes the relative likelihood of a continuous random variable taking on a given value. Not a probability. May be greater than 1.
-axioms of probability; fundamental rules governing probability theory, including unitarity, non-negativity, and additivity (sum rule)
-axiom of unitarity; the total probability of all possible outcomes in a sample space is equal to 1
-axiom of non-negativity; probabilities are never negative and can only range from 0 to 1
-axiom of additivity (sum rule); the probability of the union of mutually exclusive events is the sum of their individual probabilities
-conditional probability; the probability of an event occurring given that another event has already occurred, denoted as P(A|B) where A and B are events
-conditional probability from a PMF; P(X=x | Y=y) = P(X=x ∩ Y=y) / P(Y=y), where X and Y are discrete random variables, and P(X=x | Y=y) represents the probability of X taking a specific value x given that Y has taken a specific value y. P(X=x ∩ Y=y) represents the joint probability of X and Y both taking specific values, and P(Y=y) represents the probability of Y taking the value y.
-forward probability; the likelihood of observing certain outcomes given specific parameters or conditions, often used in predictive modeling and simulations
-inverse probability; the probability of specific parameters or conditions given observed outcomes, used in tasks like parameter estimation and hypothesis testing
-Bayesian interpretation of probability; a perspective that treats probability as a measure of belief or uncertainty, incorporating prior knowledge and updating beliefs based on new evidence
-frequentist interpretation of probability; a perspective that defines probability as the limit of relative frequency in a large number of trials, focusing on long-term behavior and objective outcomes
-Bayes' Rule equation; P(A|B) = (P(B|A) * P(A)) / P(B), where P(A|B) is the posterior probability of event A given event B, P(B|A) is the likelihood of event B given event A, P(A) is the prior probability of event A, and P(B) is the probability of event B.
-Bayes' Rule interpretation; a mathematical formula that updates the probability of an event (A) based on new evidence (B), balancing prior beliefs with the likelihood of the evidence given those beliefs
-Posterior; (P(A|B)) the updated probability of event A given new evidence B
-Likelihood; (P(B|A))the probability of observing evidence B given that event A has occurred
-Prior; (P(A)) the initial probability of event A before considering the new evidence
-Evidence; the probability of observing evidence B, also known as the marginal likelihood or total probability of B across all possible events
-Marginal Likelihood; (P(B)) the probability of observing evidence B, also known as the evidence of B across all possible events
-Integration over the evidence in Bayes' Rule; the process of summing or integrating the likelihood (P(B|A)) times the prior (P(A)) for all possible values of event A to obtain the marginal likelihood/evidence (P(B))
-joint distribution; a probability distribution that describes the probabilities of all possible combinations of values for two or more random variables
-marginal distribution; the probability distribution of a subset of random variables obtained by summing or integrating over the other variables in the joint distribution
-conditional distribution; the probability distribution of one or more random variables given specific values or ranges of values for other variables, obtained from the joint distribution
-marginalization formula; to find the marginal probability of a subset of random variables, sum or integrate the joint probability distribution over the other variables. For two discrete variables X and Y: P(X) = ∑(P(X, Y=y)) for all possible y values.
-conditioning formula; to find the conditional probability of variable X given variable Y, divide the joint probability of X and Y by the marginal probability of Y. For discrete variables: P(X|Y) = P(X, Y) / P(Y).
-bigrams; sequences of two adjacent elements or items, often used in text analysis and natural language processing
-n-gram models; statistical language models that predict the likelihood of a word or sequence of words based on the previous n-1 words
-likelihood; the probability of observed data (usually given specific values of parameters in a statistical model), often denoted as L(x) or L(x|θ) where θ represents parameters and x represents observed data
-likelihood function; a function that represents the likelihood of parameters in a statistical model given observed data
-likelihood of multiple independent events; in the case of independent events, the overall likelihood is the product of the likelihoods of individual events, often denoted as L(x1, x2, ..., xn) = L(x1) * L(x2) * ... * L(xn)
-log-likelihood; the natural logarithm of the likelihood function, often used for computational convenience as it transforms products into sums, reducing underflow problems: log-likelihood = log(L(x))
-expectation; a measure of the center or average value of a random variable, representing the long-term average of its outcomes
-intuitive meaning of expectation; the expected value represents what we would anticipate on average if a random experiment were repeated a large number of times
-expected value; the expected value of a random variable X is denoted as E(X) or μ, calculated as the sum of each possible value x multiplied by its probability P(X=x) for discrete random variables or the integral of each possible value x multiplied by its probability density f(x) for continuous random variables
-expectation formula (for a discrete random variable); E(X) = Σ(x * P(X=x)) for all possible values x, where X is the random variable and P(X=x) is its probability mass function
-expectation formula (for a continuous random variable); E(X) = ∫(x * f(x)) dx over the entire range of possible values, where X is the random variable and f(x) is its probability density function
-expectation of a function of a random variable; E[g(X)] = Σ(g(x) * P(X=x)) for discrete random variables or E[g(X)] = ∫(g(x) * f(x)) dx for continuous random variables, where g(x) is a function of the random variable X
-entropy; a measure of uncertainty or disorder in a random variable, indicating the average amount of information needed to describe its outcomes
-entropy equation (for discrete random variables); H(X) = - Σ(P(X=x) * log₂(P(X=x))) for all possible values x, where H(X) represents the entropy of the random variable X
-entropy interpretation; entropy quantifies the uncertainty associated with a random variable. Higher entropy values indicate greater uncertainty, while lower values indicate more predictability and less uncertainty.
-information (in bits); a unit used to measure the amount of uncertainty or surprise associated with an event or outcome
-bit; a binary digit, representing a choice between two mutually exclusive options (0 or 1)
-entropy as average information; entropy H(X) = - Σ(P(X=x) * log₂(P(X=x)))  for all possible values x, representing the average amount of information required to specify an outcome in a random variable X
-entropy as expected log probability; entropy H(X) = - E[log₂(P(X=x))] for all possible values x, representing the expected log probability of an outcome in a random variable X
-information theory; a branch of mathematics and computer science that studies the quantification, storage, and communication of information, exploring concepts such as entropy, mutual information, and data compression
-logits; the natural logarithm of the odds, representing the relationship between the probability of an event and its complement, often used in logistic regression models. -ve means less likely than even, +ve means more likely than even
-odds; the ratio of the probability of an event occurring to the probability of it not occurring, calculated as P(event) / P(not event)
-log-probabilities; natural logarithm of probabilities, useful for numerical stability and simplifying calculations, often employed in machine learning algorithms, including softmax functions and neural networks
-log-odds; the natural logarithm of the odds, often used in logistic regression models. Also called logits.
-logistic function; a function that maps real values in (-inf, inf) to probabilities between 0 and 1, often used in logistic regression models. Also called the sigmoid function.
-empirical distribution; a probability distribution derived from observed data, representing the frequencies of different outcomes in the sample
-sampling from distributions; generating random samples from a given probability distribution, often used in simulations and statistical analysis to approximate real-world scenarios
-Monte Carlo approximation to expectation; using random sampling to estimate the expectation of a function, calculated as the average of function evaluations over a large number of random samples, providing an approximate solution to complex problems
-empirical distribution; \( P(X=x) = \frac{\text{Number of occurrences of } x}{\text{Total number of observations}} \), where \( X \) represents the random variable and \( x \) represents a specific outcome in the sample.
-sampling from distributions; \( X \sim F(x) \), where \( F(x) \) is the probability distribution function. Random samples \( x \) are drawn from \( F(x) \) to approximate the behavior of the distribution.
-Monte Carlo approximation to expectation; \( E(g(X)) \approx \frac{1}{N} \sum_{i=1}^{N} g(x_i) \), where \( N \) is the number of random samples drawn from the distribution \( X \), \( x_i \) represents each sample, and \( g(x_i) \) is the function to be evaluated.
-Monte Carlo error; the difference between the estimated value obtained through Monte Carlo simulations and the true value, decreasing as the number of samples (\(N\)) increases at a rate of \(O(\frac{1}{\sqrt{N}})\)
-convergence of Monte Carlo methods; the property where the estimates obtained through Monte Carlo simulations approach the true values as the number of samples increasesWhat is the frequentist interpretation of probability?;Probability is the long-run relative frequency of an event over many repeated identical trials
-What is the Bayesian interpretation of probability?;Probability is a degree of belief — it quantifies uncertainty and can be updated using Bayes Rule when new evidence arrives
-What is a generative model?;A model of the underlying process that generates observations — supports both forward probability (simulate data) and inverse probability (infer parameters)
-What is forward probability?;The probability of observing certain outcomes given known parameters — the predictive direction
-What is inverse probability?;The probability of parameters given observed outcomes — the inference direction
-What is the sum rule of probability?;P(A or B) = P(A) + P(B) - P(A and B)
-What is the definition of conditional probability?;P(A|B) = P(A and B) / P(B)
-What is marginalisation?;Summing or integrating a joint distribution over one variable to obtain the marginal: P(X) = sum over y of P(X, Y=y)
-What are independent random variables?;X and Y are independent if P(X,Y) = P(X)P(Y) — knowing Y tells you nothing about X
-What is a bigram model?;A model over pairs of adjacent elements capturing conditional probability P(c_i | c_{i-1}) — e.g. in text, what character follows a given character
-What is the natural frequency method for Bayes?;Imagining a concrete population (e.g. 100000 people) and counting subgroups — avoids the base rate neglect error
-What causes the apparent paradox in the Plague X example?;Even a 95% accurate test gives mostly false positives when the disease is very rare (1 in 100000) because the prior probability of disease is tiny
-What are log-probabilities used for computationally?;To avoid floating point underflow when multiplying many small probabilities — products become sums of logs
-What is the empirical distribution and how is it computed?;P(X=x) = (count of x) / (total observations) — the normalised histogram of counts; only works for discrete variables
-Why does the empirical distribution not work for continuous random variables?;Each continuous value is observed at most once so there is no meaningful count to normalise
+probability; a number in [0, 1] measuring how likely an event is — 0 = impossible, 0.5 = equally likely either way, 1 = certain
+sample space; the set of all possible outcomes — e.g. for a die roll: S = {1, 2, 3, 4, 5, 6}
+frequency; how often an event occurs in repeated trials — e.g. heads appeared 52 times out of 100 flips → frequency = 0.52
+outcomes; the individual possible results — e.g. rolling a die: outcomes are 1, 2, 3, 4, 5, 6 (each is a single outcome)
+samples; a collection of observed outcomes — e.g. [3, 1, 4, 1, 5, 9, 2, 6] is a sample of 8 dice rolls
+events; subsets of the sample space — e.g. "roll an even number" = {2, 4, 6}; every outcome is an event, but not every event is a single outcome
+example of event; rolling a die and getting an even number → event = {2, 4, 6}; P(even) = 3/6 = 0.5
+example of an outcome; rolling a die and getting a 2 — a single specific result
+distributions; functions that assign probabilities to outcomes — e.g. a fair die: P(X=k) = 1/6 for k ∈ {1,...,6}
+P(X=x) notation; probability that random variable X takes the specific value x → e.g. P(die=3) = 1/6 ≈ 0.167
+P(A) notation; probability of event A occurring → e.g. P({roll > 4}) = P({5,6}) = 2/6 ≈ 0.333
+P(A|B) notation; probability of A given that B has already occurred → e.g. P(even | roll > 3) = P({4,6}) / P({4,5,6}) = 2/3
+P(A ∩ B) notation; probability of both A AND B occurring → e.g. P(even AND > 3) = P({4,6}) = 2/6 ≈ 0.333
+P(A ∪ B) notation; probability of A OR B (or both) → P(A∪B) = P(A) + P(B) - P(A∩B)
+random variable; a variable whose value is the outcome of a random process → e.g. X = number on a die roll
+discrete random variable; takes countable distinct values → e.g. number of heads in 10 flips: X ∈ {0,1,...,10}
+continuous random variable; can take any value in a range → e.g. height of a random person: X ∈ [0, ∞)
+probability mass function (PMF); gives exact probability for each discrete value → e.g. fair coin: P(X=0) = 0.5, P(X=1) = 0.5; all values sum to 1
+probability density function (PDF); gives probability density for continuous values — area under curve in a range = probability → e.g. PDF of N(0,1) at x=0 is ≈ 0.399 (density, not probability)
+density; a non-negative value measuring probability concentration — NOT a probability itself; can exceed 1 → P(a ≤ X ≤ b) = ∫ₐᵇ f(x) dx
+axioms of probability; three fundamental rules: (1) P(A) ≥ 0; (2) P(S) = 1; (3) P(A∪B) = P(A)+P(B) for mutually exclusive A,B
+axiom of unitarity; the probability of the entire sample space is 1 → P(S) = 1 — something must happen
+axiom of non-negativity; all probabilities are ≥ 0 — you can't have negative probability
+axiom of additivity (sum rule); for mutually exclusive events: P(A∪B) = P(A) + P(B) → e.g. P(1 or 2) = 1/6 + 1/6 = 2/6
+conditional probability; P(A|B) = probability of A given B happened → narrows the sample space to B → P(A|B) = P(A∩B) / P(B)
+conditional probability from a PMF; P(X=x | Y=y) = P(X=x, Y=y) / P(Y=y) — the joint probability normalised by the evidence
+forward probability; predict outcomes from known parameters → e.g. "given a fair coin, what's P(3 heads in 5 flips)?"
+inverse probability; infer parameters from observed data → e.g. "given I saw 3 heads in 5 flips, what is P(coin is fair)?"
+Bayesian interpretation of probability; probability = degree of belief — can be updated with new evidence via Bayes' rule; allows non-repeatable events to have probabilities
+frequentist interpretation of probability; probability = long-run relative frequency — based on repeating an experiment many times
+Bayes' Rule equation; $P(A|B) = \dfrac{P(B|A)\,P(A)}{P(B)}$ — posterior ∝ likelihood × prior
+Bayes' Rule interpretation; update your prior belief P(A) using the likelihood of the evidence P(B|A) to get the posterior P(A|B)
+Posterior; P(A|B) — your updated belief about A after observing evidence B
+Likelihood; P(B|A) — how probable the evidence B is if A is true — used to evaluate how well a model explains the data
+Prior; P(A) — your belief about A before seeing any evidence
+Evidence; P(B) — the total probability of observing the evidence under all hypotheses: $P(B) = \sum_a P(B|A=a)P(A=a)$
+Marginal Likelihood; P(B) — normalising constant in Bayes' rule — ensures the posterior is a valid probability distribution
+Integration over the evidence in Bayes' Rule; $P(B) = \sum_a P(B|A=a)P(A=a)$ — sum/integrate likelihood×prior over all possible values of A
+joint distribution; P(X,Y) — probability of each combination of values for X and Y → e.g. P(die1=3, die2=4) = (1/6)(1/6) = 1/36 if independent
+marginal distribution; P(X) obtained by summing/integrating out Y from the joint: $P(X=x) = \sum_y P(X=x, Y=y)$
+conditional distribution; P(X|Y=y) — the distribution of X when Y is fixed at y → obtained by slicing the joint at Y=y and renormalising
+marginalization formula; to get P(X), sum the joint over all values of Y: $P(X=x) = \sum_y P(X=x,\, Y=y)$
+conditioning formula; $P(X|Y) = P(X,Y) / P(Y)$ — divide the joint by the marginal to condition on Y
+bigrams; pairs of consecutive elements — e.g. in "hello": bigrams are (h,e),(e,l),(l,l),(l,o); used in language models
+n-gram models; predict the next token from the previous n−1 tokens using conditional probabilities → P(word | previous n−1 words)
+likelihood; P(data | parameters) — how probable the observed data is given specific parameter values
+likelihood function; treat the data as fixed and vary the parameters → L(θ|data) = P(data|θ); maximise this to find the best θ
+likelihood of multiple independent events; $L = \prod_i P(x_i|\theta)$ — multiply individual probabilities (or sum log-probabilities)
+log-likelihood; $\log L(\theta) = \sum_i \log P(x_i|\theta)$ — turns products into sums, avoids floating-point underflow for many small probabilities
+expectation; the long-run average value of a random variable over many repetitions
+intuitive meaning of expectation; if you repeat the experiment infinitely many times, E[X] is the average of all outcomes — e.g. E[fair die] = (1+2+3+4+5+6)/6 = 3.5
+expected value; $E[X] = \sum_x x\,P(X=x)$ (discrete) or $E[X] = \int x\,f(x)\,dx$ (continuous) — the probability-weighted average value
+expectation formula (for a discrete random variable); $E[X] = \sum_x x\,P(X=x)$ — e.g. fair die: $E[X] = 1{\cdot}\tfrac{1}{6} + 2{\cdot}\tfrac{1}{6}+\ldots+6{\cdot}\tfrac{1}{6} = 3.5$
+expectation formula (for a continuous random variable); $E[X] = \int_{-\infty}^{\infty} x\,f(x)\,dx$ — weighted by the PDF
+expectation of a function of a random variable; $E[g(X)] = \sum_x g(x)\,P(X=x)$ — e.g. $E[X^2]$ for a fair die = $(1^2+2^2+\ldots+6^2)/6 = 91/6 \approx 15.2$
+entropy; $H(X) = -\sum_x P(X=x)\log_2 P(X=x)$ — measures uncertainty in bits → a fair coin has H=1 bit; a biased coin with P(H)=0.99 has H≈0.08 bits
+entropy equation (for discrete random variables); $H(X) = -\sum_x P(x)\log_2 P(x)$ — uniform distribution has the highest entropy (most uncertain)
+entropy interpretation; high entropy = lots of uncertainty (hard to predict); low entropy = little uncertainty → e.g. a loaded die (always lands 6) has entropy 0
+information (in bits); $-\log_2 P(x)$ — how surprising outcome x is → rare events carry more information: P=1/128 → 7 bits of information
+bit; one binary choice (0 or 1) — a fair coin flip provides exactly 1 bit of information
+entropy as average information; H(X) = expected value of $-\log_2 P(X)$ — average surprise over all outcomes
+entropy as expected log probability; $H(X) = -E[\log_2 P(X)]$ — the average number of bits needed to describe a random outcome
+information theory; the mathematical study of encoding, storing, and transmitting information — founded by Shannon; entropy is the central measure
+logits; $\text{logit}(p) = \log(p/(1-p))$ — log-odds; maps (0,1) probabilities to (−∞, +∞) → logit(0.5)=0, logit(0.9)≈2.2, logit(0.1)≈−2.2
+odds; P(event)/P(not event) → e.g. P=0.75 → odds = 0.75/0.25 = 3 ("3 to 1")
+log-probabilities; $\log P(x)$ — always ≤ 0; turn products into sums; prevent underflow when multiplying many small probabilities together
+log-odds; $\log(P/(1-P))$ — the logit; used in logistic regression; 0 = even odds, positive = more likely, negative = less likely
+logistic function; $\sigma(z) = 1/(1+e^{-z})$ — maps any real number to (0,1) → $\sigma(0)=0.5$, $\sigma(\infty)=1$, $\sigma(-\infty)=0$
+empirical distribution; $P(X=x) = \text{count}(x)/N$ — the histogram of observed data normalised to sum to 1
+sampling from distributions; drawing random values X ~ F(x) — e.g. np.random.normal(0,1) draws samples from N(0,1)
+Monte Carlo approximation to expectation; $E[g(X)] \approx \frac{1}{N}\sum_{i=1}^N g(x_i)$ where $x_i \sim P(X)$ — average g over many random samples
+empirical distribution; \( P(X=x) = \frac{\text{count}(x)}{N} \) — the normalised frequency histogram of observations
+sampling from distributions; \( X \sim F(x) \) — draw random samples from distribution F; e.g. rng.normal(0,1, size=1000)
+Monte Carlo approximation to expectation; \( E[g(X)] \approx \frac{1}{N} \sum_{i=1}^{N} g(x_i) \) — e.g. estimate P(X² > 2) for X~N(0,1) by drawing 10000 samples and computing the fraction satisfying x²>2
+Monte Carlo error; error ∝ $1/\sqrt{N}$ — 100× more samples → 10× more accurate; fundamentally slow convergence
+convergence of Monte Carlo methods; as N→∞, the sample average converges to the true expectation — guaranteed by the Law of Large Numbers
+What is the frequentist interpretation of probability?;probability = long-run relative frequency of an event over many identical trials → P(heads) = lim_{N→∞} (# heads) / N
+What is the Bayesian interpretation of probability?;probability = degree of belief — can be updated using Bayes' rule when new evidence arrives; doesn't require repeatable experiments
+What is a generative model?;a model of the process that produces data — can run forward (simulate data) or backward (infer parameters from data)
+What is forward probability?;predict outcomes from known parameters — e.g. "if the coin is biased at 0.6, what is P(7 heads in 10 flips)?"
+What is inverse probability?;infer parameters from observed outcomes — e.g. "I saw 7 heads in 10 flips; what is P(bias=0.6)?"
+What is the sum rule of probability?;P(A or B) = P(A) + P(B) − P(A and B) — the overlap is subtracted to avoid double-counting
+What is the definition of conditional probability?;P(A|B) = P(A and B) / P(B) — restricts the sample space to only cases where B occurred
+What is marginalisation?;summing a joint distribution over one variable to get the marginal: $P(X) = \sum_y P(X,Y=y)$ — "integrating out" Y
+What are independent random variables?;X ⊥ Y if P(X,Y) = P(X)P(Y) — knowing Y gives you no information about X → e.g. two separate fair dice
+What is a bigram model?;P(c_i | c_{i−1}) — probability of each character given the previous one; e.g. after 'q', 'u' is very likely in English
+What is the natural frequency method for Bayes?;imagine 100,000 people, count subgroups → avoids abstract probabilities; e.g. 1 has disease, 0.95 test positive, 4,999 false positives → only 1/5000 positives are true
+What causes the apparent paradox in the Plague X example?;even a 95%-accurate test gives mostly false positives when prevalence is 1/100,000 — the tiny prior crushes the posterior
+What are log-probabilities used for computationally?;prevent underflow: instead of $\prod_i P(x_i) \approx 0$, compute $\sum_i \log P(x_i)$ — sums of logs are numerically stable
+What is the empirical distribution and how is it computed?;$\hat{P}(X=x) = \text{count}(x)/N$ — the histogram normalised by total count; only meaningful for discrete variables
+Why does the empirical distribution not work for continuous random variables?;each continuous value is observed at most once — count=1 for every point → normalised histogram is meaningless; need density estimation (e.g. KDE)

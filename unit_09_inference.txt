@@ -1,79 +1,79 @@
-support;the range of values that a random variable can take -- can be compact (finite) or infinite
-compact support;values within a specific, finite range
-infinite support;values that extend infinitely, without any upper or lower bounds
-semi-infinite support;values that extend infinitely in one direction, but are bounded in the other direction (e.g. 0 to infinity)
-probability density function (pdf);a function that describes the likelihood of a continuous random variable taking a specific value -- represents densities, not probabilities
-meaning of density versus probability;pdf values indicate relative concentration of probabilities, whereas probabilities represent the integral of the pdf over a range of values
-cumulative distribution function (cdf);a function that gives the probability that a random variable takes a value less than or equal to a given value
-continuous random variables;variables that can take any real value within a given range
-issues with continuous random variables;the inability to assign probabilities to individual outcomes due to infinite possibilities
-uniform distribution;probability distribution where every outcome is equally likely
-multivariate distributions;probability distributions over vector spaces
-univariate normal;the normal distribution for a single random variable with mean (μ) and variance (σ^2)
-properties of the normal distribution;bell-shaped, symmetric, characterized by mean and variance
-multivariate normal;probability distribution over a real vector space, represented by a mean vector and covariance matrix
-mean vector;the expected values for each variable in a multivariate normal distribution
-covariance matrix;measures the strength and direction of linear relationships between variables in a normal distribution
-central limit theorem (CLT);a fundamental theorem in probability theory stating that the distribution of the sum (or average) of a large number of independent, identically distributed random variables approaches a normal distribution, regardless of the original distribution of the variables
-conditions for CLT;1. The random variables must be independent. 2. The random variables must be identically distributed. 3. The sample size must be sufficiently large.
-sampling distribution;the distribution of a statistic (e.g., mean or sum) calculated from a sample as the sample size increases, following the CLT
-population distribution;the distribution of values in the entire population from which a sample is drawn
-standard error;the standard deviation of a sampling distribution, representing the variability of sample means around the population mean
-implications of CLT;1. Allows the use of normal distribution approximations in various statistical analyses. 2. Justifies hypothesis testing and confidence interval construction for various sample statistics.
-importance in inferential statistics;enables making inferences about population parameters based on sample statistics, assuming the sample size is large enough
-limitations of CLT;may not apply if the sample size is small or the underlying population distribution has heavy tails or is not well-behaved
-population;the entire set of individuals, objects, or measurements of interest to a particular study
-sample;a subset of individuals, objects, or measurements selected from a population for the purpose of making inferences about the population
-random sampling;the process of selecting a sample from a population in such a way that every possible sample of a given size has an equal chance of being chosen
-sampling bias;occurs when the method of selecting a sample causes the sample to be unrepresentative of the population, leading to skewed or inaccurate results
-representative sample;a sample that accurately reflects the characteristics of the population from which it is drawn
-sampling error;the difference between a sample statistic and the corresponding population parameter caused by chance variation in the selection of the sample
-population parameter;a numerical measure that describes an aspect of a population, such as a mean or proportion
-sample statistic;a numerical measure that describes an aspect of a sample, such as a sample mean or sample proportion
-inference;the process of drawing conclusions or making predictions about a population based on information obtained from a sample
-generalizability;the extent to which the findings from a sample can be applied to the larger population
-varieties of inference; direct, maximum likelihood estimation, and Bayesian 
-direct inference;making conclusions about population parameters based on observed sample statistics without formal statistical methods
-maximum likelihood estimation (MLE);a method of estimating the parameters of a statistical model by maximizing the likelihood function, representing the probability of observed data given the parameters
-likelihood function;the probability of observing the given data for different values of the parameters in a statistical model
-Bayesian inference;a method of statistical inference in which Bayes' theorem is used to update the probability for a hypothesis as more evidence or information becomes available
-prior probability;the initial probability assigned to a hypothesis before considering the observed data in Bayesian inference
-likelihood;the probability of observing the given data for a specific set of parameters in Bayesian inference
-posterior probability;the updated probability of a hypothesis after considering the observed data in Bayesian inference, obtained by combining the prior probability and the likelihood
-Bayes' theorem;a mathematical formula that describes the relationship between the prior probability, likelihood, and posterior probability in Bayesian inference
-advantages of Bayesian inference;incorporates prior knowledge, provides a coherent framework for decision-making, and handles small sample sizes well
-disadvantages of Bayesian inference;requires specifying a prior distribution, can be computationally intensive, and interpretation of subjective priors can be challenging
-probabilistic programming;a programming paradigm that allows the incorporation of probability distributions and Bayesian inference into computer programs, enabling modeling of complex, uncertain systems
-Markov Chain Monte Carlo (MCMC);a computational method used for sampling from complex probability distributions, especially in Bayesian inference
-MCMC algorithm steps;1. Start with an initial state. 2. Propose a new state based on a transition probability. 3. Accept or reject the new state based on acceptance probability. 4. Repeat steps 2-3 to generate a chain of states. 
-Metropolis-Hastings algorithm;an MCMC algorithm that generalizes the basic MCMC approach by using a proposal distribution and an acceptance probability to generate a Markov chain
-Burn-in period;initial phase of an MCMC simulation where the chain stabilizes and reaches the target distribution, discarding the samples generated during this phase
-thinning; the process of discarding some of the samples generated by an MCMC simulation to improve convergence
-convergence diagnostics;methods used to assess whether an MCMC chain has reached the target distribution, ensuring accurate inference
-probabilistic programming language;a programming language designed specifically for expressing probabilistic models, making it easier to define and manipulate complex probability distributions
-advantages of probabilistic programming;facilitates rapid prototyping of Bayesian models, enables easy model modification, and supports complex, hierarchical models
-limitations of MCMC;computationally intensive, sensitive to the choice of initial conditions, and might require a large number of iterations to achieve convergence
-posterior distribution; the probability distribution of the parameters of a statistical model given observed data, obtained by applying Bayes' theorem
-posterior predictive; the probability distribution of future observations given observed data, obtained by integrating over the posterior distribution of the parameters
-prior predictive; the probability distribution of future observations given a prior distribution of the parameters, obtained by integrating over the prior distribution
-linear regression by direct estimation; a method of estimating the parameters of a linear regression model by minimizing the sum of squared errors between the observed and predicted values, e.g. via pseudo-inverse
-linear regression by maximum likelihood estimation; a method of estimating the parameters of a linear regression model by maximizing the likelihood function, representing the probability of observed data given the parameters (gradient, offset, and variance)
-linear regression by Bayesian inference; a method of estimating the parameters of a linear regression model by using Bayes' theorem to update the prior probability of the parameters based on the observed data
-What is the difference between a population parameter and a sample statistic?;A parameter describes the whole unknown population; a statistic is computed from observed samples and estimates the parameter
-What is an estimator?;A function of observed samples that produces an estimate of a population parameter
-What is the sample mean as an estimator?;x_bar = (1/N) sum x_i — an unbiased estimator of the population mean mu; gets more accurate as N increases
-What is the sample variance as an estimator?;s^2 = (1/N) sum (x_i - x_bar)^2 — estimates the population variance sigma^2
-What is maximum likelihood estimation (MLE)?;Finding parameter values theta that maximise the likelihood L(theta|data) = product of f(x_i; theta) — equivalently minimise the negative log-likelihood
-What is the score function in MLE?;u(theta) = gradient of log L(theta|data) — used to update parameters via gradient descent during MLE
-What is the iid assumption?;Independent and Identically Distributed — observations are drawn independently from the same distribution
-What is the predictive posterior?;The distribution over future observations obtained by integrating the likelihood over the posterior: p(x_new|data) = integral of p(x_new|theta) p(theta|data) d_theta
-What is a conjugate prior?;A prior that when combined with a specific likelihood produces a posterior of the same distributional family — allows closed-form Bayesian inference
-What is variational inference?;Approximating the posterior by finding the closest tractable distribution via optimisation — avoids intractable integrals
-What is the burn-in period in MCMC?;The initial samples discarded because the chain has not yet converged to the target distribution
-What is thinning in MCMC?;Keeping only every k-th sample from the chain to reduce autocorrelation between samples
-What does the trace in MCMC represent?;The sequence of sampled parameter values — its histogram approximates the posterior distribution
-What assumption does ordinary linear regression make about errors?;Errors epsilon are normally distributed: epsilon ~ N(0, sigma^2)
-What does Bayesian linear regression infer compared to MLE?;MLE gives a single best-fit parameter vector; Bayesian regression infers a full distribution over parameters, quantifying uncertainty
-What is the multivariate normal PDF?;f(x) = (1/Z) exp(-0.5 (x-mu)^T Sigma^{-1} (x-mu)) where Z is a normalising constant, mu is the mean vector and Sigma is the covariance matrix
-How do you sample from a multivariate normal?;Draw d independent N(0,1) samples into vector n, then transform: x = Sigma^(1/2) * n + mu
-What is the CDF and how does it differ from the PDF?;The CDF F(x) = P(X <= x) gives a true probability in [0,1]. The PDF f(x) gives a density — it can exceed 1 and must be integrated over a range to give a probability
+support;the set of values a random variable can actually take — e.g. a dice roll has support {1,2,3,4,5,6}; a height has support (0, ∞)
+compact support;values within a finite range — e.g. Uniform(0,1) has compact support [0,1]
+infinite support;values that extend without bound — e.g. Normal distribution: support = (−∞, +∞)
+semi-infinite support;bounded in one direction only — e.g. exponential distribution: support = [0, +∞)
+probability density function (pdf);describes where probability mass is concentrated for a continuous variable — f(x)≥0, ∫f(x)dx=1; f(x) is a density not a probability, can exceed 1
+meaning of density versus probability;P(2 ≤ X ≤ 3) = ∫₂³ f(x) dx; the density f(x) itself is not a probability — it's like kg/m³ vs kg
+cumulative distribution function (cdf);F(x) = P(X ≤ x) — always in [0,1], non-decreasing → e.g. for N(0,1): F(0) = 0.5, F(1.96) ≈ 0.975
+continuous random variables;can take any real value in a range — height, temperature, time — individual values have probability zero; ranges have positive probability
+issues with continuous random variables;P(X = exactly 3.14159...) = 0 — you must ask P(X ∈ interval) instead
+uniform distribution;every value in [a,b] equally likely → f(x) = 1/(b-a) for x ∈ [a,b] → e.g. Uniform(0,1): flat PDF, F(x) = x
+multivariate distributions;probability distributions over vectors — e.g. a 2-D Gaussian describes joint distribution of height and weight
+univariate normal;$\mathcal{N}(\mu, \sigma^2)$ — bell curve centred at μ with spread σ → e.g. human heights ~ N(170cm, 100cm²)
+properties of the normal distribution;symmetric bell curve; mean = median = mode = μ; 68% of values within ±σ, 95% within ±2σ, 99.7% within ±3σ
+multivariate normal;$\mathcal{N}(\boldsymbol{\mu}, \boldsymbol{\Sigma})$ — generalises the bell curve to D dimensions; mean vector μ sets centre, covariance matrix Σ sets shape and orientation
+mean vector;$\boldsymbol{\mu} = E[\mathbf{X}]$ — the centre of a multivariate distribution → e.g. for 2-D Gaussian: $\boldsymbol{\mu} = [\mu_1, \mu_2]$
+covariance matrix;$\boldsymbol{\Sigma}$ — its shape determines the spread and correlation of the distribution → diagonal Σ: axes-aligned ellipse; off-diagonal entries: tilted ellipse
+central limit theorem (CLT);sum (or mean) of many independent, identically distributed random variables → approximately normally distributed, regardless of original distribution → e.g. average of 30 dice rolls ≈ N(3.5, 35/36/30)
+conditions for CLT;1) independent observations; 2) identically distributed; 3) sample size N sufficiently large (rule of thumb: N ≥ 30)
+sampling distribution;the distribution of a statistic (e.g. sample mean $\bar{x}$) over many repeated samples → by CLT: $\bar{x} \sim \mathcal{N}(\mu, \sigma^2/N)$
+population distribution;the true underlying distribution of all individuals — usually unknown; we estimate it from samples
+standard error;$\text{SE} = \sigma/\sqrt{N}$ — standard deviation of the sample mean → larger N → smaller SE → more precise estimate
+implications of CLT;allows us to build confidence intervals and hypothesis tests for ANY underlying distribution as long as N is large enough
+importance in inferential statistics;the CLT is why "assume normality" works for many statistical tests — sums of random variables converge to Gaussian
+limitations of CLT;breaks down for very small N; fails for heavy-tailed distributions (e.g. Cauchy); requires i.i.d.
+population;the entire set of individuals or measurements of interest — usually too large to measure fully
+sample;a subset drawn from the population to make inferences about it → e.g. 1000 randomly selected voters out of millions
+random sampling;every possible sample of size N has equal probability of selection — ensures the sample is unbiased
+sampling bias;non-random selection causes the sample to misrepresent the population → e.g. surveying only Twitter users about social media habits
+representative sample;a sample whose statistics (mean, variance, etc.) closely match the population's
+sampling error;the difference between a sample statistic and the population parameter due to chance — unavoidable, decreases as N increases
+population parameter;a fixed (usually unknown) property of the whole population → e.g. true mean height μ of all humans
+sample statistic;computed from the observed sample → estimates the population parameter → e.g. sample mean $\bar{x}$ estimates μ
+inference;using sample statistics to draw conclusions about population parameters — the core task of statistics
+generalizability;whether findings from a sample extend to the broader population — depends on random sampling and sample size
+varieties of inference; three main approaches: direct (plug-in), maximum likelihood estimation (MLE), Bayesian
+direct inference;use sample statistics directly as estimates → e.g. estimate P(heads) by counting observed heads/total flips
+maximum likelihood estimation (MLE);choose θ that makes the observed data most probable: $\hat{\theta} = \arg\max_\theta \prod_i P(x_i|\theta)$ or equivalently minimise negative log-likelihood
+likelihood function;$L(\theta|\text{data}) = P(\text{data}|\theta)$ — viewed as a function of θ with the data fixed; MLE finds its peak
+Bayesian inference;combine prior P(θ) with likelihood P(data|θ) via Bayes: $P(\theta|\text{data}) \propto P(\text{data}|\theta)\,P(\theta)$ → produces a full posterior distribution over θ
+prior probability;P(θ) — your belief about θ before seeing data → e.g. assume coin bias ~ Uniform(0,1) before any flips
+likelihood;P(data|θ) — how probable the observed data is given specific θ
+posterior probability;P(θ|data) — belief about θ after observing data; combines prior and likelihood via Bayes' rule
+Bayes' theorem;$P(\theta|\text{data}) = \dfrac{P(\text{data}|\theta)\,P(\theta)}{P(\text{data})}$ — updates the prior using the likelihood of the observed data
+advantages of Bayesian inference;uses prior knowledge; gives full uncertainty distribution over θ; works with small samples; natural model comparison
+disadvantages of Bayesian inference;requires specifying a prior; computationally expensive (often needs MCMC); subjective choice of prior
+probabilistic programming;write models as code with random variables → inference engine (e.g. MCMC, variational inference) runs automatically → e.g. PyMC, Stan
+Markov Chain Monte Carlo (MCMC);draws samples from the posterior by simulating a Markov chain that has the posterior as its stationary distribution — used when the posterior has no closed form
+MCMC algorithm steps;1. Start at an initial θ. 2. Propose a new θ' from a proposal distribution. 3. Accept θ' with probability min(1, P(θ'|data)/P(θ|data)). 4. Repeat → build up a trace of samples from the posterior.
+Metropolis-Hastings algorithm;a specific MCMC method using a symmetric proposal distribution — accepts/rejects proposed moves to ensure samples come from the posterior
+Burn-in period;initial MCMC samples before the chain has converged — discarded because they depend on the (arbitrary) starting point → e.g. discard first 1000 samples
+thinning; keeping only every k-th MCMC sample to reduce autocorrelation between consecutive samples → e.g. keep sample 1000, 2000, 3000, ...
+convergence diagnostics;tests to check if the MCMC chain has reached the target distribution → e.g. trace plots should look like "fuzzy caterpillars", R-hat ≈ 1
+probabilistic programming language;a language for specifying probabilistic models — the inference is handled automatically → e.g. PyMC, Stan, Pyro
+advantages of probabilistic programming;rapid model prototyping; easy to change the model; supports complex hierarchical and nonparametric models
+limitations of MCMC;computationally slow; may need many iterations to converge; sensitive to the proposal distribution and initial conditions
+posterior distribution; P(θ|data) — the full distribution of beliefs about θ after observing data — summarises uncertainty in the parameters
+posterior predictive; distribution of future observations given past data: $P(x_\text{new}|\text{data}) = \int P(x_\text{new}|\theta)\,P(\theta|\text{data})\,d\theta$
+prior predictive; distribution of data before observing anything: $P(x) = \int P(x|\theta)\,P(\theta)\,d\theta$ — what the model expects before training
+linear regression by direct estimation; minimise $\sum_i (y_i - \theta^T x_i)^2$ → closed form solution $\hat{\theta} = (X^TX)^{-1}X^Ty = X^+ y$ via pseudo-inverse
+linear regression by maximum likelihood estimation; assume $y_i = \theta^T x_i + \epsilon_i$ with $\epsilon_i \sim \mathcal{N}(0, \sigma^2)$ → maximising the likelihood gives the same solution as minimising squared error
+linear regression by Bayesian inference; place a prior on θ (e.g. $\theta \sim \mathcal{N}(0, \tau^2 I)$) → posterior $P(\theta|\text{data})$ is also Gaussian → gives uncertainty estimates on predictions
+What is the difference between a population parameter and a sample statistic?;parameter: fixed property of the whole population (usually unknown); statistic: computed from the sample and used to estimate the parameter
+What is an estimator?;a function of observed samples that produces an estimate of a population parameter → e.g. $\bar{x} = \frac{1}{N}\sum x_i$ estimates the population mean μ
+What is the sample mean as an estimator?;$\bar{x} = \frac{1}{N}\sum x_i$ — unbiased (E[$\bar{x}$] = μ); standard error = σ/√N; converges to μ as N→∞
+What is the sample variance as an estimator?;$s^2 = \frac{1}{N}\sum (x_i - \bar{x})^2$ estimates population variance σ²; often use N−1 in denominator (Bessel's correction) for unbiased estimate
+What is maximum likelihood estimation (MLE)?;find $\hat{\theta} = \arg\max_\theta \log L(\theta|\text{data}) = \arg\max_\theta \sum_i \log P(x_i|\theta)$ — find parameters that make the observed data most probable
+What is the score function in MLE?;$u(\theta) = \nabla_\theta \log L(\theta|\text{data})$ — the gradient of the log-likelihood; set to zero to find MLE; can be optimised by gradient descent
+What is the iid assumption?;observations are Independent and Identically Distributed → independence: knowing one tells you nothing about others; identical: all drawn from same P(x|θ) → makes likelihood a product: $\prod_i P(x_i|\theta)$
+What is the predictive posterior?;$P(x_\text{new}|\text{data}) = \int P(x_\text{new}|\theta)\,P(\theta|\text{data})\,d\theta$ — marginalises over uncertainty in θ; gives calibrated uncertainty in predictions
+What is a conjugate prior?;a prior that when combined with a specific likelihood produces a posterior of the same distributional family → e.g. Beta prior + Binomial likelihood = Beta posterior; allows closed-form Bayesian updates
+What is variational inference?;approximate the posterior with a tractable distribution Q(θ) by minimising KL divergence D(Q||P) — faster than MCMC but approximate
+What is the burn-in period in MCMC?;initial samples discarded because the chain hasn't reached its stationary distribution yet — starting point biases early samples
+What is thinning in MCMC?;keep only every k-th sample — reduces autocorrelation between consecutive samples so they behave more like independent draws from the posterior
+What does the trace in MCMC represent?;the sequence of θ values sampled — its histogram approximates the posterior; a good trace looks like a "fuzzy caterpillar" (well-mixed, no drift)
+What assumption does ordinary linear regression make about errors?;$\epsilon_i \sim \mathcal{N}(0, \sigma^2)$ — errors are normally distributed with constant variance and zero mean; this is equivalent to maximising Gaussian likelihood
+What does Bayesian linear regression infer compared to MLE?;MLE gives a single point estimate $\hat{\theta}$; Bayesian gives a full distribution $P(\theta|\text{data})$ — uncertainty grows in data-sparse regions
+What is the multivariate normal PDF?;$f(\mathbf{x}) = \frac{1}{Z}\exp\!\left(-\frac{1}{2}(\mathbf{x}-\boldsymbol{\mu})^T\boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu})\right)$ — the exponent measures the Mahalanobis distance from the mean
+How do you sample from a multivariate normal?;draw D independent N(0,1) samples into n, then $\mathbf{x} = \boldsymbol{\Sigma}^{1/2}\mathbf{n} + \boldsymbol{\mu}$ — the square root of Σ "shapes" the noise into the right covariance
+What is the CDF and how does it differ from the PDF?;CDF: $F(x) = P(X \leq x)$ — a true probability in [0,1]; PDF: $f(x)$ — a density, can exceed 1, must be integrated over a range to give a probability
